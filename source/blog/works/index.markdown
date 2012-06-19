@@ -17,7 +17,7 @@ indexer: true
 *   [網址](http://tjslides.herokuapp.com)
 *   [展示](http://tjslides.herokuapp.com/slides/2/present)
 
-TJSlides 是個利用純文字產生簡報的工具，能將 Markdown 標記語言 轉換成為 reveal.js 支援的格式
+TJSlides 是個利用純文字產生簡報的工具，能將 Markdown 標記語言 轉換成為 reveal.js 支援的格式。
 
 ## TJPlurk Notifier
 
