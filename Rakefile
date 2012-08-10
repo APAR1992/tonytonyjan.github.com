@@ -392,8 +392,8 @@ task :go do
   system "git push origin source"
   
   # deploy
-  system "set LANG=zh_TW.UTF-8"
-  system "set LC_ALL=zh_TW.UTF-8"
+  ENV["LANG"] = "zh_TW.UTF-8"
+  ENV["LC_ALL"] = "zh_TW.UTF-8"
   Rake::Task[:generate].execute
   Rake::Task[:deploy].execute
 end
