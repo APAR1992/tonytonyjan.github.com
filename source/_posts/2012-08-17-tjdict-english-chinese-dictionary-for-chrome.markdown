@@ -21,11 +21,7 @@ categories: [Chrome, Javascript]
 1. 在網頁上對單字 Ctrl + 滑鼠雙擊
 2. 反白單字後右鍵
 
-## 給有興趣參與的開發者
+## 原始碼
 
-<dl>
-    <dt>Github</dt>
-    <dd>https://github.com/tonytonyjan/TJDict</dd>
-    <dt>Repo</dt>
-    <dd>git@github.com:tonytonyjan/TJDict.git</dd>
-</dl>
+*   Github: [https://github.com/tonytonyjan/TJDict](https://github.com/tonytonyjan/TJDict)
+*   Repo: git@github.com:tonytonyjan/TJDict.git
