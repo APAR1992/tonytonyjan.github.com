@@ -24,4 +24,4 @@ categories: [Chrome, Javascript]
 ## 原始碼
 
 *   Github: [https://github.com/tonytonyjan/TJDict](https://github.com/tonytonyjan/TJDict)
-*   Repo: git@github.com:tonytonyjan/TJDict.git
+*   Repo: git@github.com:tonytonyjan/TJDict.git 
