@@ -10,6 +10,17 @@ indexer: true
 
 注意：這個頁面尚未完成
 
+## TJDict
+
+{% img /images/tjdict3.png 300 %}
+
+Chrome 字典，靈感來自於 Lingoes 這套軟體，TJDict 是一套可以整合網路上各大網路字典且可以日漸擴充的 App。
+
+*   [網址](http://chrome.google.com/webstore/detail/caafmojgjlbflohillejdmnghkpcjjpp)
+*   [支援](https://github.com/tonytonyjan/TJDict/issues?state=open)
+
+{% img /images/tjdict2.gif 300 %}
+
 ## TJSlides
 
 {% img /images/tjslides.png 300 %}
