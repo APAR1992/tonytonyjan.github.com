@@ -3,7 +3,7 @@ layout: post
 title: "大兜的 gcc 歷險記"
 date: 2012-10-02 13:13
 comments: true
-categories: gcc
+categories: [C, C++, gcc]
 ---
 
 由於不是很清楚 gcc 在編譯 c 文件時到底做了什麼事情，於是展開了深入理解的旅程。從最簡單的 `hello.c` 開始：
@@ -35,6 +35,8 @@ int main(int argc, char* args[]){
     -c 編譯、組譯到目的程式碼，不進行連結
 
 看到鍵盤上的 `Esc` 了嗎？那正是編譯步驟，是不是超好記的。
+
+<!-- more -->
 
 ## 前處理（Preprocessing）
 
