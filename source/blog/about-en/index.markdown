@@ -41,6 +41,7 @@ Network Programming, Software Engineering, Database Management, Project Manageme
 * Network Benefit Association（founder, vice-president, lecturer）
 * Comic Club
 * Pottery Art Club
+* Software Engineer in Industrial Technology Research Institute
 
 {% img right /images/cssula.jpg 300 %}
 <h2 id="cssula">CSsula Fun Studio</h2>

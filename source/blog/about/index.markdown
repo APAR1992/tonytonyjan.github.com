@@ -34,6 +34,7 @@ footer: true
 * [CSsula 創意工坊](#cssula)團長/站長
 * [交大網路福利社](#nctu-nba)創社副社長/站長
 * 腦袋有動工作室合夥創辦人
+* 工業技術研究院軟體工程師
 
 {% img right /images/tony2.jpg 300 %}
 ## 社團
