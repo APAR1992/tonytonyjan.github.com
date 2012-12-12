@@ -12,6 +12,7 @@ categories: Rails
 
 
 {% img right /images/tjmarkdownpaste.png 300 %}
+
 *   [TJMarkdownPaste][site]
 *   [Google Group][group]
 *   [Github][project site]
