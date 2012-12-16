@@ -12,7 +12,7 @@ indexer: true
 
 ## TJMarkdownPaste
 
-{img /images/tjmarkdownpaste 300 %}
+{% img /images/tjmarkdownpaste.png 300 %}
 
 [網址](http://tj-markdown-paste.herokuapp.com/)
 
