@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>計算主題熱門度的演算法（上） - 不歸錄</title>
+  <meta name="author" content="大兜">
+
+  
+  <meta name="description" content="很多網站都會在文章主題上加上評分的功能（五星評分、喜歡不喜歡、加一減一），主要用於計算主題的熱門程度，並加以排序，評分越高表示這篇主題越熱門，能見度也越高。 評分實做很容易，但排序不簡單，在實做排序過程中會面臨不少問題： 經驗不足的工程師會重造輪子，套用自己的演算法，不懂得使用統計公式帶來的好處 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tonytonyjan.net/2012/07/05/building-popularity-algorithm/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="不歸錄" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/stylesheets/bootstrap-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29458592-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">不歸錄</a></h1>
+  
+    <h2>程式X鋼琴X雙馬尾</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tonytonyjan.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首頁</a></li>
+  <li><a href="/blog/archives">文章列表</a></li>
+  <li><a href="/blog/about">關於我</a></li>
+  <li><a href="/blog/works">作品集</a></li>
+  <li><a href="/blog/quotes">兜語錄</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">計算主題熱門度的演算法（上）</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T11:17:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="/images/ranking.jpg"></p>
+
+<p>很多網站都會在文章主題上加上評分的功能（五星評分、喜歡不喜歡、加一減一），主要用於計算主題的熱門程度，並加以排序，評分越高表示這篇主題越熱門，能見度也越高。</p>
+
+<p>評分實做很容易，但排序不簡單，在實做排序過程中會面臨不少問題：</p>
+
+<ul>
+<li>經驗不足的工程師會重造輪子，套用自己的演算法，不懂得使用統計公式帶來的好處</li>
+<li>必須防範那些會意圖使自己的文章排序在最上面的 spammer</li>
+<li>複雜度太高的演算法導致系統負載過高</li>
+</ul>
+
+
+<p>這篇文章會試著介紹一些排序演算法，從簡單到複雜，並介紹其優缺點，也會分享一些知名網站的排序演算法。就讓我們從最簡單的開始吧：</p>
+
+<!-- more -->
+
+
+<h2>評分決定熱門</h2>
+
+<p>假設我們的資料庫已經存著數筆資料，也許是文章或影音，而我們可以透過評分去排序其熱門度：</p>
+
+<p><strong>熱門度 = 總評分</strong></p>
+
+<pre><code>SELECT * from posts ORDER BY vote ASC|DESC
+</code></pre>
+
+<p>這個演算法實做上最簡單，但也很糟糕。通常我們會希望新主題可以有一定的能見度，但如果套此演算法，在首頁可能會被到好幾年前的熱門文章所霸佔，新主題無法置頂，也因能見度不高，難以翻身。加上也許幾篇熱門主題會因為網站離峰時段導致評分較低，例如上個月的熱門主題可以得到一百分，這個月因為暑假大家出去玩，同樣熱門的主題只能拿十分，這樣的算法明顯不公平。</p>
+
+<h2>考慮時間</h2>
+
+<p>讓我們在公式上加一個時間變數，越年輕的主題會有較高的機會出現在首頁，很合理吧？</p>
+
+<p><strong>熱門度 = 總評分/主題壽命</strong></p>
+
+<pre><code>主題壽命 = 現在時間 - 主題發布時間
+</code></pre>
+
+<p>對於越老得文章，變得熱門必須要有相對越多的評分。乍看之下沒問題，但這方法仍是不公平的。理由很簡單，試想一下一篇凌晨三點發布的主題，由於這時間是離峰時期，即使這主題真的很棒，卻因為大多人當時都在睡覺，導致相較於白天才發布的主題，這篇超炫主題已經輸在起跑點。</p>
+
+<p>為了改善這個問題，我們再變換一下公式：</p>
+
+<p><strong>熱門度 = Σ(評分/評分壽命)</strong></p>
+
+<pre><code>評分壽命 = 現在時間 - 評分時間
+</code></pre>
+
+<p>越年輕的評分有較大的權重，乍看確實解決了剛剛的離峰問題，但卻有新的麻煩：如果一個人對一個好幾年前的主題投下一票，這一票將會比這幾年來，在這主題上的任何評分要來得值錢，導致老舊的主題會再一次出現在首頁。所以我們還得再考慮主題壽命，於是公式變成：</p>
+
+<p><strong>熱門度 = [Σ(評分/評分壽命)]/主題壽命</strong></p>
+
+<p>對於上一個公式再除以主題壽命，以防主題回春，好極了，這下上述所有問題都獲得解決，但你是否發現這個演算法潛藏的危機？他的複雜度太高以致計算成本昂貴，難以在現實的系統中實現。</p>
+
+<p>由於該演算法非常依賴時間，每一秒的熱門都會改面，設計上需要每幾秒刷新整個資料庫（或幾分鐘，單看系統設計需要的即時程度而定），這對高流量的網站來說簡直惡夢。</p>
+
+<p>因為這方法用起來不太妙，我來介紹另一個簡單的替代方案：</p>
+
+<h2>Bayesian Average</h2>
+
+<p>假設我們的設計是喜歡某個主題，給他 +1，討厭就 -1，而一個主題評分則是所有的正評除以評分總數，所以公式變成：</p>
+
+<p><strong>主題分數 = 正評數/(正評數+負評數)</strong></p>
+
+<p>所以主題分數的值會介於 0 到 1 之間。</p>
+
+<p>但這樣設計仍有個問題，假設有一個主題在經過幾百人的評分之後得到 0.96，另一個主題只有 2 個人評分，且都給予正評，於是這個主題躍然成了平分為 100% 的主題！這和我們想要的不一樣：</p>
+
+<ol>
+<li>我們希望當一個主題只有少數人評分時，權重應比較低。</li>
+<li>反之一個主題有大量的人去評過分，權重比較高。</li>
+</ol>
+
+
+<p>熱門度的可信度應決定於評分人數的多寡，一個主題的評分人數越多，則計算出來的熱門度也比較趨近於真實情況，評分人數少，則計算的結果則可能與實際結果相差甚遠。</p>
+
+<p>而求解這個問題也不是什麼新鮮的研究，因為公式在幾百年前就被發明了：<a href="http://en.wikipedia.org/wiki/Bayesian_average">Bayesian Average</a></p>
+
+<p>利用 Bayesian Average，可以把公式改為：</p>
+
+<p>熱門度 = ((C*所有主題平均評分)+該主題總分)/(C+該主題受評數)</p>
+
+<pre><code>C = 所有主題平均受評數
+該主題總分 = 該主題受評數*主題分數
+</code></pre>
+
+<p>建議先看過 wiki 上的解釋，如果還是不太清楚可以參考這兩個網址：</p>
+
+<ul>
+<li><a href="http://mkv.cn/2597/ranking-algorithm-bayesian-average">基于用户投票的排名算法（六）：贝叶斯平均</a></li>
+<li><a href="http://www.solagirl.net/sorting-products-by-bayesian-average.html">基於貝葉斯平均的產品排序方法</a></li>
+</ul>
+
+
+<p>這個方法比先前的好多了，前一個對時間的計算相當依賴，而此法卻與時間無關，至少效能好上許多。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">大兜</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T11:17:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/algorithm/'>Algorithm</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.net/2012/07/05/building-popularity-algorithm/" data-via="" data-counturl="http://tonytonyjan.net/2012/07/05/building-popularity-algorithm/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/07/05/silent-love/" title="Previous Post: 寧靜之愛">&laquo; 寧靜之愛</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/" title="Next Post: Masonry - 好用的動態排版工具">Masonry - 好用的動態排版工具 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>給我個鼓勵吧＝）</h1>
+  
+    <div style="float: left;" class="g-plusone" data-size="tall" data-annotation="inline" data-href="http://tonytonyjan.heroku.com" data-width="260"></div>
+  
+  
+    <div class="fb-like" data-href="http://tonytonyjan.heroku.com" data-send="false" data-width="260" data-show-faces="true"></div>
+  
+  
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.heroku.com" data-text="不歸錄" data-via="tonytonyjan" data-size="large">Tweet</a>
+  
+</section><section>
+  <h1>關於我</h1>
+  <a href="http://www.facebook.com/tonytonyjan"><img src="http://photos-a.ak.fbcdn.net/hphotos-ak-ash4/196443_10150123214557620_714547619_6717277_2177303_a.jpg" alt="很帥的照片" title="大兜本尊"></a>
+  <p>嗨！我叫大兜，一個追求幸福快樂的反逆工程師，喜歡程式、旅行、彈琴和公益。</p>
+</section>
+<section>
+  <h1>音樂作品</h1>
+  <iframe marginwidth='0' marginheight='0' src='http://vlog.xuite.net/embed/OE5JOFRuLTE2MzA2NTguZmx2?v=1.0.1&ar=1' scrolling='no' frameborder='0' width='260' height='85'></iframe>
+  <p>我同時也是個業餘的三腳貓音樂創作者，這是我最喜歡的自創曲之一，我在 <a href="http://www.youtube.com/tonytonyjan">YouTube</a> 放了許多作品，歡迎來欣賞＝）</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/01/15/single-night/">[音樂創作] 獨夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/12/tjmarkdownpaste-markdown-with-tex-code-highlight/">TJMarkdownPaste - Markdown with Tex and code highlight</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/17/how-to-live-a-wonderful-life/">活的痛快點</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/04/tony-jians-rails-template/">My Rails Template</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/06/one-night-in-taipei/">台北一夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/02/dig-gcc-with-tony/">大兜的 gcc 歷險記</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/08/17/tjdict-english-chinese-dictionary-for-chrome/">TJDict - Chrome 英漢、漢英網路集成字典</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/31/love-telless-mindset/">把愛說出來 - 追求者心態</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/21/always-keep-a-leeway/">先放下，再拿起</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>近期回覆</h1>
+  <div id="recentcomments" class="dsq-widget"><h2 class="dsq-widget-title">Recent Comments</h2><script type="text/javascript" src="http://tonytonyjan-blog.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=48&excerpt_length=200"></script></div><a href="http://disqus.com/">Powered by Disqus</a>
+</section>
+<section>
+  <h1>文章分類</h1>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3225806451613%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3225806451613%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.93548387096774%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3225806451613%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(186)</a> <a href='/categories/chrome' style='font-size: 100.64516129032258%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64516129032258%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.29032258064517%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3225806451613%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.58064516129032%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3225806451613%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.25806451612904%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.3225806451613%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.64516129032258%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3225806451613%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3225806451613%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.19354838709677%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3225806451613%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3225806451613%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.25806451612904%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.61290322580645%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3225806451613%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3225806451613%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 100.96774193548387%'>Ruby(3)</a> <a href='/categories/swing' style='font-size: 100.3225806451613%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3225806451613%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3225806451613%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3225806451613%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.64516129032258%'>Works(33)</a> </span>
+</section>
+
+
+<section>
+  <h1>噗浪動態</h1>
+  <div style="width:210px; height:375px;">
+    <iframe src="http://www.plurk.com/getWidget?uid=5874158&amp;h=375&amp;w=210&amp;u_info=2&amp;bg=5E5E5E&tl=D3D3D3" width="210" frameborder="0" height="375" scrolling="no"></iframe>
+    <div style="float: right; padding: 1px;">
+      <a href="http://plurk.com/" target="_blank" style="font-size: 10px !important; color: #999 !important; border: none; text-decorate: none;" title="Plurk - A Social Journal for your life">Plurk.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/106993981418226624133?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 大兜 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tonytonyjan-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tonytonyjan.net/2012/07/05/building-popularity-algorithm/';
+        var disqus_url = 'http://tonytonyjan.net/2012/07/05/building-popularity-algorithm/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>不歸錄</title>
+  <meta name="author" content="大兜">
+
+  
+  <meta name="description" content="&nbsp;作者&nbsp; tonytonyjan (南洋大兜蟲)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;& &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tonytonyjan.net/page/13/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="不歸錄" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/stylesheets/bootstrap-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29458592-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">不歸錄</a></h1>
+  
+    <h2>程式X鋼琴X雙馬尾</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tonytonyjan.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首頁</a></li>
+  <li><a href="/blog/archives">文章列表</a></li>
+  <li><a href="/blog/about">關於我</a></li>
+  <li><a href="/blog/works">作品集</a></li>
+  <li><a href="/blog/quotes">兜語錄</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/31/77/">讓Java Swing GUI在Un*x中顯示中文</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-31T08:58:02+08:00" pubdate data-updated="true">Mar 31<span>st</span>, 2010</time>
+        
+         | <a href="/2010/03/31/77/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>&nbsp;作者&nbsp; tonytonyjan (南洋大兜蟲)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 看板&nbsp; java&nbsp; &nbsp;<br />&nbsp;標題&nbsp; [J2SE] 在Un*x中的中文亂碼解決方法&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;時間&nbsp; Wed Mar 31 22:55:05 2010&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />─────────────────────────────────────── &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />換過作業系統後還沒有想到在Swing上顯示中文會有問題&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />只是因為幫別人寫一個小程式，今天就好死不死被我遇見了XD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />尋求解決同時搜了一下版，不過似乎版上很少人討論到這東西&hellip;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />於是研究過後把我的經驗貼出來分享給大家＠＠&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />環境：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />$ uname -ai&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />FreeBSD CS329.dorm8.nctu.edu.tw 8.0-RELEASE-p2 FreeBSD 8.0-RELEASE-p2 #6: Fri&nbsp; &nbsp;<br />Feb 12 01:37:32 CST 2010&nbsp;&nbsp;&nbsp;&nbsp; root@:/usr/obj/usr/src/sys/TONYBSD&nbsp; i386 TONYBSD&nbsp; &nbsp;<br />$ pkg_info | grep jdk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />diablo-jdk-1.6.0.07.02_8 Java Development Kit 1.6.0_07.02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />遇到問題：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />Swing上除了Banner之外，其餘中文顯示出現問題&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />方法：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />$ cd &lt;JavaHome&gt;/jre/lib/fonts/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />JavaHome 是各位jdk的安裝路徑，我這裡是/usr/local/diablo-jdk1.6.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />$ mkdir fallback&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />接下來就是把想要的字型，看是用複製的或是symbolic link，方到fallback目錄下&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />這時可以運用find /usr/local -name *.ttf 來尋找&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />以下拿我的當例子&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />$ find /usr/local -name &#8220;*.ttf&#8221;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />發現/usr/local/lib/X11/fonts有很多字型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />其中有一個資料夾叫TTF裡面有個&#8221;文鼎ＰＬ中楷&#8221;，這是我要的&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />$ cd /usr/local/lib/X11/fonts/TTF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />$ ln -s *.ttf /usr/local/diablo-jdk1.6.0/jre/lib/fonts/fallback/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />這樣就完成了，之後只要在main的開頭加上以下程式碼（或寫在constructor），凡是Swi\ <br />ngGUI（JLabel, FileChooser&#8230;etc）從此就都能正常顯示中文了，祝各位使用愉快^^： &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />Font f =&nbsp; new Font(&#8220;文鼎ＰＬ中楷&#8221;,Font.PLAIN,12);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;Label.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;Label.foreground&#8221;,Color.black);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;Button.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;Menu.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;MenuItem.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;List.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;CheckBox.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;RadioButton.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;ComboBox.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;TextArea.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;EditorPane.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;ScrollPane.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;ToolTip.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;TextField.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;TableHeader.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />UIManager.put(&#8220;Table.font&#8221;,f);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />&#8211;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />※ 發信站: 批踢踢實業坊(ptt.cc)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />◆ From: 140.113.242.246&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/31/76/">Compiz真是太帥了～</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-31T08:20:15+08:00" pubdate data-updated="true">Mar 31<span>st</span>, 2010</time>
+        
+         | <a href="/2010/03/31/76/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/slum-area/77_0.png"></p>
+
+
+<p>Desktop CubeXD<br /><img src="/images/slum-area/78_1.png"></p>
+
+
+<p>上面這張活像頻果電腦～～</p>
+
+
+<p><span style="font-family: 新細明體;"><span style="font-size: 10pt;">Compiz是第一個由OpenGL驅動的執行於<span class="mw-redirect">X Window</span>上的<span class="new">Window Manager</span>。Compiz的<span class="new">混合渲染</span>能力讓他可以在窗口管理過程中實作多種視覺效果，比如在矩形虛擬桌面上的窗口最小化。</span></span></p>
+
+
+<p><span style="font-family: 新細明體;"><span style="font-size: 10pt;">Compiz符合<span class="new">ICCCM</span>標準，可以取代GNOME環境的Metacity視窗管理器，或是KDE環境下的<span class="new">Kwin</span>。Compiz擁有類似蘋果電腦的Mac OS X作業系統中所提供的許多桌面特效，例如 Expos&eacute;。 Compiz 是架構在Xgl這個新的X環境，使用OpenGL繪圖層<span class="new">Glitz</span>。Compiz最早是由Novell在2006年一月時公佈新版Xgl時所發表的。在開發初期Compiz只能正常執行在有限的幾種Xgl所支援的硬體3D加速卡上。儘管Xgl和Compiz這兩個全新構造的系統還存在一些bug並且仍處於積極的開發階段，大多數NVIDIA和<span class="mw-redirect">ATI</span>圖形處理卡可以在Xgl上正常執行Compiz。Compiz在其他一些X伺服器和硬體上也可以正常執行。據報導，Compiz在現時仍處於開發階段的<span class="new">AIGLX</span>上執行良好。 <span style="color: #ffffff;">from Wiki.</span><br /></span></span></p>
+
+
+<p>特效與功能不勝枚舉，無法一一呈現，總之雖不比頻果，但能有這樣的功能已經很帥氣了！</p>
+
+
+<p>（前陣子在/usr/ports上看到Half Life的Server Daemon，簡直不敢相信！改天來安裝看看好了XD）</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/27/78/">交大網路福利社～創社元老～</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-27T08:58:33+08:00" pubdate data-updated="true">Mar 27<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/27/78/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/slum-area/79_0.jpg"></p>
+
+
+<p>自從交大CCCA被學校高層終結之後，由於無力應付宿舍網路等事宜，終於又扶植了一個新的社團，於是交大網路福利社遂成立。當時拆下CCCA的招牌想說紀念一下，就有這一張照片啦XD</p>
+
+
+<p>這張照片的價值在於，裡面全是幹部級的創社元老喔～希望在這個社團裡面可以學到我想要的～加油吧～</p>
+
+
+<p><img src="/images/slum-area/80_6.jpg"></p>
+
+
+<p>（大家正在上社課，不小心被偷拍了&gt;///&lt;）</p>
+
+
+<p>&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
+
+<p><img src="/images/slum-area/81_7.jpg"></p>
+
+
+<p>（指導老師：看到二十幾副新鮮的肝&hellip;喔不&hellip;二十幾位新進社員真的很開心）</p>
+
+
+<p><br /><img src="/images/slum-area/82_8.jpg"></p>
+
+
+<p>（建制組論壇站長報告）</p>
+
+
+<p><br /><img src="/images/slum-area/83_9.jpg"></p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/26/79/">敏感的人大多不幸福</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-26T08:28:48+08:00" pubdate data-updated="true">Mar 26<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/26/79/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>敏感的人大多不幸福，這句話的奧妙不在初聞當下，而在經歷風雨後，不知不覺中體會到它的哲學＠＠</p>
+
+
+<p>很多時候言者無心，聽者有意並非言者之過，而是聽者自己容易揣測、誤會言者的本意。有種人習慣把從世界接收到的資訊，習慣經過不斷的猜忌來困擾自己，甚至還可能兜了好幾圈還找不到出口，而兜出了所以然還可能由敏感而猜忌，由猜忌而誤會，誤會而生恨。我覺得這是一種病態，很多人有，不外乎我有時候也會。</p>
+
+
+<p>是否有過這樣經驗，看看那些自己所討厭的人們，他們也是有自己的朋友的，有自己的世界，自己的圈子，過著自己的日子；然而卻對於你的咬牙切齒沒有絲毫在意，而你卻獨自一人生悶氣。不管那人真的是罪無可赦的大壞蛋或只是誤會一場，我覺得都應該試著靜下來思考自己當下的舉止，思考自己到底在幹麼。然後突然頓悟說：「天啊！我的器量怎麼這麼狹小！」（好吧&hellip;至少我是這樣XD）</p>
+
+
+<p>我漸漸覺得，也許當個神經大條或是遲鈍的人也不見得是一件壞事。在這麼複雜社會，人跟人之間的交往有什麼異動很難被體察，你認為對方的感覺如何不一定確實如此，尤其是當遇到敏感的人的時候真的很棘手，若要猜他的心思會猜到發瘋，別人猜你的心思可能也是。例如像男女之間跨越種族交流，女人思考和男人的思考天差地別，我們沒有太多時間去揣測對方在想什麼，不如傻一點，別想這麼多也許會比較快樂。</p>
+
+
+<p>所以我決定從今天起要當個笨蛋，加油！</p>
+
+
+<p><img src="/images/slum-area/84_0.jpg"><br /><br /></p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/19/80/">大概是累了…</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-19T08:43:29+08:00" pubdate data-updated="true">Mar 19<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/19/80/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/slum-area/85_5.jpg"></p>
+
+
+<p>（只是突然想貼上來&hellip;很喜歡的一張圖，給人自由的感覺，無限的自由，正如我所追求的自由自在的生活）</p>
+
+
+<p>今天竟然忘記去開班代會議&hellip;&hellip;</p>
+
+
+<p>天啊＠＠，我還特地寫在行事曆上，結果還是忘記了&hellip;我到底是怎麼搞得&hellip;放了簡群鴿子真是抱歉&hellip;因為很討厭遲到和爽約的人，反而自己成了這種人的時候也會討厭自己&hellip;唉&hellip;</p>
+
+
+<p>&#8212;&#8212;</p>
+
+
+<p>最近剛考完校內的程式檢定考，說是要考過才可以畢業，在八雲同學的鼓勵之下，我報名並且順利考過了，剛開始還以為只能解兩題，不料五題裡面我解了四題，而且有一題不是因為不會寫，是因為來不及寫完＠＠</p>
+
+
+<p>應該是種肯定吧～只是比起競賽程式我還是比較寫一些有趣的程式～例如身份證字號產生器啦、猜數字、抑或這個寒假寫的小青椒下樓梯XD</p>
+
+
+<p>構築程式碼就像在畫畫一樣，是種藝術，此外我自以為自己很會享受XD</p>
+
+
+<p>&#8212;&#8212;</p>
+
+
+<p>今晚和安同學出去走了好久（好像太久了^^&#8221; 讓她腳有點酸真不好意思），不過因為我只是想走走，所以她預想中的腳踏車沒有登場＠＠</p>
+
+
+<p>&darr;一路上大概就是&darr;</p>
+
+
+<p>聊天聊天聊天聊天</p>
+
+
+<p>聊天聊天聊天聊天</p>
+
+
+<p>聊天聊天聊天聊天</p>
+
+
+<p>從日常瑣碎到內心世界，只是我察覺自己自從鍵盤敲久了之後，感覺「面談」對我而言已逐漸成為一種生疏的技術（這樣下去可不行&hellip;），似乎從高三過後，自己以往所擁有的「人味」有逐漸消退的趨勢&hellip;想想還真恐怖&hellip;</p>
+
+
+<p>雖然有些疲憊，但還是開心的，只是實在對不住生病還被抓出來健行的安同學啊&hellip;^^&#8221;希望她能早日康復。另外，好在我選了黑巧克力吃掉了XD</p>
+
+
+<p>&#8212;&#8212;</p>
+
+
+<p>慶祝討人厭的檢定考通過了～</p>
+
+
+<p>慶祝和有趣的安同學認識～</p>
+
+
+<p>慶祝這學期可以和志同道合夥伴一起創社～</p>
+
+
+<p>慶祝今天又是快樂的一天～XDD</p>
+
+
+<p>乾杯～～～XDD（發神經中&hellip;）</p>
+
+
+<p>&nbsp;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/17/82/">CSsula成員～</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-17T08:44:48+08:00" pubdate data-updated="true">Mar 17<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/17/82/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/slum-area/87_0.jpg"></p>
+
+
+<p>（由左到右：米漿先生，大兜，甜菜，翔先生，Kevin，兩大類）</p>
+
+
+<p>只是突然想要貼一張圖片XD，因為頗有紀念價值的～</p>
+
+
+<p>我們寢雖然時常聚在一起歡樂，但是照片卻沒幾張；呵呵，找得到我嗎？除了中間的甜菜之外，其他都是室友喔XD（米漿先生下學期會補兩大類的位子，誰叫大類沒有抽到宿舍呢XD）</p>
+
+
+<p>記得那次看得電影叫Watch Man，內容頗不錯～</p>
+
+
+<p>那次出遊的確切日期我忘了，只是突然想到有這件事情，然後又突然想紀錄在網誌上而已^^&#8221;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/17/81/">草莓蘇</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-17T08:10:28+08:00" pubdate data-updated="true">Mar 17<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/17/81/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>喔喔～草莓蘇也可以打一篇文章XD</p>
+
+
+<p>只是因為某些因緣際會之下，今天得到一塊來自佳德的草莓蘇～（超好吃&gt;///&lt;），感謝送我草莓蘇的安同學XD</p>
+
+
+<p>介紹一下安同學吧，這要從一年前和外文系抽學伴開始談起。當時班上掀起一陣學伴風潮，經過我和公關兩幹部的雞婆之下，為班上每個人抽了十幾個學伴。按照慣例，我只是加了一行通訊錄，然後第一次會打個招呼，之後就放著，只有偶爾逢考試的時候會敲一敲互相打氣一下XD</p>
+
+
+<p>有些不太理人，不過好險不是每一個都這麼冷淡，親切的安同學就是一個例子^^，可以認識她很幸運；但雖然如此，剛開始我們也不聯絡，就這樣過了一個學年。可是最近幾個禮拜不知道怎麼搞得突然熱絡起來，至於為什麼我也還是糊里糊塗的XDD</p>
+
+
+<p>今天早上第一次看到安同學的真面目（長相清秀），當下沒有原因的亂緊張的^^&#8221;，感覺很像是和&#8221;網友&#8221;碰面XD</p>
+
+
+<p>看來以後我又有新故事可以寫了^^</p>
+
+
+<p><img src="/images/slum-area/86_5.jpg"></p>
+
+
+<p>（順便貼一下我的新桌布，好喜歡這張～很可愛～^^）</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/12/84/">CSRPG2.14版</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-12T08:44:35+08:00" pubdate data-updated="true">Mar 12<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/12/84/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/slum-area/89_0.jpg"></p>
+
+
+<p><a href="http://www.cs.nctu.edu.tw/~whchien/csrpg2.14.rar">下載</a></p>
+
+
+<p>好吧，這是大一上和翔先生無聊之際寫的，全名應該叫NCTU大冒險，目的除了娛樂性質之外，也是為了更熟悉C語言，另外也學會一些Windows API。</p>
+
+
+<p>裡面的角色全是系上的同學。在地圖的右下角可以找到512寢和513寢，翔先生住住512，我住我住513。</p>
+
+
+<p>Enter可以開啟包包，確認鍵同對話鍵。</p>
+
+
+<p><span style="font-size: 12pt;"><b>解壓縮後可以找到開放的地圖與對話檔，甚至可以自行修改對話，放入自己的家人或同學XDD</b></span></p>
+
+
+<p>不過由於當時還沒有學過物件導向，所以寫到最後遇到一些瓶頸就停止開發了，2.15一直有bug無法修正&#8230;</p>
+
+
+<p>這篇算是紀念文吧XD</p>
+
+
+<p>&nbsp;</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/12/83/">青椒下樓梯～</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-12T08:34:32+08:00" pubdate data-updated="true">Mar 12<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/12/83/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/slum-area/88_0.png"></p>
+
+
+<p><a href="http://www.cs.nctu.edu.tw/~whchien/DownFloor.html">《點我玩》</a></p>
+
+
+<p>寒假為了研究Java的繪圖，無聊之際寫的，可是還沒有寫完就開學了QQ</p>
+
+
+<p>這算是我第一次把繼承、多型、泛型、多緒等概念實做出來的程式吧，幾乎要寫一個小引擎^^&#8221;</p>
+
+
+<p>只是不知道為什麼有時後會出現牆，有時候不會，而且碰到牆壁之後青椒就會消失（啥！？）</p>
+
+
+<p>總之是半成品啦XDDD才只有這樣子玩起來還頗心酸的的^^&#8221;</p>
+
+
+<p><br />（有人問為什麼是青椒＠＠&nbsp;&nbsp; 其實只是因為手邊只有青椒的小圖片^^&#8221; 如果有人願意提供自拍照&nbsp; 也許會成為我繼續開發下去的動力XDD）</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/03/10/85/">學伴</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-10T08:36:29+08:00" pubdate data-updated="true">Mar 10<span>th</span>, 2010</time>
+        
+         | <a href="/2010/03/10/85/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>上大學之後，一定免不了抽學伴，只是學伴到底是什麼東西，卻沒有一個明確的定義，我覺得是見仁見智。</p>
+
+
+<p>如果是我的觀點&#8230;</p>
+
+
+<p>我很納悶為什麼總有一些笨蛋會覺得學伴就是要妳追我我追妳的，有些人會不想抽學伴是因為自己已經有對象了；有的公主病重症患者雖然沒有對象，卻認為學伴只是一隻想要藉機靠近自己的豬而已。不論什麼奇怪的排學伴理由，目前為止我覺得沒有一個是健康的。</p>
+
+
+<p>進入大學之後，總有許多最令人興奮事情，當中必然少不了認識很多的系上同學、社團上的同學、系隊上的同學，不論哪一種方式認識新的朋友，抽學伴不也是大學中各式各樣的社交管道裡面的其中一個傳統而已嗎？同時這也可以是認識外校外系同學的機會。因為文采不佳，否則我很想跟大家詮釋「認識」這兩個字是什麼意思，以及這兩個字體到底在生活中佔有什麼樣的地位，以及「認識」到底是一件多麼有魅力的事；我頗好奇到底是哪一年開始有一些奇怪的意識形態被覆加在抽學伴這件事上面，不就多交一個朋友，多「認識」一個人。</p>
+
+
+<p>沒有損失的多交一個朋友，何樂而不為？</p>
+
+
+<p>至於那些排學伴的人們，不管妳們有什麼樣的刻板映像，事實上妳們只是自願放棄一個社交的管道而已，就像上了大學卻沒有參加社團那種感覺一樣；不敢說是好是壞，只是錯失一個「機會」，「機會」的價值因人而異。</p>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/page/14/">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/page/12/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>給我個鼓勵吧＝）</h1>
+  
+    <div style="float: left;" class="g-plusone" data-size="tall" data-annotation="inline" data-href="http://tonytonyjan.heroku.com" data-width="260"></div>
+  
+  
+    <div class="fb-like" data-href="http://tonytonyjan.heroku.com" data-send="false" data-width="260" data-show-faces="true"></div>
+  
+  
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.heroku.com" data-text="不歸錄" data-via="tonytonyjan" data-size="large">Tweet</a>
+  
+</section><section>
+  <h1>關於我</h1>
+  <a href="http://www.facebook.com/tonytonyjan"><img src="http://photos-a.ak.fbcdn.net/hphotos-ak-ash4/196443_10150123214557620_714547619_6717277_2177303_a.jpg" alt="很帥的照片" title="大兜本尊"></a>
+  <p>嗨！我叫大兜，一個追求幸福快樂的反逆工程師，喜歡程式、旅行、彈琴和公益。</p>
+</section>
+<section>
+  <h1>音樂作品</h1>
+  <iframe marginwidth='0' marginheight='0' src='http://vlog.xuite.net/embed/OE5JOFRuLTE2MzA2NTguZmx2?v=1.0.1&ar=1' scrolling='no' frameborder='0' width='260' height='85'></iframe>
+  <p>我同時也是個業餘的三腳貓音樂創作者，這是我最喜歡的自創曲之一，我在 <a href="http://www.youtube.com/tonytonyjan">YouTube</a> 放了許多作品，歡迎來欣賞＝）</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/01/15/single-night/">[音樂創作] 獨夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/12/tjmarkdownpaste-markdown-with-tex-code-highlight/">TJMarkdownPaste - Markdown with Tex and code highlight</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/17/how-to-live-a-wonderful-life/">活的痛快點</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/04/tony-jians-rails-template/">My Rails Template</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/06/one-night-in-taipei/">台北一夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/02/dig-gcc-with-tony/">大兜的 gcc 歷險記</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/08/17/tjdict-english-chinese-dictionary-for-chrome/">TJDict - Chrome 英漢、漢英網路集成字典</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/31/love-telless-mindset/">把愛說出來 - 追求者心態</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/21/always-keep-a-leeway/">先放下，再拿起</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>近期回覆</h1>
+  <div id="recentcomments" class="dsq-widget"><h2 class="dsq-widget-title">Recent Comments</h2><script type="text/javascript" src="http://tonytonyjan-blog.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=48&excerpt_length=200"></script></div><a href="http://disqus.com/">Powered by Disqus</a>
+</section>
+<section>
+  <h1>文章分類</h1>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3225806451613%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3225806451613%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.93548387096774%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3225806451613%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(186)</a> <a href='/categories/chrome' style='font-size: 100.64516129032258%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64516129032258%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.29032258064517%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3225806451613%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.58064516129032%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3225806451613%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.25806451612904%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.3225806451613%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.64516129032258%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3225806451613%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3225806451613%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.19354838709677%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3225806451613%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3225806451613%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.25806451612904%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.61290322580645%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3225806451613%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3225806451613%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 100.96774193548387%'>Ruby(3)</a> <a href='/categories/swing' style='font-size: 100.3225806451613%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3225806451613%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3225806451613%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3225806451613%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.64516129032258%'>Works(33)</a> </span>
+</section>
+
+
+<section>
+  <h1>噗浪動態</h1>
+  <div style="width:210px; height:375px;">
+    <iframe src="http://www.plurk.com/getWidget?uid=5874158&amp;h=375&amp;w=210&amp;u_info=2&amp;bg=5E5E5E&tl=D3D3D3" width="210" frameborder="0" height="375" scrolling="no"></iframe>
+    <div style="float: right; padding: 1px;">
+      <a href="http://plurk.com/" target="_blank" style="font-size: 10px !important; color: #999 !important; border: none; text-decorate: none;" title="Plurk - A Social Journal for your life">Plurk.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/106993981418226624133?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 大兜 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tonytonyjan-blog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

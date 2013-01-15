@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: gcc | 不歸錄]]></title>
+  <link href="http://tonytonyjan.net/categories/gcc/atom.xml" rel="self"/>
+  <link href="http://tonytonyjan.net/"/>
+  <updated>2013-01-15T21:32:44+08:00</updated>
+  <id>http://tonytonyjan.net/</id>
+  <author>
+    <name><![CDATA[大兜]]></name>
+    <email><![CDATA[tonytonyjan@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[大兜的 gcc 歷險記]]></title>
+    <link href="http://tonytonyjan.net/2012/10/02/dig-gcc-with-tony/"/>
+    <updated>2012-10-02T13:13:00+08:00</updated>
+    <id>http://tonytonyjan.net/2012/10/02/dig-gcc-with-tony</id>
+    <content type="html"><![CDATA[<p>由於不是很清楚 gcc 在編譯 c 文件時到底做了什麼事情，於是展開了深入理解的旅程。從最簡單的 <code>hello.c</code> 開始：</p>
+
+<p>``` c hello.c</p>
+
+<h1>include &lt;stdio.h></h1>
+
+<p>int main(int argc, char* args[]){
+  printf("Hello, world!");
+}
+```</p>
+
+<p>在編譯之前，讓我們回顧一下編譯的步驟：</p>
+
+<table>
+<thead>
+<tr>
+<th>步驟                   </th>
+<th> 指令                      </th>
+<th> 中出檔</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>                       </td>
+<td>                           </td>
+<td> 原始碼</td>
+</tr>
+<tr>
+<td>前處理（preprocessing）</td>
+<td> gcc -E hello.c -o hello.i </td>
+<td>   ↓↓</td>
+</tr>
+<tr>
+<td>                       </td>
+<td>                           </td>
+<td> 原始碼（標頭被展開）</td>
+</tr>
+<tr>
+<td>編譯（compiling）      </td>
+<td> gcc -S hello.i -o hello.s </td>
+<td>   ↓↓</td>
+</tr>
+<tr>
+<td>                       </td>
+<td>                           </td>
+<td> 組合語言</td>
+</tr>
+<tr>
+<td>組譯（assembling）     </td>
+<td> gcc -c hello.s -o hello.o </td>
+<td>   ↓↓</td>
+</tr>
+<tr>
+<td>                       </td>
+<td>                           </td>
+<td> 機器碼</td>
+</tr>
+<tr>
+<td>連結（linking）        </td>
+<td> ld ... （暫略）           </td>
+<td>   ↓↓</td>
+</tr>
+<tr>
+<td>                       </td>
+<td>                           </td>
+<td> 可執行機器碼</td>
+</tr>
+</tbody>
+</table>
+
+
+<pre><code>-E 僅作預先處理，不進行編譯、組譯和連結
+-S 編譯到組合語言，不進行組譯和連結
+-c 編譯、組譯到目的程式碼，不進行連結
+</code></pre>
+
+<p>看到鍵盤上的 <code>Esc</code> 了嗎？那正是編譯步驟，是不是超好記的。</p>
+
+<!-- more -->
+
+
+<h2>前處理（Preprocessing）</h2>
+
+<pre><code>gcc -E hello.c -o hello.i
+</code></pre>
+
+<p>在這個步驟裡面會把標頭（header）一一展開，即範例中的 <code>stdio.h</code>，展開之後取代 <code>#include&lt;stdio.h&gt;</code>，我的 <code>hello.i</code> 就多了四百多行，看起來像是這樣子：</p>
+
+<pre><code>// 以上 432 行略，建議自己 DIY 看看
+int main(int argc, char* args[]){
+  printf("Hello, world!");
+}
+</code></pre>
+
+<h2>編譯</h2>
+
+<pre><code>gcc -S hello.i -o hello.s
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>步驟                              </th>
+<th> 輸出檔</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>                                  </td>
+<td> Sequence of characters</td>
+</tr>
+<tr>
+<td>lexical analysis                  </td>
+<td> ↓↓</td>
+</tr>
+<tr>
+<td>                                  </td>
+<td> Sequence of lexical elements</td>
+</tr>
+<tr>
+<td>parsing                           </td>
+<td> ↓↓</td>
+</tr>
+<tr>
+<td>                                  </td>
+<td> Syntax tree</td>
+</tr>
+<tr>
+<td>semantic analysis                 </td>
+<td> ↓↓</td>
+</tr>
+<tr>
+<td>                                  </td>
+<td> Annotated syntax tree</td>
+</tr>
+<tr>
+<td>generation of intermediate code   </td>
+<td> ↓↓</td>
+</tr>
+<tr>
+<td>                                  </td>
+<td> Sequence of IL</td>
+</tr>
+<tr>
+<td>optimization of intermediate code </td>
+<td> ↓↓</td>
+</tr>
+<tr>
+<td>                                  </td>
+<td> Sequence of IL</td>
+</tr>
+<tr>
+<td>generation of pseudo code         </td>
+<td> ↓↓</td>
+</tr>
+<tr>
+<td>                                  </td>
+<td> Assembly program</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>編譯就是把原始碼轉換成目的語言的動作（通常就是組合語言）</p>
+
+<p><code>nasm hello.s
+  .file "hello.c"
+  .def  ___main;  .scl  2;  .type 32; .endef
+  .section .rdata,"dr"
+LC0:
+  .ascii "Hello, world!\0"
+  .text
+  .globl  _main
+  .def  _main;  .scl  2;  .type 32; .endef
+_main:
+LFB6:
+  .cfi_startproc
+  pushl %ebp
+  .cfi_def_cfa_offset 8
+  .cfi_offset 5, -8
+  movl  %esp, %ebp
+  .cfi_def_cfa_register 5
+  andl  $-16, %esp
+  subl  $16, %esp
+  call  ___main
+  movl  $LC0, (%esp)
+  call  _printf
+  leave
+  .cfi_restore 5
+  .cfi_def_cfa 4, 4
+  ret
+  .cfi_endproc
+LFE6:
+  .def  _printf;  .scl  2;  .type 32; .endef
+</code></p>
+
+<h2>組譯</h2>
+
+<pre><code>gcc -c hello.s -o hello.o
+</code></pre>
+
+<p>組譯之後會產生目的檔（hello.o），裡面全都是機器碼。</p>
+
+<p>但因為我們還少了連結的動作，所以 <code>hello.o</code> 還無法被執行。</p>
+
+<h2>連結</h2>
+
+<pre><code>ld -o hello.exe c:/mingw/bin/../lib/gcc/mingw32/4.7.0/../../../crt2.o hello.o -lmingw32 -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32
+</code></pre>
+
+<p>你大概感到好奇為什麼 <code>hello.o</code> 和 <code>hello.exe</code> 平平都是機器碼，少了連結，前者就無法執行。</p>
+
+<p>這個程式就只是在黑窗上面印出一個「Hello, world!」，但我們並沒有真的去實做 IO 處理或是送訊號去顯卡，因為這些繁瑣的工作全交給 <code>printf</code> 完成了。然而在編譯的過程，編譯器並不知道 <code>printf</code> 編譯好的機器碼放在哪裡（可能在一個 <code>.obj</code> 或 <code>.lib</code> 裡面），所以在產生目的檔時，會在 <code>printf</code> 的進入點留位置給連結器（linker）去做填空，等連結器收集了所有需要的機器碼之後，才將他們填上。</p>
+
+<p>這也是為什麼可執行檔會比原來的原始碼大很多，因為連結器插入了很多來自其他檔案的機器碼。</p>
+]]></content>
+  </entry>
+  
+</feed>

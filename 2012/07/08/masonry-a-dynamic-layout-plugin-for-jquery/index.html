@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Masonry - 好用的動態排版工具 - 不歸錄</title>
+  <meta name="author" content="大兜">
+
+  
+  <meta name="description" content="官網 昨天看到社上 JS 大神喔哩正在寫類似 Google Web Store 首頁那樣的圖形排版（雖然他說不太一樣）。但我想這麼常見的東西應該有可用的函式庫，果然餵狗之後被我找到了一個好用工具 Masonry。 如果還不太懂這東西是幹麼的，不如先看看我做的簡單示範， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="不歸錄" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/stylesheets/bootstrap-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29458592-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">不歸錄</a></h1>
+  
+    <h2>程式X鋼琴X雙馬尾</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tonytonyjan.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首頁</a></li>
+  <li><a href="/blog/archives">文章列表</a></li>
+  <li><a href="/blog/about">關於我</a></li>
+  <li><a href="/blog/works">作品集</a></li>
+  <li><a href="/blog/quotes">兜語錄</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Masonry - 好用的動態排版工具</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-08T14:12:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="/images/masonry-demo.png"></p>
+
+<p><a href="http://masonry.desandro.com">官網</a></p>
+
+<p>昨天看到社上 JS 大神<a href="http://www.facebook.com/photo.php?fbid=4451976741683&amp;set=a.1753065630592.2102379.1357466415&amp;type=1&amp;theater&amp;notif_t=photo_reply">喔哩</a>正在寫類似 <a href="https://chrome.google.com/webstore">Google Web Store</a> 首頁那樣的圖形排版（雖然他說不太一樣）。但我想這麼常見的東西應該有可用的函式庫，果然餵狗之後被我找到了一個好用工具 <a href="http://masonry.desandro.com">Masonry</a>。</p>
+
+<p>如果還不太懂這東西是幹麼的，不如先看看我做的簡單<a href="/demo/masonry/">示範</a>，瀏覽時不妨試著調整瀏覽器視窗大小，圖片的排版會隨著視窗可視範圍而改變。</p>
+
+<!-- more -->
+
+
+<h2>使用</h2>
+
+<h3>HTML</h3>
+
+<p>先準備好要排版的項目，正規結構如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  ...
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/path/to/jquery.masonry.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>由於 Masonry 有些特效仰賴 jQuery，所以在引入 <code>masonry.js</code> 之前要先引入 <code>jquery.js</code>，如果你覺得麻煩，Masonry 後期也很貼心的提供了純 JS 版：<a href="http://vanilla-masonry.desandro.com/">Vanilla Masonry</a></p>
+
+<h3>CSS</h3>
+
+<p>將所有的項目設定成浮動的（floated），寬度也最好設定，否則容易排出空隙。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.item</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">width</span><span class="o">:</span> <span class="m">220px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>JavaScript</h3>
+
+<p>建議要設定 <code>itemSelector</code>，不設定也可以，他會自己抓 container 裡面的所有 elements。另外官方也建議設定 <code>columnWidth</code>。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#container&#39;</span><span class="p">).</span><span class="nx">masonry</span><span class="p">({</span>
+</span><span class='line'>    <span class="c1">// options</span>
+</span><span class='line'>    <span class="nx">itemSelector</span> <span class="o">:</span> <span class="s1">&#39;.item&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="nx">columnWidth</span> <span class="o">:</span> <span class="mi">240</span>
+</span><span class='line'>  <span class="p">});</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>完成了，更多的使用方式請<a href="http://masonry.desandro.com/docs/intro.html">看這裡</a>。</p>
+
+<h2>非官方叮嚀</h2>
+
+<p>當然，如果只是翻譯一下文件就拍屁股走人未免也太不夠意思，我其實另外發現官方文件少提醒了一點我覺得很重要的部份：</p>
+
+<p>如果你只是單純照著官方文件在 item 裡面放大小不一的圖片：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;...&quot;</span> <span class="nt">/&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;item&quot;</span><span class="nt">&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;...&quot;</span> <span class="nt">/&gt;&lt;/div&gt;</span>
+</span><span class='line'>...
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>不難碰上一些問題：</p>
+
+<ol>
+<li>跑出一大堆空隙，無法漂亮的排版。</li>
+<li><code>div</code> 的高度比 <code>img</code> 大，圖片上下之間有空隙，而且這個空隙即使你丟了一個 <code>reset.css</code> 也無法獲得解決。</li>
+</ol>
+
+
+<p><img src="/images/masonry-demo2.png"></p>
+
+<p>原因出在 <code>&lt;img&gt;</code> 預設是 <code>inline</code>，且對於排版長寬不等的圖片還要求沒有空隙本來就不太合理，所以我們再加上新的 CSS 設定：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nc">.item</span> <span class="nt">img</span><span class="p">{</span>
+</span><span class='line'>  <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">max-width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>乾杯！</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">大兜</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-08T14:12:00+08:00" pubdate data-updated="true">Jul 8<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/javascript/'>JavaScript</a>, <a class='category' href='/categories/jquery/'>jQuery</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/" data-via="" data-counturl="http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2012/07/05/building-popularity-algorithm/" title="Previous Post: 計算主題熱門度的演算法（上）">&laquo; 計算主題熱門度的演算法（上）</a>
+      
+      
+        <a class="basic-alignment right" href="/2012/07/21/always-keep-a-leeway/" title="Next Post: 先放下，再拿起">先放下，再拿起 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>給我個鼓勵吧＝）</h1>
+  
+    <div style="float: left;" class="g-plusone" data-size="tall" data-annotation="inline" data-href="http://tonytonyjan.heroku.com" data-width="260"></div>
+  
+  
+    <div class="fb-like" data-href="http://tonytonyjan.heroku.com" data-send="false" data-width="260" data-show-faces="true"></div>
+  
+  
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.heroku.com" data-text="不歸錄" data-via="tonytonyjan" data-size="large">Tweet</a>
+  
+</section><section>
+  <h1>關於我</h1>
+  <a href="http://www.facebook.com/tonytonyjan"><img src="http://photos-a.ak.fbcdn.net/hphotos-ak-ash4/196443_10150123214557620_714547619_6717277_2177303_a.jpg" alt="很帥的照片" title="大兜本尊"></a>
+  <p>嗨！我叫大兜，一個追求幸福快樂的反逆工程師，喜歡程式、旅行、彈琴和公益。</p>
+</section>
+<section>
+  <h1>音樂作品</h1>
+  <iframe marginwidth='0' marginheight='0' src='http://vlog.xuite.net/embed/OE5JOFRuLTE2MzA2NTguZmx2?v=1.0.1&ar=1' scrolling='no' frameborder='0' width='260' height='85'></iframe>
+  <p>我同時也是個業餘的三腳貓音樂創作者，這是我最喜歡的自創曲之一，我在 <a href="http://www.youtube.com/tonytonyjan">YouTube</a> 放了許多作品，歡迎來欣賞＝）</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/01/15/single-night/">[音樂創作] 獨夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/12/tjmarkdownpaste-markdown-with-tex-code-highlight/">TJMarkdownPaste - Markdown with Tex and code highlight</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/17/how-to-live-a-wonderful-life/">活的痛快點</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/04/tony-jians-rails-template/">My Rails Template</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/06/one-night-in-taipei/">台北一夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/02/dig-gcc-with-tony/">大兜的 gcc 歷險記</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/08/17/tjdict-english-chinese-dictionary-for-chrome/">TJDict - Chrome 英漢、漢英網路集成字典</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/31/love-telless-mindset/">把愛說出來 - 追求者心態</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/07/21/always-keep-a-leeway/">先放下，再拿起</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>近期回覆</h1>
+  <div id="recentcomments" class="dsq-widget"><h2 class="dsq-widget-title">Recent Comments</h2><script type="text/javascript" src="http://tonytonyjan-blog.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=48&excerpt_length=200"></script></div><a href="http://disqus.com/">Powered by Disqus</a>
+</section>
+<section>
+  <h1>文章分類</h1>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3225806451613%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3225806451613%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.93548387096774%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3225806451613%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(186)</a> <a href='/categories/chrome' style='font-size: 100.64516129032258%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64516129032258%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.29032258064517%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3225806451613%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.58064516129032%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3225806451613%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.25806451612904%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.3225806451613%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.64516129032258%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3225806451613%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3225806451613%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.19354838709677%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3225806451613%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3225806451613%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.25806451612904%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.61290322580645%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3225806451613%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3225806451613%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 100.96774193548387%'>Ruby(3)</a> <a href='/categories/swing' style='font-size: 100.3225806451613%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3225806451613%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3225806451613%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3225806451613%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.64516129032258%'>Works(33)</a> </span>
+</section>
+
+
+<section>
+  <h1>噗浪動態</h1>
+  <div style="width:210px; height:375px;">
+    <iframe src="http://www.plurk.com/getWidget?uid=5874158&amp;h=375&amp;w=210&amp;u_info=2&amp;bg=5E5E5E&tl=D3D3D3" width="210" frameborder="0" height="375" scrolling="no"></iframe>
+    <div style="float: right; padding: 1px;">
+      <a href="http://plurk.com/" target="_blank" style="font-size: 10px !important; color: #999 !important; border: none; text-decorate: none;" title="Plurk - A Social Journal for your life">Plurk.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/106993981418226624133?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 大兜 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tonytonyjan-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/';
+        var disqus_url = 'http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

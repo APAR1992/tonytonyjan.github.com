@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>rails - 不歸錄</title>
+  <meta name="author" content="大兜">
+
+  
+  <meta name="description" content="Rails 1 基礎 1.1 Ruby 簡介 1.2 Rails 簡介 1.3 MVC 介紹 1.4 起不走，建立第一個 Rails App 2 深入瞭解 2.1 再探 MVC 2.1.1 model 2.1.2 view 2.1.3 controller 2.2 assets pipeline &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tonytonyjan.net/blog/notes/rails/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="不歸錄" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/stylesheets/bootstrap-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29458592-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">不歸錄</a></h1>
+  
+    <h2>程式X鋼琴X雙馬尾</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tonytonyjan.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首頁</a></li>
+  <li><a href="/blog/archives">文章列表</a></li>
+  <li><a href="/blog/about">關於我</a></li>
+  <li><a href="/blog/works">作品集</a></li>
+  <li><a href="/blog/quotes">兜語錄</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Rails</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T06:38:00+08:00" pubdate data-updated="true"></time></p>
+  </header>
+  
+  <h2 id="id-338f9af47fa99721f3528ef10a2c2992">1 基礎</h2>
+
+<h3 id="id-7b41e29dbedb283728a74ea6a5b9d284">1.1 Ruby 簡介</h3>
+
+<h3 id="id-84f8ed6691c6b0c804cbfaad5bd4b6ed">1.2 Rails 簡介</h3>
+
+<h3 id="id-1d602f5785a4eb0c5f1b6be70edf6aab">1.3 MVC 介紹</h3>
+
+<h3 id="id-a7a1c164e354d8c28d18040a40369ad1">1.4 起不走，建立第一個 Rails App</h3>
+
+<h2 id="id-a256add35724224f7a59c11160ada9fd">2 深入瞭解</h2>
+
+<h3 id="id-136db58c4793e587dee8401d6956d76d">2.1 再探 MVC</h3>
+
+<h4 id="id-20f35e630daf44dbfa4c3f68f5399d8c">2.1.1 model</h4>
+
+<h4 id="id-1bda80f2be4d3658e0baa43fbe7ae8c1">2.1.2 view</h4>
+
+<h4 id="id-594c103f2c6e04c3d8ab059f031e0c1a">2.1.3 controller</h4>
+
+<h3 id="id-5d84b07812fb5c0ce50db49ab05c1a4e">2.2 assets pipeline</h3>
+
+<h3 id="id-af14b067a4804cdc758bf5ba6908a3fb">2.3 association</h3>
+
+<h3 id="id-e64addd6d6395e60443223b823f7d33a">2.4 database query interface</h3>
+
+<h3 id="id-ef3b209be94f84a3e38cd571d52d4568">2.5 routing</h3>
+
+<h2 id="id-25ab96fa15f767ca2d756090d4f1ae96">3 進階</h2>
+
+<h3 id="id-409c1892b68cb394799262ac57f6d4f1">3.1 Plugin</h3>
+
+<h3 id="id-7bfa30721c5e726ff17e3f972237a82c">3.2 Engine</h3>
+
+<h3 id="id-0e4cc5127922cba6213d5094742064af">3.3 VMC + DCI</h3>
+
+<h3 id="id-67aa90360d77eda9bd652ee75ec13d5c">3.4 管理 assets</h3>
+
+<h4 id="id-39144ad189270c304eee5e1c3fbeccdd">3.4.1 javascripts</h4>
+
+<h4 id="id-c7a628cba22e28eb17b5f5c6ae2a266a">3.4.2 css</h4>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-05T06:38:00+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.net/blog/notes/rails/index.html" data-via="" data-counturl="http://tonytonyjan.net/blog/notes/rails/index.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  <section>
+  <h1>Catalog</h1>
+  <ol style="margin-left: 1.3em;"><li style="list-style:inherit;"><a href="#id-338f9af47fa99721f3528ef10a2c2992">基礎</a><ul style="margin-left: 1.3em;"><li style="list-style:inherit;"><a href="#id-7b41e29dbedb283728a74ea6a5b9d284">Ruby 簡介</a></li> <li style="list-style:inherit;"><a href="#id-84f8ed6691c6b0c804cbfaad5bd4b6ed">Rails 簡介</a></li> <li style="list-style:inherit;"><a href="#id-1d602f5785a4eb0c5f1b6be70edf6aab">MVC 介紹</a></li> <li style="list-style:inherit;"><a href="#id-a7a1c164e354d8c28d18040a40369ad1">起不走，建立第一個 Rails App</a></li></ul></li><li style="list-style:inherit;"><a href="#id-a256add35724224f7a59c11160ada9fd">深入瞭解</a><ul style="margin-left: 1.3em;"><li style="list-style:inherit;"><a href="#id-136db58c4793e587dee8401d6956d76d">再探 MVC</a></li> <li style="list-style:inherit;"><a href="#id-5d84b07812fb5c0ce50db49ab05c1a4e">assets pipeline</a></li> <li style="list-style:inherit;"><a href="#id-af14b067a4804cdc758bf5ba6908a3fb">association</a></li> <li style="list-style:inherit;"><a href="#id-e64addd6d6395e60443223b823f7d33a">database query interface</a></li> <li style="list-style:inherit;"><a href="#id-ef3b209be94f84a3e38cd571d52d4568">routing</a></li></ul></li><li style="list-style:inherit;"><a href="#id-25ab96fa15f767ca2d756090d4f1ae96">進階</a><ul style="margin-left: 1.3em;"><li style="list-style:inherit;"><a href="#id-409c1892b68cb394799262ac57f6d4f1">Plugin</a></li> <li style="list-style:inherit;"><a href="#id-7bfa30721c5e726ff17e3f972237a82c">Engine</a></li> <li style="list-style:inherit;"><a href="#id-0e4cc5127922cba6213d5094742064af">VMC + DCI</a></li> <li style="list-style:inherit;"><a href="#id-67aa90360d77eda9bd652ee75ec13d5c">管理 assets</a></li></ul></li></ol>
+  </section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 大兜 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tonytonyjan-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tonytonyjan.net/blog/notes/rails/index.html';
+        var disqus_url = 'http://tonytonyjan.net/blog/notes/rails/index.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>
