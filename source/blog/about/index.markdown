@@ -12,51 +12,57 @@ footer: true
 
 [Please check here for English version.](/blog/about-en)
 
-{% img right /images/tony.jpg 300 %}
+{% img right /images/tony3.jpg 300 %}
 
-* [舊站：雜碎錄](http://blog.xuite.net/funnyfamily/tonyjan)
+## 嗨，你好
+
+我是大兜，網路代號 tonytonyjan，平時休閒是寫程式、作曲和散步，是個對 3C 沒興趣的反常工程師，喜歡 3P（Programing、Piano、Ponytail）。熱愛生活，每天會找不一樣的事情做，喜歡精彩的活著。畢生夢想是成為全職 SOHO 族、為人之夫、為人之父、有一個幸福的家。
+
+我不喜歡凡人，所以如果你是外星人、未來人、機器人或者怪胎，歡迎找我做朋友，我們是同類。
+
+* tonytonyjan(AT)gmail(DOT)com 
 * [Google+](https://plus.google.com/106993981418226624133)
 * [Facebook](http://www.facebook.com/tonytonyjan)
 * [Plurk](http://www.plurk.com/tonytonyjan)
-* [Twitter](https://twitter.com/tonytonyjan)
-* tonytonyjan(AT)gmail(DOT)com
 
-## 興趣
+## 經歷
 
-寫程式、彈鋼琴、散步、享受生活。
+* 2012 工業技術研究院
+* 2012 腦袋有動工作室合夥創辦人
+* 2011 [交大網路福利社](https://groups.google.com/forum/#!forum/nctu_nba)創社副社長/課堂講師
+* 2010 [CSsula 創意工坊](http://cssula.nba.nctu.edu.tw/)團長/站長
+* 2008 交大資工
+* 2007 [敦安社會福利基金會][dwanan]志工
+* 2005 嘉義高中
 
-## 擅長
+## 其他成就
 
-網路程式設計、軟體工程、專案管理、資料庫、資訊擷取。
+* 2011 [徒步征服北橫公路](http://www.facebook.com/permalink.php?story_fbid=271224696221525&id=209096415812970)（四天，150 公里）
+* 2010 [徒步嘉義到隆田](/2010/08/08/53/)（一天，30 公里）
+* 2010 [單車新竹到台南](/2010/02/19/90/)（三天，250 公里）
 
-## 大經歷
-* [敦安社會福利基金會][dwanan]志工
-* [CSsula 創意工坊](#cssula)團長/站長
-* [交大網路福利社](#nctu-nba)創社副社長/站長
-* 腦袋有動工作室合夥創辦人
-* 工業技術研究院軟體工程師
+<a href="http://www.peopo.org/news/20469" target="_blank">{% img right /images/paint.png 300 彩繪弱勢孩子的夢想 大學新鮮人簡煒航奉獻暑假來陪伴 %}</a>
 
-{% img right /images/tony2.jpg 300 %}
-## 社團
-* 數位音樂創作社（教學長）
-* 鋼琴社
-* 國樂社
-* 網路福利社（副社長、社課老師）
-* 漫畫社
-* 陶藝社
+## 我是熱血志工
 
-{% img right /images/cssula.jpg 300 %}
-<h2 id="cssula">CSsula 創意工坊</h2>
-<http://cssula.nba.nctu.edu.tw>
+因為人的身世本來就是不公平的，所以出生好的有責任要幫助出生不好的人，這是為什麼我高二到現在一直在當志工，服務時數快要五百小時了，從老人到小孩，從單親失親到聽障視障，因為喜歡跟小孩處在一起，大概是因為自己同時也是單親的孩子，大多的服務內容都和弱勢孩童有關。（附圖點擊是新聞連結）
 
-為帶動系內自由軟體的風氣，率領同學一起組織的工作室。是不以比賽或課業為目的，而以純粹自娛與實驗、共同討論與互相研究程式設計的團體。目前的專案範圍廣，從社群網站應用程式、命令列遊戲到漫畫下載器等，都有我們的成員參與。
+{% img left /images/penghu.jpg 300 "澎湖公益旅行" %}
 
-{% img right /images/nba.png 300 %}
-<h2 id="nctu-nba">交大網路福利社</h2>
-<http://nba.nctu.edu.tw>
+## 我是背包客
 
-即電腦研究社。為了推動交大校園寫程式的風氣，與程式同好在大三時所創，並與[學校宿網維運][itsc]有合作關係。任第一屆副社長。
+從高中開始到現在喜歡一個人四處旅行，週末都往外跑，跟各行各業的人交朋友，所以常會覺得校園很小，也感覺校園裡的人大多視野也很小。因為這樣而結識的朋友從黑社會、農夫、記者等等都有，他們都是我的寶物，為我拼湊出社會的全貌，讓我可以從多種角度看世界。
 
-<h2 id="rock-in-brain">腦袋有動工作室</h2>
+## 我是工程師，右手寫程式
 
-與創業同好，在 2011 年尾一起組成的團隊。
+喜歡在 [Github](http://github.com/tonytonyjan) 打滾，和全世界的工程師透過網路一起開發一些有趣的玩具，或是自己開一些專案來玩，你可以在[我的作品](/blog/works)裡找到他們。另外一個休閒就是打 war game（四處找洞來督是男人的天性XD）應該還算是個「灰帽駭客」，偶爾會寄信提報網管，偶爾則是會惡作劇在網頁留言。
+
+## 我是鋼琴手，左手寫音樂
+
+我是自學的，沒有老師教（我連指法都是原創的），先是用耳朵彈琴，彈了五年後為了紀錄自己的創作才開始試著學譜，只是沒有很認真學，所以直到現在識譜能力還是很差。平時喜歡即興亂彈，還有用耳朵還原原來的曲子（事實上這就是我學新曲的方式，我很少買譜），偶爾會用編曲軟體（[Reason](http://www.propellerheads.se/products/reason/)）來創作。
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/QBgFpd7PpMo?list=PL1E3D73CA92E288FF" frameborder="0" allowfullscreen></iframe>
+
+## 我是部落客
+
+國中時有寫文章的習慣，很贊同王安石說的「為文需有補於世，適用為本」，所以文章出發多是希望能幫助這個社會，幫人解決煩惱，甚至分享他人我生活的態度。如果你對我這個人感到好奇，可以看看 [Life 分類](http://tonytonyjan.net/categories/life/)裡面的文章，也請多指教。
