@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/octopress/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-01-15T21:32:44+08:00</updated>
+  <updated>2013-01-25T19:33:03+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -30,7 +30,7 @@
 rake list_posts[pub|unpub]
 </code></pre>
 
-<p><div><script src='https://gist.github.com/2574782.js?file='></script>
+<p><div><script src='https://gist.github.com/2574782.js'></script>
 <noscript><pre><code># usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to &quot;new-page.markdown&quot;)
 desc &quot;List all posts with an asterisk if it's published. Advanced usage: 'rake list_posts[pub|unpub]'&quot;
 task :list_posts, :type do |t, args|

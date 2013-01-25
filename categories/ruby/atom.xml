@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/ruby/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-01-15T21:32:44+08:00</updated>
+  <updated>2013-01-25T19:33:03+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -61,7 +61,7 @@
 
 <h2>Source Code</h2>
 
-<p><div><script src='https://gist.github.com/4010690.js?file='></script>
+<p><div><script src='https://gist.github.com/4010690.js'></script>
 <noscript><pre><code># Generate home controller
 File::unlink &quot;public/index.html&quot;
 generate(:controller, &quot;home index about contact&quot;)
