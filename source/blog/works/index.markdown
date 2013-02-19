@@ -10,6 +10,16 @@ indexer: true
 
 注意：這個頁面尚未完成
 
+## 笑典 - 教育部國語辭典 Chrome 離線版
+
+{% img /images/hahadict.png 300 %}
+
+響應 [3du.tw 黑客松](http://www.facebook.com/photo.php?fbid=500331380008153&set=a.456791061028852.107377.454607821247176&type=1)時做的玩具。
+
+*   [WebStore](https://chrome.google.com/webstore/detail/%E7%AC%91%E5%85%B8/ppgggcmomnpmeikbpaelmefpjfnmaidk)
+*   [網址](/2013/02/19/hahadict)
+*   [貢獻](https://github.com/tonytonyjan/hahadict)
+
 ## TJMarkdownPaste
 
 {% img /images/tjmarkdownpaste.png 300 %}
