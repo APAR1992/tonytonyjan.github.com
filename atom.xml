@@ -4,7 +4,7 @@
   <title><![CDATA[不歸錄]]></title>
   <link href="http://tonytonyjan.net/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-02-19T11:58:54+08:00</updated>
+  <updated>2013-02-19T15:08:04+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[笑典 - 教育部國語辭典 Chrome 離線版]]></title>
+    <link href="http://tonytonyjan.net/2013/02/19/hahadict/"/>
+    <updated>2013-02-19T14:47:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/02/19/hahadict</id>
+    <content type="html"><![CDATA[<p><img src="http://tonytonyjan.net/images/hahadict2.png"></p>
+
+<p><a href="https://chrome.google.com/webstore/detail/%E7%AC%91%E5%85%B8/ppgggcmomnpmeikbpaelmefpjfnmaidk">下載</a></p>
+
+<iframe width="853" height="480" src="http://www.youtube.com/embed/oetCzmsT6IY" frameborder="0" allowfullscreen></iframe>
+
+
+<p>響應 <a href="http://www.facebook.com/photo.php?fbid=500331380008153&amp;set=a.456791061028852.107377.454607821247176&amp;type=1">3du.tw 黑客松</a>時做的玩具。</p>
+
+<h2>使用</h2>
+
+<ol>
+<li>在一般網頁 反白字串 + 右鍵</li>
+<li>Ctrl + 拖曳反白</li>
+</ol>
+
+
+<h2>資料來源</h2>
+
+<p>教育部重編國語辭典修訂本</p>
+
+<h2>特別感謝</h2>
+
+<ol>
+<li>教育部國語推行委員會團隊</li>
+<li>Audrey Tang、TonyQ Wang、kcwu、及其他 3du.tw 的熱血黑客</li>
+</ol>
+
+
+<h2>貢獻</h2>
+
+<p><a href="https://github.com/tonytonyjan/hahadict">https://github.com/tonytonyjan/hahadict</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby 2.0 重點介紹]]></title>
@@ -1806,51 +1846,6 @@ int main(int argc, char* args[]){
 <p>然後他照做了。</p>
 
 <p><img src="http://tonytonyjan.net/images/trollface.jpg"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[List Published or Unpublished Posts in Octopress]]></title>
-    <link href="http://tonytonyjan.net/2012/05/02/list-all-posts-rake-task-for-octopress/"/>
-    <updated>2012-05-02T13:36:00+08:00</updated>
-    <id>http://tonytonyjan.net/2012/05/02/list-all-posts-rake-task-for-octopress</id>
-    <content type="html"><![CDATA[<h2>What&#8217;s the Problem?</h2>
-
-<p>We may leave some draft posts in <code>_posts</code> directory, but it comes a problem when we are going to find whether the post is published or not by reading throuh filenames in the future.</p>
-
-<p>To solve this, I created this rake task. It will list all posts each line, and prepend an asterisk if it&#8217;s published. Just append it in your <code>Rakefile</code> to make it works.</p>
-
-<h3>Usage</h3>
-
-<pre><code>rake list_posts
-rake list_posts[pub|unpub]
-</code></pre>
-
-<div><script src='https://gist.github.com/2574782.js'></script>
-<noscript><pre><code># usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to &quot;new-page.markdown&quot;)
-desc &quot;List all posts with an asterisk if it's published. Advanced usage: 'rake list_posts[pub|unpub]'&quot;
-task :list_posts, :type do |t, args|
-  type = args.type
-  
-  result = &quot;&quot;
-  Dir.glob(&quot;#{source_dir}/#{posts_dir}/*.markdown&quot;).sort.each do |post|
-    file = File.read(post)
-    file =~ /^(---\s*\n.*?\n?)^(---\s*$\n?)/m
-    data = YAML.load($1)
-    
-    case type
-    when &quot;pub&quot; then 
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] || data['published'] == nil
-    when &quot;unpub&quot;
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] == false
-    else
-      status = data['published'] || data['published'] == nil ? '*' : ' '
-      result &lt;&lt; &quot;#{status} #{File.basename(post)}\n&quot;
-    end
-  end
-  puts result
-end</code></pre></noscript></div>
-
 ]]></content>
   </entry>
   
