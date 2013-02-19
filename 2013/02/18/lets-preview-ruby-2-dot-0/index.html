@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ruby 2.0 重點介紹 - 不歸錄</title>
+  <meta name="author" content="大兜">
+
+  
+  <meta name="description" content="終於也等到了 Ruby 2.0 RC 釋出的消息，看來正式版本也不遠了。而 Ruby 2.0 是什麼？又到底都參了啥好處？這裡整理一些我的筆記。 首先 Ruby 2.0 完全向下兼容，這是個好消息，意味之著你不用更改你的程式碼便可以從任何版本無痛升級 2.0（python 迷表示羨慕？）， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tonytonyjan.net/2013/02/18/lets-preview-ruby-2-dot-0/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="不歸錄" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/stylesheets/bootstrap-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29458592-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">不歸錄</a></h1>
+  
+    <h2>程式X鋼琴X雙馬尾</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tonytonyjan.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首頁</a></li>
+  <li><a href="/blog/archives">文章列表</a></li>
+  <li><a href="/blog/about">關於我</a></li>
+  <li><a href="/blog/works">作品集</a></li>
+  <li><a href="/blog/quotes">兜語錄</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ruby 2.0 重點介紹</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T22:46:00+08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img class="right" src="/images/ruby.jpg" width="300"></p>
+
+<p>終於也等到了 <a href="http://www.ruby-lang.org/en/news/2013/02/08/ruby-2-0-0-rc2-is-released/">Ruby 2.0 RC 釋出的消息</a>，看來正式版本也不遠了。而 Ruby 2.0 是什麼？又到底都參了啥好處？這裡整理一些我的筆記。</p>
+
+<p><strong>首先 Ruby 2.0 完全向下兼容</strong>，這是個好消息，意味之著你不用更改你的程式碼便可以從任何版本無痛升級 2.0（python 迷表示羨慕？），不用擔心你的 Ruby 專案（例如 Rails 等）升級後跑不動。故 Ruby 2.0 可看做是 Ruby 1.9 再加點料，而這些料可炫，且聽我道來。</p>
+
+<h2>Refinements</h2>
+
+<h3>Module#refine</h3>
+
+<p>你過去擴展一個 class 可能會這樣做：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span>
+</span><span class='line'><span class="c1"># =&gt; NoMethodError: undefined method `double&#39; for &quot;tonytonyjan&quot;:String</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">String</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">double</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">*</span><span class="mi">2</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;tonytonyjantonytonyjan&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ruby 在團隊開發時，其中一項令人頭痛的問題是，當我們擴展某些 class 時，由於影響的是全局，萬一 method 撞名則會難以 debug。而現在 refinements 則可以將 class 擴展包在 namespace 裡面：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Foo</span>
+</span><span class='line'>  <span class="n">refine</span> <span class="nb">String</span> <span class="k">do</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">double</span>
+</span><span class='line'>      <span class="nb">self</span><span class="o">*</span><span class="mi">2</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;tonytonyjantonytonyjan&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span>
+</span><span class='line'><span class="c1"># =&gt; NoMethodError: undefined method `double&#39; for &quot;tonytonyjan&quot;:String</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Kernel#using</h3>
+
+<p>寫好的擴展也可以拿出來給別人用：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Bar</span>
+</span><span class='line'>  <span class="n">using</span> <span class="no">Foo</span>
+</span><span class='line'>  <span class="s2">&quot;test&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;testtest&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># in proc/lambda</span>
+</span><span class='line'><span class="o">-&gt;</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">using</span> <span class="no">Foo</span>
+</span><span class='line'>  <span class="s2">&quot;test&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;testtest&quot;</span>
+</span><span class='line'><span class="p">}</span><span class="o">.</span><span class="n">call</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Keyword Arguments</h2>
+
+<p>寫過 python 大概對這不陌生，Ruby 2.0 也引進了一樣的功能，過去我們可能會在 method 參數中餵一個 Hash 當作 option 使用，通常會長這樣：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">foo</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span class='line'>  <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">merge</span> <span class="n">options</span> <span class="c1"># given default value</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">options</span><span class="o">[</span><span class="ss">:a</span><span class="o">]</span><span class="p">,</span> <span class="n">options</span><span class="o">[</span><span class="ss">:b</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但在 Ruby 2.0，可以簡化如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">foo</span> <span class="ss">a</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果想拿到所有的 keys，就放兩顆星星：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">p</span> <span class="n">options</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="n">foo</span><span class="p">(</span><span class="ss">a</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span> <span class="c1"># =&gt; {:a=&gt;&quot;A&quot;, :b=&gt;&quot;B&quot;}</span>
+</span><span class='line'><span class="n">foo</span><span class="p">(</span><span class="ss">:a</span><span class="o">=&gt;</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">:b</span><span class="o">=&gt;</span><span class="s2">&quot;B&quot;</span><span class="p">)</span> <span class="c1"># =&gt; {:a=&gt;&quot;A&quot;, :b=&gt;&quot;B&quot;}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Enumerator#lazy</h2>
+
+<p>以往我們可能要設個 timeout 或 counter 去列舉無窮 enumerator，但 <code>Enumerator::Lazy</code> 讓迭代過程這變的更為簡單：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="ss">Float</span><span class="p">:</span><span class="ss">:INFINATY</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:even?</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1"># 這會跑到海枯石爛</span>
+</span><span class='line'><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="ss">Float</span><span class="p">:</span><span class="ss">:INFINATY</span><span class="p">)</span><span class="o">.</span><span class="n">lazy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:even?</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 迭代每回合都會執行 `#event?`，而非數完所有元素</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但不要看到新功能就高潮了，然後套用在每個地方，這方法通常不會比較有效率，除非真的有需要，否則少用為妙。</p>
+
+<p>有興趣可以看看<a href="http://shugomaeda.blogspot.tw/2012/03/enumerablelazy-and-its-benefits.html">大師是怎麼用的</a>。</p>
+
+<h2>Module#prepend</h2>
+
+<p>談到擴展 class，新增 method 很容易，若想 override method 又想保留 origin 的功能卻很麻煩。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;A#foo&quot;</span>
+</span><span class='line'>    <span class="k">super</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這時我們想要幫他的 <code>#foo</code> 加點料，又不想動到原來的程式（monkey patch），多會這麼做：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">B</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;B#foo&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="n">B</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">foo</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># A#foo</span>
+</span><span class='line'><span class="c1"># B#foo</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>這是利用 <code>A#foo</code> 裡頭的 <code>super</code> 來完成，但寫 <code>super</code> 不應該是被擴展的方的責任，可以話，我們希望把 super 給拿掉。因此 Rails 曾在 <code>active_support</code> 下擴展 <code>Module#alias_method_chian</code>，但因為被<a href="https://rails.lighthouseapp.com/projects/8994/tickets/285-alias_method_chain-limits-extensibility#ticket-285-20">報出問題</a>不被建議使用，Rails 3 之後建議利用 Ruby 本身的 <code>module</code> 和 <code>super</code> 特性解決問題：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">module</span> <span class="nn">Base</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">foo</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Base&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">module</span> <span class="nn">Ext</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">foo</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Ext&quot;</span>
+</span><span class='line'>      <span class="k">super</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">Base</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">Ext</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">foo</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># =&gt; Ext</span>
+</span><span class='line'><span class="c1"># Base</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>理論上一個 module 透過 inclusion 不可能 override class method，因為 module inclusion 的運作是對 class 做 subclassing，這意謂著 class A 若 include module B，則 B 會變成 A 的爸爸，superclass 無法 override subclass method（總之爸爸無法改變女兒的行為，嘛，至少程式裡面是這樣）。這也是為什麼當初 Rails 會有 <code>Module#alias_method_chian</code> 的原因。</p>
+
+<p>Ruby 2.0 中的 <code>Module#prepend</code> 就是為了解決此問題而生，取代 <code>Module#alias_method_chian</code>：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;A&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">Ext</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
+</span><span class='line'>    <span class="k">super</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Ext&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="n">prepend</span> <span class="no">Ext</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">foo</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># =&gt; A</span>
+</span><span class='line'><span class="c1"># Ext</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>%i：Array of Symbol</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">p</span> <span class="sx">%w{hurray huzzah whoop}</span>   <span class="c1"># =&gt; [&quot;hurray&quot;, &quot;huzzah&quot;, &quot;whoop&quot;]</span>
+</span><span class='line'><span class="nb">p</span> <span class="o">%</span><span class="n">i</span><span class="p">{</span><span class="n">hurray</span> <span class="n">huzzah</span> <span class="n">whoop</span><span class="p">}</span>   <span class="c1"># =&gt; [:hurray, :huzzah, :whoop]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">大兜</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-18T22:46:00+08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.net/2013/02/18/lets-preview-ruby-2-dot-0/" data-via="" data-counturl="http://tonytonyjan.net/2013/02/18/lets-preview-ruby-2-dot-0/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/01/15/webconf-2013-feedback/" title="Previous Post: WebConf 2013 會場志工心得">&laquo; WebConf 2013 會場志工心得</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>給我個鼓勵吧＝）</h1>
+  
+    <div style="float: left;" class="g-plusone" data-size="tall" data-annotation="inline" data-href="http://tonytonyjan.heroku.com" data-width="260"></div>
+  
+  
+    <div class="fb-like" data-href="http://tonytonyjan.heroku.com" data-send="false" data-width="260" data-show-faces="true"></div>
+  
+  
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.heroku.com" data-text="不歸錄" data-via="tonytonyjan" data-size="large">Tweet</a>
+  
+</section><section>
+  <h1>關於我</h1>
+  <a href="http://www.facebook.com/tonytonyjan"><img src="http://photos-a.ak.fbcdn.net/hphotos-ak-ash4/196443_10150123214557620_714547619_6717277_2177303_a.jpg" alt="很帥的照片" title="大兜本尊"></a>
+  <p>嗨，我叫大兜，是個追求幸福快樂的反逆工程師。</p>
+</section>
+<section>
+  <h1>音樂作品</h1>
+  <iframe marginwidth='0' marginheight='0' src='http://vlog.xuite.net/embed/OE5JOFRuLTE2MzA2NTguZmx2?v=1.0.1&ar=1' scrolling='no' frameborder='0' width='260' height='85'></iframe>
+  <p>我同時也是個業餘的三腳貓音樂創作者，這是我最喜歡的自創曲之一，我在 <a href="http://www.youtube.com/tonytonyjan">YouTube</a> 放了許多作品，歡迎來欣賞＝）</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/01/15/webconf-2013-feedback/">WebConf 2013 會場志工心得</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/01/15/single-night/">[音樂創作] 獨夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/12/12/tjmarkdownpaste-markdown-with-tex-code-highlight/">TJMarkdownPaste - Markdown with Tex and code highlight</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/17/how-to-live-a-wonderful-life/">活的痛快點</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/11/04/tony-jians-rails-template/">My Rails Template</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/06/one-night-in-taipei/">台北一夜</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/10/02/dig-gcc-with-tony/">大兜的 gcc 歷險記</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2012/08/17/tjdict-english-chinese-dictionary-for-chrome/">TJDict - Chrome 英漢、漢英網路集成字典</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>近期回覆</h1>
+  <div id="recentcomments" class="dsq-widget"><h2 class="dsq-widget-title">Recent Comments</h2><script type="text/javascript" src="http://tonytonyjan-blog.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=48&excerpt_length=200"></script></div><a href="http://disqus.com/">Powered by Disqus</a>
+</section>
+<section>
+  <h1>文章分類</h1>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.32085561497327%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.32085561497327%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.92513368983957%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.32085561497327%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(187)</a> <a href='/categories/chrome' style='font-size: 100.64171122994652%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64171122994652%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.28342245989305%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.32085561497327%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.56684491978609%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.32085561497327%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.24598930481284%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.64171122994652%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.32085561497327%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.32085561497327%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.32085561497327%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.11764705882354%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.32085561497327%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.32085561497327%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.24598930481284%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.60427807486631%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.32085561497327%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.32085561497327%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.28342245989305%'>Ruby(4)</a> <a href='/categories/swing' style='font-size: 100.32085561497327%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.32085561497327%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.32085561497327%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.32085561497327%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.58823529411765%'>Works(33)</a> </span>
+</section>
+
+
+<section>
+  <h1>噗浪動態</h1>
+  <div style="width:210px; height:375px;">
+    <iframe src="http://www.plurk.com/getWidget?uid=5874158&amp;h=375&amp;w=210&amp;u_info=2&amp;bg=5E5E5E&tl=D3D3D3" width="210" frameborder="0" height="375" scrolling="no"></iframe>
+    <div style="float: right; padding: 1px;">
+      <a href="http://plurk.com/" target="_blank" style="font-size: 10px !important; color: #999 !important; border: none; text-decorate: none;" title="Plurk - A Social Journal for your life">Plurk.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/106993981418226624133?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 大兜 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tonytonyjan-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tonytonyjan.net/2013/02/18/lets-preview-ruby-2-dot-0/';
+        var disqus_url = 'http://tonytonyjan.net/2013/02/18/lets-preview-ruby-2-dot-0/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

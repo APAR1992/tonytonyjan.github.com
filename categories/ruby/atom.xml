@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/ruby/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-02-02T02:53:45+08:00</updated>
+  <updated>2013-02-19T11:58:54+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,240 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby 2.0 重點介紹]]></title>
+    <link href="http://tonytonyjan.net/2013/02/18/lets-preview-ruby-2-dot-0/"/>
+    <updated>2013-02-18T22:46:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/02/18/lets-preview-ruby-2-dot-0</id>
+    <content type="html"><![CDATA[<p><img class="right" src="/images/ruby.jpg" width="300"></p>
+
+<p>終於也等到了 <a href="http://www.ruby-lang.org/en/news/2013/02/08/ruby-2-0-0-rc2-is-released/">Ruby 2.0 RC 釋出的消息</a>，看來正式版本也不遠了。而 Ruby 2.0 是什麼？又到底都參了啥好處？這裡整理一些我的筆記。</p>
+
+<p><strong>首先 Ruby 2.0 完全向下兼容</strong>，這是個好消息，意味之著你不用更改你的程式碼便可以從任何版本無痛升級 2.0（python 迷表示羨慕？），不用擔心你的 Ruby 專案（例如 Rails 等）升級後跑不動。故 Ruby 2.0 可看做是 Ruby 1.9 再加點料，而這些料可炫，且聽我道來。</p>
+
+<h2>Refinements</h2>
+
+<h3>Module#refine</h3>
+
+<p>你過去擴展一個 class 可能會這樣做：</p>
+
+<p>``` ruby</p>
+
+<pre><code>"tonytonyjan".double
+# =&gt; NoMethodError: undefined method `double' for "tonytonyjan":String
+
+class String
+  def double
+    self*2
+  end
+end
+
+"tonytonyjan".double # =&gt; "tonytonyjantonytonyjan"
+</code></pre>
+
+<p>```</p>
+
+<p>Ruby 在團隊開發時，其中一項令人頭痛的問題是，當我們擴展某些 class 時，由於影響的是全局，萬一 method 撞名則會難以 debug。而現在 refinements 則可以將 class 擴展包在 namespace 裡面：</p>
+
+<p>``` ruby</p>
+
+<pre><code>module Foo
+  refine String do
+    def double
+      self*2
+    end
+  end
+  "tonytonyjan".double # =&gt; "tonytonyjantonytonyjan"
+end
+
+"tonytonyjan".double
+# =&gt; NoMethodError: undefined method `double' for "tonytonyjan":String
+</code></pre>
+
+<p>```</p>
+
+<h3>Kernel#using</h3>
+
+<p>寫好的擴展也可以拿出來給別人用：</p>
+
+<p>``` ruby</p>
+
+<pre><code>module Bar
+  using Foo
+  "test".double # =&gt; "testtest"
+end
+
+# in proc/lambda
+-&gt; {
+  using Foo
+  "test".double # =&gt; "testtest"
+}.call
+</code></pre>
+
+<p>```</p>
+
+<h2>Keyword Arguments</h2>
+
+<p>寫過 python 大概對這不陌生，Ruby 2.0 也引進了一樣的功能，過去我們可能會在 method 參數中餵一個 Hash 當作 option 使用，通常會長這樣：</p>
+
+<p>``` ruby</p>
+
+<pre><code>def foo options = {}
+  options = {a: "A", b: "B"}.merge options # given default value
+  puts options[:a], options[:b]
+end
+</code></pre>
+
+<p>```</p>
+
+<p>但在 Ruby 2.0，可以簡化如下：</p>
+
+<p>``` ruby</p>
+
+<pre><code>def foo a: "A", b: "B"
+  puts a, b
+end
+</code></pre>
+
+<p>```</p>
+
+<p>如果想拿到所有的 keys，就放兩顆星星：</p>
+
+<p>``` ruby</p>
+
+<pre><code>def foo(**options)
+  p options
+end
+foo(a: "A", b: "B") # =&gt; {:a=&gt;"A", :b=&gt;"B"}
+foo(:a=&gt;"A", :b=&gt;"B") # =&gt; {:a=&gt;"A", :b=&gt;"B"}
+</code></pre>
+
+<p>```</p>
+
+<h2>Enumerator#lazy</h2>
+
+<p>以往我們可能要設個 timeout 或 counter 去列舉無窮 enumerator，但 <code>Enumerator::Lazy</code> 讓迭代過程這變的更為簡單：</p>
+
+<p>``` ruby</p>
+
+<pre><code>(1..Float::INFINATY).select(&amp;:even?).take(3)      # 這會跑到海枯石爛
+(1..Float::INFINATY).lazy.select(&amp;:even?).take(3) # 迭代每回合都會執行 `#event?`，而非數完所有元素
+</code></pre>
+
+<p>```</p>
+
+<p>但不要看到新功能就高潮了，然後套用在每個地方，這方法通常不會比較有效率，除非真的有需要，否則少用為妙。</p>
+
+<p>有興趣可以看看<a href="http://shugomaeda.blogspot.tw/2012/03/enumerablelazy-and-its-benefits.html">大師是怎麼用的</a>。</p>
+
+<h2>Module#prepend</h2>
+
+<p>談到擴展 class，新增 method 很容易，若想 override method 又想保留 origin 的功能卻很麻煩。</p>
+
+<p>``` ruby</p>
+
+<pre><code>class A
+  def foo
+    puts "A#foo"
+    super
+  end
+end
+</code></pre>
+
+<p>```</p>
+
+<p>這時我們想要幫他的 <code>#foo</code> 加點料，又不想動到原來的程式（monkey patch），多會這麼做：</p>
+
+<p>``` ruby</p>
+
+<pre><code>module B
+  def foo
+    puts "B#foo"
+  end
+end
+
+class A
+  include B
+end
+
+A.new.foo
+
+# A#foo
+# B#foo
+</code></pre>
+
+<p>```</p>
+
+<p>這是利用 <code>A#foo</code> 裡頭的 <code>super</code> 來完成，但寫 <code>super</code> 不應該是被擴展的方的責任，可以話，我們希望把 super 給拿掉。因此 Rails 曾在 <code>active_support</code> 下擴展 <code>Module#alias_method_chian</code>，但因為被<a href="https://rails.lighthouseapp.com/projects/8994/tickets/285-alias_method_chain-limits-extensibility#ticket-285-20">報出問題</a>不被建議使用，Rails 3 之後建議利用 Ruby 本身的 <code>module</code> 和 <code>super</code> 特性解決問題：</p>
+
+<p>``` ruby</p>
+
+<pre><code>class A
+  module Base
+    def foo
+      puts "Base"
+    end
+  end
+
+  module Ext
+    def foo
+      puts "Ext"
+      super
+    end
+  end
+
+  include Base
+  include Ext
+end
+
+A.new.foo
+
+# =&gt; Ext
+# Base
+</code></pre>
+
+<p>```</p>
+
+<p>理論上一個 module 透過 inclusion 不可能 override class method，因為 module inclusion 的運作是對 class 做 subclassing，這意謂著 class A 若 include module B，則 B 會變成 A 的爸爸，superclass 無法 override subclass method（總之爸爸無法改變女兒的行為，嘛，至少程式裡面是這樣）。這也是為什麼當初 Rails 會有 <code>Module#alias_method_chian</code> 的原因。</p>
+
+<p>Ruby 2.0 中的 <code>Module#prepend</code> 就是為了解決此問題而生，取代 <code>Module#alias_method_chian</code>：</p>
+
+<p>``` ruby</p>
+
+<pre><code>class A
+  def foo
+    puts "A"
+  end
+end
+
+module Ext
+  def foo
+    super
+    puts "Ext"
+  end
+end
+
+class A
+  prepend Ext
+end
+
+A.new.foo
+
+# =&gt; A
+# Ext
+</code></pre>
+
+<p>```</p>
+
+<h2>%i：Array of Symbol</h2>
+
+<p><code>ruby
+p %w{hurray huzzah whoop}   # =&gt; ["hurray", "huzzah", "whoop"]
+p %i{hurray huzzah whoop}   # =&gt; [:hurray, :huzzah, :whoop]
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Rails Template]]></title>

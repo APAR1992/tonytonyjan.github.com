@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="事事難料，由於不知道下一秒會發生什麼事情，往往因受挫而不知所措，畢竟人在豪無準備之下發生了預期之外之事，任誰都難以冷靜以對：以為能過的科目沒過、以為能白頭偕老的戀情告吹、以為可以追到的人被打槍、以為能順利退休的工作被公司裁員、以為能順遂活著卻突然家有變故等等。一生數個大大小小的意外， &hellip;">
+  <meta name="description" content="如果你喜歡一個人，就行動吧，在你還喜歡對方的時候。 其實告白最怕的，不外乎就是遭打槍，次者就是以後碰面會尷尬。會怕是正常的，因為既是人則有得失心，有得失心，對於得不到的就會可惜。 我說告白又不用錢，怕什麼呢？本來就不擁有的東西，又何必在意得不到？我們也不會因為出門沒有撿到錢而難過吧？ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/07/31/love-telless-mindset/">把愛說出來 - 追求者心態</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-31T23:21:00+08:00" pubdate data-updated="true">Jul 31<span>st</span>, 2012</time>
+        
+         | <a href="/2012/07/31/love-telless-mindset/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/ring.jpg"></p>
+
+<p>如果你喜歡一個人，就行動吧，在你還喜歡對方的時候。</p>
+
+<p>其實告白最怕的，不外乎就是遭打槍，次者就是以後碰面會尷尬。會怕是正常的，因為既是人則有得失心，有得失心，對於得不到的就會可惜。</p>
+
+<p>我說告白又不用錢，怕什麼呢？本來就不擁有的東西，又何必在意得不到？我們也不會因為出門沒有撿到錢而難過吧？如此又何必因為告白是否成功而煩惱？</p>
+
+<p>人對於知道自己被人喜歡，無論你我，一定都是相當欣喜的，既然不用錢，不需要吝於把這樣的欣喜送出去，今天假如我是想告白的對象，卻又沒有行動，豈不像準備了一個禮物，卻沒送出去一樣。所以當你喜歡一個人，得把握當下趕緊行動，一則你不知道你手上這份禮物對方能否收得到，二則也不知道什麼時候會變成送給別人的。</p>
+
+<p>至於會尷尬，不過就是得失心太重罷了，喜歡不代表就要在一起，這應該分開來看，或許將此番心意是當成是一份禮物，也就不會這麼尷尬了。告白不用錢，既然能帶給一個人喜悅，何樂不為？得失心放輕，又何懼尷尬？</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -553,83 +601,6 @@ end</code></pre></noscript></div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/05/01/indexer-for-octopress/">將 Octopress Page 依照標題自動索引</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-01T13:30:00+08:00" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
-        
-         | <a href="/2012/05/01/indexer-for-octopress/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><ul>
-<li><a href="/blog/octopress-indexer">範例展示、文件</a></li>
-<li><a href="https://gist.github.com/2565249/6151c81f7af333d5c1d9dd0b2bdcba2c7a966dca">gist</a></li>
-</ul>
-
-
-<h2>用法懶人包</h2>
-
-<ol>
-<li>下載 <a href="https://gist.github.com/gists/2565249/download">Indexer for Octopress</a>。</li>
-<li>將 <code>indexer.rb</code> 複製到 <code>plugins</code> 目錄下。</li>
-<li><p>新增 <code>source\_includes\custom\asides\indexer.html</code>。</p>
-
-<pre><code>{% if page.indexer == true %}
-  &lt;section&gt;
-  &lt;h1&gt;Catalog&lt;/h1&gt;
-  {{ page.indexer_aside }}
-  &lt;/section&gt;
-{% else %}
-  {% if site.page_asides.size %}
-    {% include_array default_asides %}
-  {% endif %}
-{% endif %}
-</code></pre></li>
-<li><p>編輯 <code>_config.yml</code>。</p>
-
-<pre><code># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
-# and add an array with the asides you want to use.
-# blog_index_asides:
-# post_asides:
-page_asides: [custom/asides/indexer.html] # 加上這個
-</code></pre></li>
-<li><p>完成！之後只要在你需要索引的 page 上方 YAML 區塊加上 <code>indexer: true</code>，右方欄位就會自己索引了。</p></li>
-</ol>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/05/01/indexer-for-octopress/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/3/">&larr; Older</a>
@@ -668,6 +639,10 @@ page_asides: [custom/asides/indexer.html] # 加上這個
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/01/15/webconf-2013-feedback/">WebConf 2013 會場志工心得</a>
       </li>
     
@@ -703,10 +678,6 @@ page_asides: [custom/asides/indexer.html] # 加上這個
         <a href="/2012/08/17/tjdict-english-chinese-dictionary-for-chrome/">TJDict - Chrome 英漢、漢英網路集成字典</a>
       </li>
     
-      <li class="post">
-        <a href="/2012/07/31/love-telless-mindset/">把愛說出來 - 追求者心態</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -717,7 +688,7 @@ page_asides: [custom/asides/indexer.html] # 加上這個
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.32085561497327%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.32085561497327%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.92513368983957%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.32085561497327%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(187)</a> <a href='/categories/chrome' style='font-size: 100.64171122994652%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64171122994652%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.28342245989305%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.32085561497327%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.56684491978609%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.32085561497327%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.24598930481284%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.32085561497327%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.64171122994652%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.32085561497327%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.32085561497327%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.11764705882354%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.32085561497327%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.32085561497327%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.24598930481284%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.60427807486631%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.32085561497327%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.32085561497327%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 100.96256684491979%'>Ruby(3)</a> <a href='/categories/swing' style='font-size: 100.32085561497327%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.32085561497327%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.32085561497327%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.32085561497327%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.58823529411765%'>Works(33)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.32085561497327%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.32085561497327%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.92513368983957%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.32085561497327%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(187)</a> <a href='/categories/chrome' style='font-size: 100.64171122994652%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64171122994652%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.28342245989305%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.32085561497327%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.56684491978609%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.32085561497327%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.24598930481284%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.64171122994652%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.32085561497327%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.32085561497327%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.32085561497327%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.11764705882354%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.32085561497327%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.32085561497327%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.24598930481284%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.60427807486631%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.32085561497327%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.32085561497327%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.28342245989305%'>Ruby(4)</a> <a href='/categories/swing' style='font-size: 100.32085561497327%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.32085561497327%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.32085561497327%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.32085561497327%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.58823529411765%'>Works(33)</a> </span>
 </section>
 
 

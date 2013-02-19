@@ -9,7 +9,10 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="說實話，睡覺和吃飯對我來說就僅僅只是為了可以活著而已，它們並沒有什麼享受的成份在裡面，生活才有。我想這句話有很多人不認同，但如果你對我這樣的怪人價值觀感興趣，你一定會好奇地繼續看下去。 我覺得我這點就像小孩子一樣，各位不妨回憶一下自己還是個流鼻涕的小屁孩時，這個時期對孩子最重要的工作除了吃、 &hellip;">
+  <meta name="description" content="範例展示、文件
+gist 用法懶人包 下載 Indexer for Octopress。
+將 indexer.rb 複製到 plugins 目錄下。
+新增 source\_includes\custom\asides\indexer.html。 {% if page.indexer == &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +84,83 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/05/01/indexer-for-octopress/">將 Octopress Page 依照標題自動索引</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-01T13:30:00+08:00" pubdate data-updated="true">May 1<span>st</span>, 2012</time>
+        
+         | <a href="/2012/05/01/indexer-for-octopress/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><ul>
+<li><a href="/blog/octopress-indexer">範例展示、文件</a></li>
+<li><a href="https://gist.github.com/2565249/6151c81f7af333d5c1d9dd0b2bdcba2c7a966dca">gist</a></li>
+</ul>
+
+
+<h2>用法懶人包</h2>
+
+<ol>
+<li>下載 <a href="https://gist.github.com/gists/2565249/download">Indexer for Octopress</a>。</li>
+<li>將 <code>indexer.rb</code> 複製到 <code>plugins</code> 目錄下。</li>
+<li><p>新增 <code>source\_includes\custom\asides\indexer.html</code>。</p>
+
+<pre><code>{% if page.indexer == true %}
+  &lt;section&gt;
+  &lt;h1&gt;Catalog&lt;/h1&gt;
+  {{ page.indexer_aside }}
+  &lt;/section&gt;
+{% else %}
+  {% if site.page_asides.size %}
+    {% include_array default_asides %}
+  {% endif %}
+{% endif %}
+</code></pre></li>
+<li><p>編輯 <code>_config.yml</code>。</p>
+
+<pre><code># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
+# and add an array with the asides you want to use.
+# blog_index_asides:
+# post_asides:
+page_asides: [custom/asides/indexer.html] # 加上這個
+</code></pre></li>
+<li><p>完成！之後只要在你需要索引的 page 上方 YAML 區塊加上 <code>indexer: true</code>，右方欄位就會自己索引了。</p></li>
+</ol>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/05/01/indexer-for-octopress/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -565,62 +645,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/03/01/install-octopress-on-windows/">在 Windows 使用 Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-03-01T15:47:00+08:00" pubdate data-updated="true">Mar 1<span>st</span>, 2012</time>
-        
-         | <a href="/2012/03/01/install-octopress-on-windows/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>安裝 Ruby</h2>
-
-<p>雖然你也可以安裝 <a href="http://www.ruby-lang.org/en/downloads">RVM</a> 或者自行編譯，但既然是在 Windows 下，建議直接使用 <a href="http://rubyinstaller.org/downloads">Ruby Installer</a> 最省事。在此要下載兩個東西，一就是 ruby ，另一個則是 development kit。之所以要後者是因為屆時在安裝 Octopress 時，所需要用到的 ruby gems 會需要在本地編譯（例如 <a href="https://github.com/rtomayko/rdiscount">rdiscount</a>）。而 development kit 是一套基於 <a href="http://www.mingw.org/wiki/MSYS">MSYS/MinGW</a> 下的 C/C++ 編譯環境工具組，安裝時請跟著<a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">官網上的指示</a>即可，你大概會輸入以下指令：</p>
-
-<pre><code>cd C:\Devkit
-ruby dk.rb init :: 產生 config.yaml，裡面有你的 ruby 路徑，一般會幫你設好
-ruby dk.rb install
-</code></pre>
-
-<p>為了保險起見，安裝之後先更新一下 gem 是個好習慣。</p>
-
-<pre><code>gem update --system
-gem update
-</code></pre>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/03/01/install-octopress-on-windows/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/4/">&larr; Older</a>
@@ -659,6 +683,10 @@ gem update
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/01/15/webconf-2013-feedback/">WebConf 2013 會場志工心得</a>
       </li>
     
@@ -694,10 +722,6 @@ gem update
         <a href="/2012/08/17/tjdict-english-chinese-dictionary-for-chrome/">TJDict - Chrome 英漢、漢英網路集成字典</a>
       </li>
     
-      <li class="post">
-        <a href="/2012/07/31/love-telless-mindset/">把愛說出來 - 追求者心態</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -708,7 +732,7 @@ gem update
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.32085561497327%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.32085561497327%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.92513368983957%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.32085561497327%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(187)</a> <a href='/categories/chrome' style='font-size: 100.64171122994652%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64171122994652%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.28342245989305%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.32085561497327%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.56684491978609%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.32085561497327%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.24598930481284%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.32085561497327%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.64171122994652%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.32085561497327%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.32085561497327%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.11764705882354%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.32085561497327%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.32085561497327%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.24598930481284%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.60427807486631%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.32085561497327%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.32085561497327%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 100.96256684491979%'>Ruby(3)</a> <a href='/categories/swing' style='font-size: 100.32085561497327%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.32085561497327%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.32085561497327%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.32085561497327%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.58823529411765%'>Works(33)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.32085561497327%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.32085561497327%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.92513368983957%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.32085561497327%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(187)</a> <a href='/categories/chrome' style='font-size: 100.64171122994652%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.64171122994652%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.28342245989305%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.32085561497327%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.56684491978609%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.32085561497327%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.24598930481284%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.64171122994652%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.32085561497327%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.32085561497327%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.32085561497327%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.11764705882354%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.32085561497327%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.32085561497327%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.24598930481284%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.60427807486631%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.32085561497327%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.32085561497327%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.28342245989305%'>Ruby(4)</a> <a href='/categories/swing' style='font-size: 100.32085561497327%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.32085561497327%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.32085561497327%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.32085561497327%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.58823529411765%'>Works(33)</a> </span>
 </section>
 
 
