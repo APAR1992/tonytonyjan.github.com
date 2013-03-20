@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/ruby/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-02-19T15:08:04+08:00</updated>
+  <updated>2013-03-20T16:52:15+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[凱薩密碼中文版]]></title>
+    <link href="http://tonytonyjan.net/2013/03/20/tj-caesar-cipher/"/>
+    <updated>2013-03-20T16:33:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/03/20/tj-caesar-cipher</id>
+    <content type="html"><![CDATA[<p>靈感是受到凱薩密碼的影響，且英文論壇中為了避免髒話或敏感詞彙被擋，有 rot13 的出現（其實就是凱薩加密，key 設定成 13，所以 rot13 兩次會等於原來的句子）。想說中文也可這樣玩，所以決定寫一個全世界最沒用的玩具。</p>
+
+<h2>安裝</h2>
+
+<pre><code>gem install tj_caesar_cipher
+</code></pre>
+
+<h2>使用</h2>
+
+<p>``` ruby</p>
+
+<pre><code>require 'tj_caesar_cipher'
+s1 = TJCaesarCipher.new("tonytonyjan")
+# =&gt; "tonytonyjan" 
+s1.rot_en! # 預設就是 rot13
+# =&gt; "gbalgbalwna" 
+s1.rot_en! # 再執行一次就會恢復原狀
+# =&gt; "tonytonyjan" 
+s1.rot_en(12) # 也可以給不同的 key
+# =&gt; "gbalgbalwna" 
+
+#  s2 = TJCaesarCipher.new("我是厲鬼，不是大神")
+# =&gt; "我是厲鬼，不是大神" 
+s2.rot_cjk!
+# =&gt; "諸輖粙牕，直輖舎偷" 
+s2.rot_cjk!
+# =&gt; "我是厲鬼，不是大神" 
+s2.rot_cjk(1)
+# =&gt; "戒昰厳鬽，与昰夨祟"
+</code></pre>
+
+<p>```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby 2.0 重點介紹]]></title>

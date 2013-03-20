@@ -4,7 +4,7 @@
   <title><![CDATA[不歸錄]]></title>
   <link href="http://tonytonyjan.net/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-02-19T15:08:04+08:00</updated>
+  <updated>2013-03-20T16:52:15+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[凱薩密碼中文版]]></title>
+    <link href="http://tonytonyjan.net/2013/03/20/tj-caesar-cipher/"/>
+    <updated>2013-03-20T16:33:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/03/20/tj-caesar-cipher</id>
+    <content type="html"><![CDATA[<p>靈感是受到凱薩密碼的影響，且英文論壇中為了避免髒話或敏感詞彙被擋，有 rot13 的出現（其實就是凱薩加密，key 設定成 13，所以 rot13 兩次會等於原來的句子）。想說中文也可這樣玩，所以決定寫一個全世界最沒用的玩具。</p>
+
+<h2>安裝</h2>
+
+<pre><code>gem install tj_caesar_cipher
+</code></pre>
+
+<h2>使用</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;tj_caesar_cipher&#39;</span>
+</span><span class='line'><span class="n">s1</span> <span class="o">=</span> <span class="no">TJCaesarCipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;tonytonyjan&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;tonytonyjan&quot; </span>
+</span><span class='line'><span class="n">s1</span><span class="o">.</span><span class="n">rot_en!</span> <span class="c1"># 預設就是 rot13</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;gbalgbalwna&quot; </span>
+</span><span class='line'><span class="n">s1</span><span class="o">.</span><span class="n">rot_en!</span> <span class="c1"># 再執行一次就會恢復原狀</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;tonytonyjan&quot; </span>
+</span><span class='line'><span class="n">s1</span><span class="o">.</span><span class="n">rot_en</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># 也可以給不同的 key</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;gbalgbalwna&quot; </span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#  s2 = TJCaesarCipher.new(&quot;我是厲鬼，不是大神&quot;)</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;我是厲鬼，不是大神&quot; </span>
+</span><span class='line'><span class="n">s2</span><span class="o">.</span><span class="n">rot_cjk!</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;諸輖粙牕，直輖舎偷&quot; </span>
+</span><span class='line'><span class="n">s2</span><span class="o">.</span><span class="n">rot_cjk!</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;我是厲鬼，不是大神&quot; </span>
+</span><span class='line'><span class="n">s2</span><span class="o">.</span><span class="n">rot_cjk</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;戒昰厳鬽，与昰夨祟&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[笑典 - 教育部國語辭典 Chrome 離線版]]></title>
@@ -1802,50 +1857,6 @@ int main(int argc, char* args[]){
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[冰冰涼涼的 Ju-Ju]]></title>
-    <link href="http://tonytonyjan.net/2012/05/04/freeze-the-balls/"/>
-    <updated>2012-05-04T13:40:00+08:00</updated>
-    <id>http://tonytonyjan.net/2012/05/04/freeze-the-balls</id>
-    <content type="html"><![CDATA[<p><img src="http://tonytonyjan.net/images/ice-ball.jpg"></p>
-
-<p>確切時間已經記不得了，似乎是小三暑假時發生的事情吧。</p>
-
-<p>我們都知道當在劇烈運動過後，為了對付隔天的肌肉酸痛，通常就會拿出每個家裡幾乎都會有的法寶：酸痛藥膏。是的，就塗在酸痛的皮膚上，冰冰涼涼，除了舒緩之外，就是舒服了。</p>
-
-<p>而我當初年少不懂事，看到什麼都當玩具，不外乎酸痛藥膏竟然也沒問題。那天因為天氣很熱，且身形長得快，已經無法將自己關在冰箱，我靈機一動想到以前媽媽有幫我塗過一種藥膏，記得塗完後會感覺冰冰涼涼，心想只要找到這個，如果再加上電風扇加持，哇！那一定暑氣全消吧！</p>
-
-<p>我一邊心裡竊喜自己是天才，一邊拿起酸痛藥膏在身上亂塗：手上、肚子、腿上。果不其然，三兩下雙手所及之處，全都感覺冰冰涼涼，我就舒爽地躺在床上，享受著盛夏的午後時光，殊不知災難即將降臨。</p>
-
-<p>是的，故事本應這麼圓滿結束，只是我太大意了，導致接下來發生的事情會讓我後悔莫及。</p>
-
-<h3><strong>我竟然把藥膏塗在 Ju-Ju 上面！</strong></h3>
-
-<!-- more -->
-
-
-<p>不知道各位有沒有看過猴子走路，就算有看過，我論閣下也沒見識過猴子一邊走還一邊顏面抽搐加流眼淚，而且偶爾還會跳八家將。哇……你心想如果這隻若不是地表最強之猴子，就是猴子壞掉了。而如果你當時在現場看到我，你一定還會相信只要肯努力，其實人也可以做得到。</p>
-
-<p>我就這麼折騰了約莫半個鐘頭，終於獲得一些舒緩（與上述舒緩相反的舒緩），從外表已經看不出剛剛有發生大霹靂。</p>
-
-<p>就在這時我弟弟出現了。</p>
-
-<p>「哥，你在幹麼？」</p>
-
-<p>「塗這個啊，超涼的而且很舒服，你要不要試試看？」</p>
-
-<p>（塗塗塗）</p>
-
-<p>「真的耶！」</p>
-
-<p>「告訴你，塗在『那裡』會更舒服，真的，不騙你，我剛剛有塗過。」</p>
-
-<p>然後他照做了。</p>
-
-<p><img src="http://tonytonyjan.net/images/trollface.jpg"></p>
 ]]></content>
   </entry>
   
