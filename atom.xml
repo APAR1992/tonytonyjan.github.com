@@ -4,7 +4,7 @@
   <title><![CDATA[不歸錄]]></title>
   <link href="http://tonytonyjan.net/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-03-20T16:52:15+08:00</updated>
+  <updated>2013-03-20T16:56:39+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -55,7 +55,7 @@
 </span><span class='line'><span class="n">s1</span><span class="o">.</span><span class="n">rot_en</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># 也可以給不同的 key</span>
 </span><span class='line'><span class="c1"># =&gt; &quot;gbalgbalwna&quot; </span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">#  s2 = TJCaesarCipher.new(&quot;我是厲鬼，不是大神&quot;)</span>
+</span><span class='line'><span class="n">s2</span> <span class="o">=</span> <span class="no">TJCaesarCipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;我是厲鬼，不是大神&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="c1"># =&gt; &quot;我是厲鬼，不是大神&quot; </span>
 </span><span class='line'><span class="n">s2</span><span class="o">.</span><span class="n">rot_cjk!</span>
 </span><span class='line'><span class="c1"># =&gt; &quot;諸輖粙牕，直輖舎偷&quot; </span>
@@ -65,6 +65,29 @@
 </span><span class='line'><span class="c1"># =&gt; &quot;戒昰厳鬽，与昰夨祟&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>如果你好奇中文版的 rot13 到底怎麼作到的……</p>
+
+<pre><code>...
+def rot_cjk! key = nil
+  [
+    (0x3040..0x309F),   # Hiragana
+    (0x30A0..0x30FF),   # Katakana
+    (0x3400..0x4DB5),   # CJKUI Ext A block
+    (0x4E00..0x9FCC),   # CJK Unified Ideographs block
+    (0x20000..0x2A6D6), # CJKUI Ext B block
+    (0x2A700..0x2B734), # CJKUI Ext C block.
+    (0x2B740..0x2B81D)  # CJKUI Ext D block.
+  ].each{|range|
+    range = (range.min..range.max+1) if range.count.odd?
+    self.rot_unicode!(key || range.count/2, range)
+  }
+  self
+end
+...
+</code></pre>
+
+<p>以上XD</p>
 ]]></content>
   </entry>
   
