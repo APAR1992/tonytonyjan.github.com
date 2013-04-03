@@ -4,7 +4,7 @@
   <title><![CDATA[不歸錄]]></title>
   <link href="http://tonytonyjan.net/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-03-28T16:40:30+08:00</updated>
+  <updated>2013-04-03T14:10:37+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Potluck]]></title>
+    <link href="http://tonytonyjan.net/2013/04/01/potluck/"/>
+    <updated>2013-04-01T12:18:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/04/01/potluck</id>
+    <content type="html"><![CDATA[<p><img src="http://tonytonyjan.net/images/potluck/19.jpg"></p>
+
+<p>↑開飯前大合影。</p>
+
+<p><img src="http://tonytonyjan.net/images/potluck/16.jpg"></p>
+
+<p>↑豐盛的菜餚。</p>
+
+<p><a href="http://tonytonyjan.net/images/potluck/">所有照片</a></p>
+
+<hr />
+
+<p>這場 Potluck 的誕生，可以追溯到二月的時候與 CSSula 成員們一起去看「決殺令」，散會後我與煥博、翔先生於樹太老續攤，順口提到，交給煥博當主辦，故有此盛宴。</p>
+
+<p>簡白的說，<a href="http://en.wikipedia.org/wiki/Potluck">Potluck</a> 就是一群人聚餐時，每個人親自準備一道菜的聚會。記得幾年前我也要在嘉義辦一樣的活動（那時並不知道這叫「Potluck」，中文似乎也沒有對應的詞彙），但大多朋友都忙於工作，最後決定是訂一家餐廳聚會，頗是可惜。所以這次有幸可以參加這樣有趣的活動，可以說非常的高興。</p>
+
+<p>老實說我不太會下廚呢（但我很會洗碗），在家裡可以吃到媽媽、外婆做的美味家常菜，對於自己親自下廚的吸引力就減了大半。所以我挑了一個簡單的「雞肉蕃茄咖哩」，基本上簡單到可以用膝蓋煮，只要材料比例正確，膝蓋沒有壞掉，且至少不要煮成咖哩「湯」就行了。（曾考慮泡麵，但事後覺得這樣太沒誠意了XD）</p>
+
+<!-- more -->
+
+
+<p><img src="http://tonytonyjan.net/images/potluck/1.jpg" width="400"></p>
+
+<p>↑第一個步驟：正在削馬鈴薯的我。</p>
+
+<p><img src="http://tonytonyjan.net/images/potluck/28.jpg" width="400"></p>
+
+<p>↑最後一個步驟：咖哩與我。</p>
+
+<p><img src="http://tonytonyjan.net/images/potluck/26.jpg" width="400"></p>
+
+<p>↑Kevin 的招牌沾醬蛋。</p>
+
+<p><img src="http://tonytonyjan.net/images/potluck/27.jpg" width="400"></p>
+
+<p>↑煥博與他的白醬義大利麵。（誇一下，這一道料理這超香的！）</p>
+
+<p><img src="http://tonytonyjan.net/images/potluck/30.jpg" width="400"></p>
+
+<p>↑翔先生與他的烤棒棒腿。</p>
+
+<p><img src="http://tonytonyjan.net/images/potluck/20.jpg" width="400"></p>
+
+<p>↑AC 的蛋包飯。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[台科面試遊記]]></title>
@@ -1497,96 +1549,6 @@ int main(int argc, char* args[]){
 <p>I have no idea how it worth. I just made it when I still think it&#8217;s interesting. =D</p>
 
 <p>Enjoy!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[N-Gram 斷詞法實做]]></title>
-    <link href="http://tonytonyjan.net/2012/06/06/an-n-gram-generator-for-ruby/"/>
-    <updated>2012-06-06T17:59:00+08:00</updated>
-    <id>http://tonytonyjan.net/2012/06/06/an-n-gram-generator-for-ruby</id>
-    <content type="html"><![CDATA[<p>今天心血來潮在 RubyGems 搜尋了一下看有沒有可用的 N-Grams library，確實也給我找到幾個，但可惜的是他們只有針對英文做斷詞，沒有針對中日韓。我們可想像的到英文的斷詞和中文的斷詞是截然不同的，但現在許多文章卻又中英日混雜，面對這種文章，那些 library 起不了什麼作用。</p>
-
-<p>於是用下午的時間我就自己寫了一個來解決這類的問題：</p>
-
-<!-- more -->
-
-
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">TJNGram</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">process</span> <span class="n">n</span><span class="p">,</span> <span class="n">content</span>
-</span><span class='line'>    <span class="c1"># matche Chinese, English, Japanes and Korean words</span>
-</span><span class='line'>    <span class="n">pattern</span> <span class="o">=</span> <span class="sr">%r((\w+)|([\u3041-\u9FFF]))</span>
-</span><span class='line'>    <span class="c1"># record if the token is an English word</span>
-</span><span class='line'>    <span class="n">is_english</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1"># tokenize</span>
-</span><span class='line'>    <span class="n">tokens</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>    <span class="n">content</span><span class="o">.</span><span class="n">scan</span><span class="p">(</span><span class="n">pattern</span><span class="p">){</span><span class="o">|</span><span class="n">e</span><span class="p">,</span><span class="n">c</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">is_english</span><span class="o">[</span><span class="n">e</span> <span class="o">||</span> <span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="n">e</span> <span class="p">?</span> <span class="kp">true</span> <span class="p">:</span> <span class="kp">false</span>
-</span><span class='line'>      <span class="n">tokens</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">e</span> <span class="o">||</span> <span class="n">c</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">resault</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">n</span><span class="o">.</span><span class="n">times</span><span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">tokens</span><span class="o">.</span><span class="n">each_slice</span><span class="p">(</span><span class="n">n</span><span class="p">){</span><span class="o">|</span><span class="n">slice</span><span class="o">|</span>
-</span><span class='line'>        <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-</span><span class='line'>        <span class="n">pre_state</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'>        <span class="n">slice</span><span class="o">.</span><span class="n">each</span><span class="p">{</span><span class="o">|</span><span class="n">token</span><span class="o">|</span>
-</span><span class='line'>          <span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot; &quot;</span> <span class="k">if</span> <span class="o">!</span><span class="n">pre_state</span><span class="o">.</span><span class="n">nil?</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">pre_state</span> <span class="o">||</span> <span class="n">is_english</span><span class="o">[</span><span class="n">token</span><span class="o">]</span><span class="p">)</span>
-</span><span class='line'>          <span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="n">token</span>
-</span><span class='line'>          <span class="n">pre_state</span> <span class="o">=</span> <span class="n">is_english</span><span class="o">[</span><span class="n">token</span><span class="o">]</span>
-</span><span class='line'>        <span class="p">}</span>
-</span><span class='line'>        <span class="n">resault</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>      <span class="n">tokens</span><span class="o">.</span><span class="n">shift</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="n">resault</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><a href="http://tonytonyjan.net/blog/tjngram">說明文件</a></li>
-</ul>
-
-
-<p>演算法簡單，程式碼相當短，比較麻煩的地方在 pattern 裡頭，對於 unicode 範圍的定義花了點功夫去做調整，可濾掉標點符號（大部分，仍有落網之魚），只取出中日韓的單字和英文單字。</p>
-
-<p>這段程式碼已經放在 <a href="https://github.com/tonytonyjan/TJNGram">Github</a> 和 <a href="https://rubygems.org/gems/TJNGram">RugyGems</a> 上面。</p>
 ]]></content>
   </entry>
   
