@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Chrome | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/chrome/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-03T14:10:37+08:00</updated>
+  <updated>2013-04-22T22:23:17+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -126,7 +126,7 @@
 
 <h4>version</h4>
 
-<p>代表該 Extension 的版本，最多由四個整數組成，並且用 <code>.</code> 分開，數字必須介在 0 到 65535 之間，而且不可以以 0 當開頭，舉例：</p>
+<p>代表該 Extension 的版本，最多由四個整數組成，並且用 <code>.</code> 分開，數字必須介在 0 到 65535 之間，而且非零的數字不可以 0 當開頭，舉例：</p>
 
 <ul>
 <li>錯誤：
