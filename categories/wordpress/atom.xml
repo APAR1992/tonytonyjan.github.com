@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordpress | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/wordpress/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -37,13 +37,13 @@
 <p>這是我粗糙的程式碼，程式碼中大寫的部份可以改成別的資料，這東西可以寫得更完善，達到無痛搬家。我想如果網路上沒有開源項目，也許考慮奉獻看看（總之得先看看其他人怎麼寫吧）。</p>
 
 <p>``` ruby Ruby code to migrate from Wordpress to Octopress.
-require 'mysql2'
-require 'open-uri'</p>
+require &lsquo;mysql2&rsquo;
+require &lsquo;open-uri&rsquo;</p>
 
 <p>def create_post datetime, title, content
-  date = datetime.strftime("%Y-%m-%d")
-  time = datetime.strftime("%H:%M:%S")
-  File.open("YOUR_OCTOPRESS_ROOT/source/_posts/#{date}-#{title}.markdown", "w"){|f|</p>
+  date = datetime.strftime(&ldquo;%Y-%m-%d&rdquo;)
+  time = datetime.strftime(&ldquo;%H:%M:%S&rdquo;)
+  File.open(&ldquo;YOUR_OCTOPRESS_ROOT/source/_posts/#{date}&ndash;#{title}.markdown&rdquo;, &ldquo;w&rdquo;){|f|</p>
 
 <pre><code>yaml = &lt;&lt;eos
 </code></pre>
@@ -51,7 +51,7 @@ require 'open-uri'</p>
 <hr />
 
 <p>layout: post
-title: "#{title}"
+title: &ldquo;#{title}&rdquo;
 date: #{date} #{time}
 comments: true</p>
 
@@ -79,13 +79,13 @@ f.write(yaml+content)
 end</p>
 
 <p>client = Mysql2::Client.new(
-  :host => "YOUR_HOST",
-  :username => "YOUR_USERNAME",
-  :password=>"YOUR_PASSWORD",
-  :database=>"YOUR_DATABASE_NAME"
+  :host => &ldquo;YOUR_HOST&rdquo;,
+  :username => &ldquo;YOUR_USERNAME&rdquo;,
+  :password=>&ldquo;YOUR_PASSWORD&rdquo;,
+  :database=>&ldquo;YOUR_DATABASE_NAME&rdquo;
 )</p>
 
-<p>client.query("select * from wp_posts where post_type='post' &amp;&amp; post_author=3 &amp;&amp; post_status='publish';").each do |row|
+<p>client.query(&ldquo;select * from wp_posts where post_type=&lsquo;post&rsquo; &amp;&amp; post_author=3 &amp;&amp; post_status=&lsquo;publish&rsquo;;&rdquo;).each do |row|
   begin</p>
 
 <pre><code>create_post row["post_date"], row["post_title"], row["post_content"]

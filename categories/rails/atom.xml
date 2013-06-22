@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/rails/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -29,7 +29,7 @@
 
 <p><a href="http://tj-markdown-paste.herokuapp.com">TJMarkdownPaste</a> is a Markdown bloggin service with Tex mathematical syntax and automatic code highlight.</p>
 
-<p>It aims to build a blogging service that belongs to we engineers and mathematician. It's a leisure project after my work, so there is no explicit schedule or plan. Feel free to <a href="https://github.com/tonytonyjan/tj-markdown-paste">join us</a> if your are interested in our project, then we can work together and discuss about the future of TJMarkdownPaste in the future together. =)</p>
+<p>It aims to build a blogging service that belongs to we engineers and mathematician. It&rsquo;s a leisure project after my work, so there is no explicit schedule or plan. Feel free to <a href="https://github.com/tonytonyjan/tj-markdown-paste">join us</a> if your are interested in our project, then we can work together and discuss about the future of TJMarkdownPaste in the future together. =)</p>
 
 <p><img class="right" src="/images/tjmarkdownpaste2.png"></p>
 ]]></content>
@@ -87,7 +87,7 @@
 <noscript><pre><code># Generate home controller
 File::unlink &quot;public/index.html&quot;
 generate(:controller, &quot;home index about contact&quot;)
-route &quot;root :to =&gt; 'home#index'&quot;
+route &quot;root :to =&gt; &#39;home#index&#39;&quot;
 
 # Install gem
 
@@ -110,7 +110,7 @@ gem_group :development do
 end
 
 # Install Twitter Boostrap to vendor/assets/
-require 'zip/zip'
+require &#39;zip/zip&#39;
 bootstrap_zip = open(&quot;http://twitter.github.com/bootstrap/assets/bootstrap.zip&quot;)
 Zip::ZipFile.open(bootstrap_zip) do |zipfile|
   zipfile.each{|entry|
@@ -119,7 +119,7 @@ Zip::ZipFile.open(bootstrap_zip) do |zipfile|
     when /bootstrap\/js\/.+/
       vendor(&quot;assets/javascripts/#{base_name}&quot;, entry.get_input_stream().read())
     when /bootstrap\/css\/.+/
-      vendor(&quot;assets/stylesheets/#{base_name}&quot;, entry.get_input_stream().read().gsub(/&quot;.*\/(.*\.png)&quot;/, '&quot;\1&quot;'))
+      vendor(&quot;assets/stylesheets/#{base_name}&quot;, entry.get_input_stream().read().gsub(/&quot;.*\/(.*\.png)&quot;/, &#39;&quot;\1&quot;&#39;))
     when /bootstrap\/img\/.+/
       vendor(&quot;assets/images/#{base_name}&quot;, entry.get_input_stream().read())
     end
@@ -129,7 +129,7 @@ end
 # First Commit
 git :init
 git :add =&gt; &quot;.&quot;
-git :commit =&gt; '-m &quot;init&quot;'</code></pre></noscript></div>
+git :commit =&gt; &#39;-m &quot;init&quot;&#39;</code></pre></noscript></div>
 </p>
 ]]></content>
   </entry>
@@ -143,11 +143,11 @@ git :commit =&gt; '-m &quot;init&quot;'</code></pre></noscript></div>
 
 <p>Last week, I just realized one of my ideas, named <a href="http://tjslides.herokuapp.com">TJSlides</a>.</p>
 
-<p>TJSlides is a text based slides generator using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax. What you need is a text area, and you can easily make a presentation. I think it's cool, isn't it?</p>
+<p>TJSlides is a text based slides generator using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax. What you need is a text area, and you can easily make a presentation. I think it&rsquo;s cool, isn&rsquo;t it?</p>
 
-<p>I had this sudden interesting inspiration last week, then I tried to google this idea and found someone has made this named <a href="https://github.com/bmcmurray/hekyll">Hekyll</a>, however, I don't think it's convenient enough on account of it's dependency on <a href="https://github.com/mojombo/jekyll">Jekyll</a>. I need to run command by hand to generate slides, that's too troublesome.</p>
+<p>I had this sudden interesting inspiration last week, then I tried to google this idea and found someone has made this named <a href="https://github.com/bmcmurray/hekyll">Hekyll</a>, however, I don&rsquo;t think it&rsquo;s convenient enough on account of it&rsquo;s dependency on <a href="https://github.com/mojombo/jekyll">Jekyll</a>. I need to run command by hand to generate slides, that&rsquo;s too troublesome.</p>
 
-<p>I have no idea how it worth. I just made it when I still think it's interesting. =D</p>
+<p>I have no idea how it worth. I just made it when I still think it&rsquo;s interesting. =D</p>
 
 <p>Enjoy!</p>
 ]]></content>
@@ -164,17 +164,17 @@ git :commit =&gt; '-m &quot;init&quot;'</code></pre></noscript></div>
 
 <p>``` ruby Experiment in controller
 set_trace_func proc { |event, file, line, id, binding, classname|
-   printf "%8s %s:%-2d %10s %8s\n", event, file, line, id, classname
+   printf &ldquo;%8s %s:%-2d %10s %8s\n&rdquo;, event, file, line, id, classname
 }
 params[:id]
 set_trace_func nil</p>
 
-<p>puts "=====================" # 我不希望 trace 到 puts method</p>
+<p>puts &ldquo;=====================&rdquo; # 我不希望 trace 到 puts method</p>
 
 <p>set_trace_func proc { |event, file, line, id, binding, classname|
-   printf "%8s %s:%-2d %10s %8s\n", event, file, line, id, classname
+   printf &ldquo;%8s %s:%-2d %10s %8s\n&rdquo;, event, file, line, id, classname
 }
-params["id"]
+params[&ldquo;id&rdquo;]
 set_trace_func nil
 ```</p>
 
@@ -193,7 +193,7 @@ call C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.2/lib/action_dispatch/ht
 line C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.2/lib/action_dispatch/http/parameters.rb:9  parameters ActionDispatch::Http::Parameters
 </code></pre>
 
-<p>  return C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.2/lib/action_dispatch/http/parameters.rb:14 parameters ActionDispatch::Http::Parameters
+<p>  return C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.2/lib/action_dispatch/http/parameters.rb:14 parameters ActionDispatch::<a href="Http::Parameters">Http::Parameters</a>
   return C:/Ruby193/lib/ruby/gems/1.9.1/gems/actionpack-3.2.2/lib/action_controller/metal.rb:145     params ActionController::Metal
   c-call D:/TonySpace/workspace/monster-fighter/app/controllers/api_controller.rb:62         []     Hash</p>
 
@@ -352,10 +352,10 @@ class MyModel &lt; ActiveRecord::Base
 end
 </code></p>
 
-<p>但是建議最好還是以指令方式產生比較省時，記得加上 --skip-migration 參數即可，除此還可以得到 test unit。</p>
+<p>但是建議最好還是以指令方式產生比較省時，記得加上 &mdash;skip-migration 參數即可，除此還可以得到 test unit。</p>
 
 <p>```
-$ rails g model my_model --skip-migration</p>
+$ rails g model my_model &mdash;skip-migration</p>
 
 <pre><code>  invoke  active_record
   create    app/models/my_model.rb
@@ -401,7 +401,7 @@ end
 
 <p>正常情況下，Active Record 會在我們產生新的 record 時自動產生 primary key，名為 id ，且是會遞增的整數。然而，如果我們在 table 上使用其他 column name 做為 primary key 的名字，我們同時有責任要重新定義該 record 上的 primary key，正如上方展示的程式碼。</p>
 
-<p>神奇的事發生了，我們仍可以透過 id 方法去存取的 primary key。這是因為 Active Record 慣於將 primary key 的操作綁在 id 和 id= 等方法，而 set_primary_key 只是投射 id 會指向的 column name。下方程式碼展示了在 primary key 是 "title" 的情況下用 id 去存取 primary key：</p>
+<p>神奇的事發生了，我們仍可以透過 id 方法去存取的 primary key。這是因為 Active Record 慣於將 primary key 的操作綁在 id 和 id= 等方法，而 set_primary_key 只是投射 id 會指向的 column name。下方程式碼展示了在 primary key 是 &ldquo;title&rdquo; 的情況下用 id 去存取 primary key：</p>
 
 <p><code>
 irb(main):010:0&gt; MyModel.first.stuid
@@ -413,7 +413,7 @@ irb(main):012:0&gt; MyModel.find("A Title")
 irb(main):013:0&gt;
 </code></p>
 
-<p>相當乾淨俐落地解決了第三個問題，至於第四個問題，composite primary key，該怎麼辦？假設該 composite primary keys 分別為 title 和 description。恩，加個's'：</p>
+<p>相當乾淨俐落地解決了第三個問題，至於第四個問題，composite primary key，該怎麼辦？假設該 composite primary keys 分別為 title 和 description。恩，加個&rsquo;s'：</p>
 
 <p><code>ruby app/models/my_model.rb
 class MyModel &lt; ActiveRecord::Base
@@ -422,7 +422,7 @@ class MyModel &lt; ActiveRecord::Base
 end
 </code></p>
 
-<p>然後你會免費被贈送一個 NoMethodError Exception。在你一邊擦螢幕時，請聽我說：既然RoR都說不支援了，哪有這麼簡單的事情讓你加個's'就解決呢？這個問題目前的解決方案是透過 plugin 來實現。你可以參考[這一頁] (http://weblog.rubyonrails.org/2006/7/30/composite-primary-keys-for-active-record)。你會發現，裝完這個 plugin 之後，確實就只要加上一個 <code>s</code>。XD</p>
+<p>然後你會免費被贈送一個 NoMethodError Exception。在你一邊擦螢幕時，請聽我說：既然RoR都說不支援了，哪有這麼簡單的事情讓你加個&rsquo;s'就解決呢？這個問題目前的解決方案是透過 plugin 來實現。你可以參考[這一頁] (<a href="http://weblog.rubyonrails.org/2006/7/30/composite-primary-keys-for-active-record">http://weblog.rubyonrails.org/2006/7/30/composite-primary-keys-for-active-record</a>)。你會發現，裝完這個 plugin 之後，確實就只要加上一個 <code>s</code>。XD</p>
 ]]></content>
   </entry>
   

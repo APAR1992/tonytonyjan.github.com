@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="What&#8217;s the Problem? We may leave some draft posts in _posts directory, but it comes a problem when we are going to find whether the post is &hellip;">
+  <meta name="description" content="What&rsquo;s the Problem? We may leave some draft posts in _posts directory, but it comes a problem when we are going to find whether the post is &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -111,11 +111,11 @@
   </header>
 
 
-<div class="entry-content"><h2>What&#8217;s the Problem?</h2>
+<div class="entry-content"><h2>What&rsquo;s the Problem?</h2>
 
 <p>We may leave some draft posts in <code>_posts</code> directory, but it comes a problem when we are going to find whether the post is published or not by reading throuh filenames in the future.</p>
 
-<p>To solve this, I created this rake task. It will list all posts each line, and prepend an asterisk if it&#8217;s published. Just append it in your <code>Rakefile</code> to make it works.</p>
+<p>To solve this, I created this rake task. It will list all posts each line, and prepend an asterisk if it&rsquo;s published. Just append it in your <code>Rakefile</code> to make it works.</p>
 
 <h3>Usage</h3>
 
@@ -125,7 +125,7 @@ rake list_posts[pub|unpub]
 
 <div><script src='https://gist.github.com/2574782.js'></script>
 <noscript><pre><code># usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to &quot;new-page.markdown&quot;)
-desc &quot;List all posts with an asterisk if it's published. Advanced usage: 'rake list_posts[pub|unpub]'&quot;
+desc &quot;List all posts with an asterisk if it&#39;s published. Advanced usage: &#39;rake list_posts[pub|unpub]&#39;&quot;
 task :list_posts, :type do |t, args|
   type = args.type
   
@@ -137,11 +137,11 @@ task :list_posts, :type do |t, args|
     
     case type
     when &quot;pub&quot; then 
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] || data['published'] == nil
+      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] || data[&#39;published&#39;] == nil
     when &quot;unpub&quot;
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] == false
+      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] == false
     else
-      status = data['published'] || data['published'] == nil ? '*' : ' '
+      status = data[&#39;published&#39;] || data[&#39;published&#39;] == nil ? &#39;*&#39; : &#39; &#39;
       result &lt;&lt; &quot;#{status} #{File.basename(post)}\n&quot;
     end
   end
@@ -242,6 +242,10 @@ end</code></pre></noscript></div>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/06/22/the-human-cloning-wall/">The Human Cloning Wall</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/04/22/first-time-to-attend-ruby-tuesday/">Ruby Tuesday Taiwan #22 初體驗</a>
       </li>
     
@@ -277,10 +281,6 @@ end</code></pre></noscript></div>
         <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
       </li>
     
-      <li class="post">
-        <a href="/2012/12/12/tjmarkdownpaste-markdown-with-tex-code-highlight/">TJMarkdownPaste - Markdown with Tex and code highlight</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -291,7 +291,7 @@ end</code></pre></noscript></div>
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.73684210526315%'>Works(34)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
 </section>
 
 

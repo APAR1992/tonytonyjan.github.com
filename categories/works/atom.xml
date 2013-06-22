@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Works | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/works/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Human Cloning Wall]]></title>
+    <link href="http://tonytonyjan.net/2013/06/22/the-human-cloning-wall/"/>
+    <updated>2013-06-22T07:29:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/06/22/the-human-cloning-wall</id>
+    <content type="html"><![CDATA[<p>好一陣子沒更新了，來個濫竽充數好了。是說前鎮子（應該算好久一陣子了XD） 2013 的韓國小姐引起一陣複製人的話題，拿來揶揄的、<a href="http://jbhuang0604.blogspot.tw/2013/04/miss-korea-2013-contestants-face.html">做研究的</a>、人臉辨識的，什麼都有，而我當時也一時興起拿以前的玩具做了一個<a href="http://human-cloning-wall.herokuapp.com/">記憶翻排遊戲</a>。</p>
+
+<p>除了遊戲本身之外，還有積分排名的功能，enjoy。</p>
+
+<p><img src="/images/human-cloning.png"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[笑典 - 教育部國語辭典 Chrome 離線版]]></title>
@@ -107,25 +120,6 @@
 
 
 <p>備註：結果裡面錄到的都是蟬和火車聲，好險沒有飛機經過，不然要重錄了XD</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[～音樂創作～遊戲配樂1]]></title>
-    <link href="http://tonytonyjan.net/2010/09/18/45/"/>
-    <updated>2010-09-18T08:33:27+08:00</updated>
-    <id>http://tonytonyjan.net/2010/09/18/45</id>
-    <content type="html"><![CDATA[<p>少了主控鍵盤，用純滑鼠作音樂確實比較不容易高潮啊&hellip;&hellip;</p>
-
-
-<p><object height="60" width="180" data="http://vlog.xuite.net/_a/MzA1NTA2NQ==&amp;ar=1&amp;as=1" type="application/x-shockwave-flash" id="MzA1NTA2NQ=="><param name="name" value="MzA1NTA2NQ==" /><param name="allowScriptAccess" value="always" /><param name="allowFullScreen" value="true" /><param name="src" value="http://vlog.xuite.net/_a/MzA1NTA2NQ==&amp;ar=1&amp;as=1" /></object></p>
-
-
-<p>煥博同學的專題要做遊戲，翔先生請我幫忙作音樂，於是我就負責寫簡陋的遊戲配樂啦～（好不負責任的話XD）</p>
-
-
-<p>大概花一個小時半做出來的，完全用滑鼠點&hellip;好不習慣&hellip;可是誰叫我鍵盤放家裡呢QQ</p>
 
 ]]></content>
   </entry>

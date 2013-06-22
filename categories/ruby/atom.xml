@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/ruby/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -362,7 +362,7 @@ p %i{hurray huzzah whoop}   # =&gt; [:hurray, :huzzah, :whoop]
 <noscript><pre><code># Generate home controller
 File::unlink &quot;public/index.html&quot;
 generate(:controller, &quot;home index about contact&quot;)
-route &quot;root :to =&gt; 'home#index'&quot;
+route &quot;root :to =&gt; &#39;home#index&#39;&quot;
 
 # Install gem
 
@@ -385,7 +385,7 @@ gem_group :development do
 end
 
 # Install Twitter Boostrap to vendor/assets/
-require 'zip/zip'
+require &#39;zip/zip&#39;
 bootstrap_zip = open(&quot;http://twitter.github.com/bootstrap/assets/bootstrap.zip&quot;)
 Zip::ZipFile.open(bootstrap_zip) do |zipfile|
   zipfile.each{|entry|
@@ -394,7 +394,7 @@ Zip::ZipFile.open(bootstrap_zip) do |zipfile|
     when /bootstrap\/js\/.+/
       vendor(&quot;assets/javascripts/#{base_name}&quot;, entry.get_input_stream().read())
     when /bootstrap\/css\/.+/
-      vendor(&quot;assets/stylesheets/#{base_name}&quot;, entry.get_input_stream().read().gsub(/&quot;.*\/(.*\.png)&quot;/, '&quot;\1&quot;'))
+      vendor(&quot;assets/stylesheets/#{base_name}&quot;, entry.get_input_stream().read().gsub(/&quot;.*\/(.*\.png)&quot;/, &#39;&quot;\1&quot;&#39;))
     when /bootstrap\/img\/.+/
       vendor(&quot;assets/images/#{base_name}&quot;, entry.get_input_stream().read())
     end
@@ -404,7 +404,7 @@ end
 # First Commit
 git :init
 git :add =&gt; &quot;.&quot;
-git :commit =&gt; '-m &quot;init&quot;'</code></pre></noscript></div>
+git :commit =&gt; &#39;-m &quot;init&quot;&#39;</code></pre></noscript></div>
 </p>
 ]]></content>
   </entry>
@@ -523,21 +523,21 @@ end</p>
 
 <h1>Usage</h1>
 
-<p>f1('Hello'){|s| puts s}
-f2(10){|n| n.times{puts 'a'}}
+<p>f1(&lsquo;Hello&rsquo;){|s| puts s}
+f2(10){|n| n.times{puts &lsquo;a&rsquo;}}
 ```</p>
 
 <h2>More about Proc</h2>
 
 <p>Block Way 無法得知被參數化的 Block，其 Proc 的指標。如果要取得該 Proc 的指標，需要在最後一個參數前面加上 ’&amp;’，這東西只能有一個，且必須放在最後面，否則都會跳出 syntax error。</p>
 
-<p>``` ruby Don't do this!
+<p>``` ruby Don&rsquo;t do this!
 def f3(&amp;p, n) #syntax error
-  # ...
+  # &hellip;
 end</p>
 
 <p>def f4(n, &amp;p1, &amp;p2) #syntax error
-  # ...
+  # &hellip;
 end
 ```</p>
 
@@ -630,10 +630,10 @@ end</p>
 <p>  end
 end</p>
 
-<p>f5(A.new,"The World!", &amp;:f7)
+<p>f5(A.new,&ldquo;The World!&rdquo;, &amp;:f7)
 ```</p>
 
-<p>&amp;:f7 會去找第一個接到的參數，並呼叫 f7，及 f5 中的 n，而在那之後所有擲出的參數，都被當成 f7 的參數。所以 <code>f5(A.new,"The World!", &amp;:f7)</code> 的真正意思是「呼叫物件 A 的 f7 方法，並傳入 "The World!" 當參數」。</p>
+<p>&amp;:f7 會去找第一個接到的參數，並呼叫 f7，及 f5 中的 n，而在那之後所有擲出的參數，都被當成 f7 的參數。所以 <code>f5(A.new,"The World!", &amp;:f7)</code> 的真正意思是「呼叫物件 A 的 f7 方法，並傳入 &ldquo;The World!&rdquo; 當參數」。</p>
 
 <h2>Proc and Lambda</h2>
 
@@ -641,19 +641,19 @@ end</p>
 
 <p>``` ruby Compare Proc with Lambda
 def foo
-  f = Proc.new { return "return from foo from inside proc" }
+  f = Proc.new { return &ldquo;return from foo from inside proc&rdquo; }
   f.call # control leaves foo here
-  return "return from foo"
+  return &ldquo;return from foo&rdquo;
 end</p>
 
 <p>def bar
-  f = lambda { return "return from lambda" }
+  f = lambda { return &ldquo;return from lambda&rdquo; }
   f.call # control does not leave bar here
-  return "return from bar"
+  return &ldquo;return from bar&rdquo;
 end</p>
 
-<p>puts foo # prints "return from foo from inside proc"
-puts bar # prints "return from bar"
+<p>puts foo # prints &ldquo;return from foo from inside proc&rdquo;
+puts bar # prints &ldquo;return from bar&rdquo;
 ```</p>
 
 <p>除此之外，他們一樣。</p>

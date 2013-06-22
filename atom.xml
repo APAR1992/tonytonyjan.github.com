@@ -4,7 +4,7 @@
   <title><![CDATA[不歸錄]]></title>
   <link href="http://tonytonyjan.net/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Human Cloning Wall]]></title>
+    <link href="http://tonytonyjan.net/2013/06/22/the-human-cloning-wall/"/>
+    <updated>2013-06-22T07:29:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/06/22/the-human-cloning-wall</id>
+    <content type="html"><![CDATA[<p>好一陣子沒更新了，來個濫竽充數好了。是說前鎮子（應該算好久一陣子了XD） 2013 的韓國小姐引起一陣複製人的話題，拿來揶揄的、<a href="http://jbhuang0604.blogspot.tw/2013/04/miss-korea-2013-contestants-face.html">做研究的</a>、人臉辨識的，什麼都有，而我當時也一時興起拿以前的玩具做了一個<a href="http://human-cloning-wall.herokuapp.com/">記憶翻排遊戲</a>。</p>
+
+<p>除了遊戲本身之外，還有積分排名的功能，enjoy。</p>
+
+<p><img src="http://tonytonyjan.net/images/human-cloning.png"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby Tuesday Taiwan #22 初體驗]]></title>
@@ -670,7 +683,7 @@ end
 
 <p>不妨就試一下，彩券不括開怎麼知道有沒有中獎？</p>
 
-<p>延伸閱讀：<a href="http://tonytonyjan.net/2012/07/31/love-telless-mindset/">把愛說出來 - 追求者心態</a></p>
+<p>延伸閱讀：<a href="http://tonytonyjan.net/2012/07/31/love-telless-mindset/">把愛說出來 &ndash; 追求者心態</a></p>
 ]]></content>
   </entry>
   
@@ -690,7 +703,7 @@ end
 
 <p><a href="http://tj-markdown-paste.herokuapp.com">TJMarkdownPaste</a> is a Markdown bloggin service with Tex mathematical syntax and automatic code highlight.</p>
 
-<p>It aims to build a blogging service that belongs to we engineers and mathematician. It&#8217;s a leisure project after my work, so there is no explicit schedule or plan. Feel free to <a href="https://github.com/tonytonyjan/tj-markdown-paste">join us</a> if your are interested in our project, then we can work together and discuss about the future of TJMarkdownPaste in the future together. =)</p>
+<p>It aims to build a blogging service that belongs to we engineers and mathematician. It&rsquo;s a leisure project after my work, so there is no explicit schedule or plan. Feel free to <a href="https://github.com/tonytonyjan/tj-markdown-paste">join us</a> if your are interested in our project, then we can work together and discuss about the future of TJMarkdownPaste in the future together. =)</p>
 
 <p><img class="right" src="http://tonytonyjan.net/images/tjmarkdownpaste2.png"></p>
 ]]></content>
@@ -880,7 +893,7 @@ end
 <noscript><pre><code># Generate home controller
 File::unlink &quot;public/index.html&quot;
 generate(:controller, &quot;home index about contact&quot;)
-route &quot;root :to =&gt; 'home#index'&quot;
+route &quot;root :to =&gt; &#39;home#index&#39;&quot;
 
 # Install gem
 
@@ -903,7 +916,7 @@ gem_group :development do
 end
 
 # Install Twitter Boostrap to vendor/assets/
-require 'zip/zip'
+require &#39;zip/zip&#39;
 bootstrap_zip = open(&quot;http://twitter.github.com/bootstrap/assets/bootstrap.zip&quot;)
 Zip::ZipFile.open(bootstrap_zip) do |zipfile|
   zipfile.each{|entry|
@@ -912,7 +925,7 @@ Zip::ZipFile.open(bootstrap_zip) do |zipfile|
     when /bootstrap\/js\/.+/
       vendor(&quot;assets/javascripts/#{base_name}&quot;, entry.get_input_stream().read())
     when /bootstrap\/css\/.+/
-      vendor(&quot;assets/stylesheets/#{base_name}&quot;, entry.get_input_stream().read().gsub(/&quot;.*\/(.*\.png)&quot;/, '&quot;\1&quot;'))
+      vendor(&quot;assets/stylesheets/#{base_name}&quot;, entry.get_input_stream().read().gsub(/&quot;.*\/(.*\.png)&quot;/, &#39;&quot;\1&quot;&#39;))
     when /bootstrap\/img\/.+/
       vendor(&quot;assets/images/#{base_name}&quot;, entry.get_input_stream().read())
     end
@@ -922,7 +935,7 @@ end
 # First Commit
 git :init
 git :add =&gt; &quot;.&quot;
-git :commit =&gt; '-m &quot;init&quot;'</code></pre></noscript></div>
+git :commit =&gt; &#39;-m &quot;init&quot;&#39;</code></pre></noscript></div>
 
 ]]></content>
   </entry>
@@ -1041,7 +1054,7 @@ git :commit =&gt; '-m &quot;init&quot;'</code></pre></noscript></div>
 </tr>
 <tr>
 <td>連結（linking）        </td>
-<td> ld &#8230; （暫略）           </td>
+<td> ld &hellip; （暫略）           </td>
 <td>   ↓↓</td>
 </tr>
 <tr>
@@ -1524,34 +1537,6 @@ int main(int argc, char* args[]){
 
 
 <p>這個方法比先前的好多了，前一個對時間的計算相當依賴，而此法卻與時間無關，至少效能好上許多。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[寧靜之愛]]></title>
-    <link href="http://tonytonyjan.net/2012/07/05/silent-love/"/>
-    <updated>2012-07-05T01:29:00+08:00</updated>
-    <id>http://tonytonyjan.net/2012/07/05/silent-love</id>
-    <content type="html"><![CDATA[<p><img src="http://tonytonyjan.net/images/love.jpg"></p>
-
-<p>今天母親問了我一個很驚悚的問題：「你會不會怕以後交不到女朋友？」</p>
-
-<p>有一點怕，因為我想要有個家，想有個婚姻，想當個爸爸，我認為這樣我的人生才稱得上是完整。但也因為我想要的是「一位妻子」而非「一位女朋友」，導致我很難找到一個能與我長跑的對象，大多與我同年紀的人，只是想談戀愛而已，甚至有些人根本新手，對於愛情沒有想過很多，怎麼可能會思考到婚姻呢？除非同儕們的腦袋領先自己的年紀二十年，否則很難長遠、認真地看待感情這件事情。</p>
-
-<!-- more -->
-
-
-<p>年輕人所認為的愛情等於熱戀期，舉凡每天有送早餐、叫起床、吃宵夜、陪對方去做什麼事、講電話超過一個鐘頭的行為，就是熱戀期會有的，而當一方開始要有自己的時間，熱戀期會趨近於平淡，這時就會開始吵架，而吵架內容之空泛且缺乏創意，大概就是圍繞著「你以前都會怎樣，現在怎麼沒有？」之類的主題。</p>
-
-<p>這時候只要雙方有人願意退讓，則可以避得了一時，但隨著吵架頻率越來越頻繁，會有兩個結局：一則分手；二則雙方彼此領悟了愛情真諦，瞭解愛情不是只有熱戀期。</p>
-
-<p>愛情的真諦就是愛情不是只有熱戀期，而長久的愛情也不需要熱戀期。因為愛情的盡頭只會越走越平淡。長久愛情的盡頭是親情，情人走到盡頭終成為家人。雖然人說親情恬淡如水，愛情濃烈如火，但長久的愛情最終也會恬淡如水，這豈不是很有意思？為何長久的感情多是平淡的過著，其來有自，不過就是愛情最終的相處之道彷彿如親人，而親人正是與我們相處大半輩子的人罷了。</p>
-
-<p>我們總不會每天送花給媽媽，但偶爾在母親節或她生日時給點小驚喜，媽媽就會很開心了，反之每天都送花就成不了驚喜。面對情人也一樣，每天黏在一起總有一天會膩，等想要各自有自己的空間時，則又因為過渡不了而吵起來。</p>
-
-<p>在追求兩人世界的精彩同時，別忘了真正的喜悅，不在每天的玫瑰與陪伴，而是埋藏在平淡之中，那些意想不到的驚喜。</p>
-
-<p>此謂寧靜之愛。</p>
 ]]></content>
   </entry>
   

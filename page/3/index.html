@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="Last week, I just realized one of my ideas, named TJSlides. TJSlides is a text based slides generator using Markdown syntax. What you need is a text &hellip;">
+  <meta name="description" content="今天母親問了我一個很驚悚的問題：「你會不會怕以後交不到女朋友？」 有一點怕，因為我想要有個家，想有個婚姻，想當個爸爸，我認為這樣我的人生才稱得上是完整。但也因為我想要的是「一位妻子」而非「一位女朋友」，導致我很難找到一個能與我長跑的對象，大多與我同年紀的人，只是想談戀愛而已，甚至有些人根本新手， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +89,53 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2012/07/05/silent-love/">寧靜之愛</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-05T01:29:00+08:00" pubdate data-updated="true">Jul 5<span>th</span>, 2012</time>
+        
+         | <a href="/2012/07/05/silent-love/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/images/love.jpg"></p>
+
+<p>今天母親問了我一個很驚悚的問題：「你會不會怕以後交不到女朋友？」</p>
+
+<p>有一點怕，因為我想要有個家，想有個婚姻，想當個爸爸，我認為這樣我的人生才稱得上是完整。但也因為我想要的是「一位妻子」而非「一位女朋友」，導致我很難找到一個能與我長跑的對象，大多與我同年紀的人，只是想談戀愛而已，甚至有些人根本新手，對於愛情沒有想過很多，怎麼可能會思考到婚姻呢？除非同儕們的腦袋領先自己的年紀二十年，否則很難長遠、認真地看待感情這件事情。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/07/05/silent-love/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2012/06/25/tjslides-a-text-based-slides-generator/">TJSlides - a Text Based Slides Generator</a></h1>
     
     
@@ -118,11 +165,11 @@
 
 <p>Last week, I just realized one of my ideas, named <a href="http://tjslides.herokuapp.com">TJSlides</a>.</p>
 
-<p>TJSlides is a text based slides generator using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax. What you need is a text area, and you can easily make a presentation. I think it&#8217;s cool, isn&#8217;t it?</p>
+<p>TJSlides is a text based slides generator using <a href="http://daringfireball.net/projects/markdown/">Markdown</a> syntax. What you need is a text area, and you can easily make a presentation. I think it&rsquo;s cool, isn&rsquo;t it?</p>
 
-<p>I had this sudden interesting inspiration last week, then I tried to google this idea and found someone has made this named <a href="https://github.com/bmcmurray/hekyll">Hekyll</a>, however, I don&#8217;t think it&#8217;s convenient enough on account of it&#8217;s dependency on <a href="https://github.com/mojombo/jekyll">Jekyll</a>. I need to run command by hand to generate slides, that&#8217;s too troublesome.</p>
+<p>I had this sudden interesting inspiration last week, then I tried to google this idea and found someone has made this named <a href="https://github.com/bmcmurray/hekyll">Hekyll</a>, however, I don&rsquo;t think it&rsquo;s convenient enough on account of it&rsquo;s dependency on <a href="https://github.com/mojombo/jekyll">Jekyll</a>. I need to run command by hand to generate slides, that&rsquo;s too troublesome.</p>
 
-<p>I have no idea how it worth. I just made it when I still think it&#8217;s interesting. =D</p>
+<p>I have no idea how it worth. I just made it when I still think it&rsquo;s interesting. =D</p>
 
 <p>Enjoy!</p>
 </div>
@@ -307,11 +354,11 @@
   </header>
 
 
-  <div class="entry-content"><h2>What&#8217;s the Problem?</h2>
+  <div class="entry-content"><h2>What&rsquo;s the Problem?</h2>
 
 <p>We may leave some draft posts in <code>_posts</code> directory, but it comes a problem when we are going to find whether the post is published or not by reading throuh filenames in the future.</p>
 
-<p>To solve this, I created this rake task. It will list all posts each line, and prepend an asterisk if it&#8217;s published. Just append it in your <code>Rakefile</code> to make it works.</p>
+<p>To solve this, I created this rake task. It will list all posts each line, and prepend an asterisk if it&rsquo;s published. Just append it in your <code>Rakefile</code> to make it works.</p>
 
 <h3>Usage</h3>
 
@@ -321,7 +368,7 @@ rake list_posts[pub|unpub]
 
 <div><script src='https://gist.github.com/2574782.js'></script>
 <noscript><pre><code># usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to &quot;new-page.markdown&quot;)
-desc &quot;List all posts with an asterisk if it's published. Advanced usage: 'rake list_posts[pub|unpub]'&quot;
+desc &quot;List all posts with an asterisk if it&#39;s published. Advanced usage: &#39;rake list_posts[pub|unpub]&#39;&quot;
 task :list_posts, :type do |t, args|
   type = args.type
   
@@ -333,11 +380,11 @@ task :list_posts, :type do |t, args|
     
     case type
     when &quot;pub&quot; then 
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] || data['published'] == nil
+      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] || data[&#39;published&#39;] == nil
     when &quot;unpub&quot;
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] == false
+      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] == false
     else
-      status = data['published'] || data['published'] == nil ? '*' : ' '
+      status = data[&#39;published&#39;] || data[&#39;published&#39;] == nil ? &#39;*&#39; : &#39; &#39;
       result &lt;&lt; &quot;#{status} #{File.basename(post)}\n&quot;
     end
   end
@@ -573,56 +620,6 @@ page_asides: [custom/asides/indexer.html] # 加上這個
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/04/03/raise-my-family/">齊家</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-03T23:09:00+08:00" pubdate data-updated="true">Apr 3<span>rd</span>, 2012</time>
-        
-         | <a href="/2012/04/03/raise-my-family/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/robot.jpg"></p>
-
-<p>寫這篇文章的時候，漫畫社遊剛結束，明明已經很累，正常情況下應該要去睡覺的。但只是覺得有些心事，如果不寫出來或者跟人告解，實在無法好好睡一覺。你說我會有煩惱？是啊，我雖僅次於神但也是人，也會有煩惱，差別在於我自認大概除了家裡的事情之外，沒有事物可以擊垮我吧？</p>
-
-<p>已經確定今年媽媽就會失去工作，屆時家裡將失去唯一的收入來源，除此因為工作的內容越來越艱辛，為了養家而盡力保住工作，到現在無論健康、精神狀態已經處在脆弱的狀態，實在另我於心不忍。同時我卻以延畢半年的代價做了一個極為冒險的決定繼續進修研究所。</p>
-
-<p>幾年前就料到我可能大學畢業後就要馬上接手家裡的經濟來源，所以本來計畫是要在今年畢業後直接當兵，如此會有薪水之外，我的食宿也不用煩惱，等到退伍再找一份可以支撐家裡的穩定工作。然而現在計畫改變成我還要念兩年的書，除非我可以強大到重時進修，同時有一份收入，否則再兩年的研究所對家裡來說仍是負擔，何況第一個半年還要外宿新竹。</p>
-
-<p>面對這個問題有很多解，但因為經濟經驗尚不足以做出決策，目前只求能夠養活自己，學費方面先貸款，訖此還不至於太難；但還要行有餘力去支援家計，我現在其實沒有那樣的自信，而且還不知道靠母親的退休金能還夠撐住這個家多久，這樣的情形，論誰會急也難免吧？</p>
-
-<p>簡言之，這次的轉變將把我從課業為主、經濟其次的狀態對調，兩者兼顧似乎不是這麼簡單，但仍會努力尋求一個最好的平衡。問我害怕嗎？怎麼會害怕呢？我想我現在應該要感到興奮，興奮於終於可以回報育我之人。反正我也不知道我有多強，藉這個機會測試一下剛好。</p>
-
-<p>Show time!</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/4/">&larr; Older</a>
@@ -661,6 +658,10 @@ page_asides: [custom/asides/indexer.html] # 加上這個
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/06/22/the-human-cloning-wall/">The Human Cloning Wall</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/04/22/first-time-to-attend-ruby-tuesday/">Ruby Tuesday Taiwan #22 初體驗</a>
       </li>
     
@@ -696,10 +697,6 @@ page_asides: [custom/asides/indexer.html] # 加上這個
         <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
       </li>
     
-      <li class="post">
-        <a href="/2012/12/12/tjmarkdownpaste-markdown-with-tex-code-highlight/">TJMarkdownPaste - Markdown with Tex and code highlight</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -710,7 +707,7 @@ page_asides: [custom/asides/indexer.html] # 加上這個
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.73684210526315%'>Works(34)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
 </section>
 
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/octopress/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,11 +18,11 @@
     <link href="http://tonytonyjan.net/2012/05/02/list-all-posts-rake-task-for-octopress/"/>
     <updated>2012-05-02T13:36:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/05/02/list-all-posts-rake-task-for-octopress</id>
-    <content type="html"><![CDATA[<h2>What's the Problem?</h2>
+    <content type="html"><![CDATA[<h2>What&rsquo;s the Problem?</h2>
 
 <p>We may leave some draft posts in <code>_posts</code> directory, but it comes a problem when we are going to find whether the post is published or not by reading throuh filenames in the future.</p>
 
-<p>To solve this, I created this rake task. It will list all posts each line, and prepend an asterisk if it's published. Just append it in your <code>Rakefile</code> to make it works.</p>
+<p>To solve this, I created this rake task. It will list all posts each line, and prepend an asterisk if it&rsquo;s published. Just append it in your <code>Rakefile</code> to make it works.</p>
 
 <h3>Usage</h3>
 
@@ -32,7 +32,7 @@ rake list_posts[pub|unpub]
 
 <p><div><script src='https://gist.github.com/2574782.js'></script>
 <noscript><pre><code># usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to &quot;new-page.markdown&quot;)
-desc &quot;List all posts with an asterisk if it's published. Advanced usage: 'rake list_posts[pub|unpub]'&quot;
+desc &quot;List all posts with an asterisk if it&#39;s published. Advanced usage: &#39;rake list_posts[pub|unpub]&#39;&quot;
 task :list_posts, :type do |t, args|
   type = args.type
   
@@ -44,11 +44,11 @@ task :list_posts, :type do |t, args|
     
     case type
     when &quot;pub&quot; then 
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] || data['published'] == nil
+      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] || data[&#39;published&#39;] == nil
     when &quot;unpub&quot;
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data['published'] == false
+      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] == false
     else
-      status = data['published'] || data['published'] == nil ? '*' : ' '
+      status = data[&#39;published&#39;] || data[&#39;published&#39;] == nil ? &#39;*&#39; : &#39; &#39;
       result &lt;&lt; &quot;#{status} #{File.basename(post)}\n&quot;
     end
   end
@@ -312,13 +312,13 @@ bundle exec rake generate
 <p>這是我粗糙的程式碼，程式碼中大寫的部份可以改成別的資料，這東西可以寫得更完善，達到無痛搬家。我想如果網路上沒有開源項目，也許考慮奉獻看看（總之得先看看其他人怎麼寫吧）。</p>
 
 <p>``` ruby Ruby code to migrate from Wordpress to Octopress.
-require 'mysql2'
-require 'open-uri'</p>
+require &lsquo;mysql2&rsquo;
+require &lsquo;open-uri&rsquo;</p>
 
 <p>def create_post datetime, title, content
-  date = datetime.strftime("%Y-%m-%d")
-  time = datetime.strftime("%H:%M:%S")
-  File.open("YOUR_OCTOPRESS_ROOT/source/_posts/#{date}-#{title}.markdown", "w"){|f|</p>
+  date = datetime.strftime(&ldquo;%Y-%m-%d&rdquo;)
+  time = datetime.strftime(&ldquo;%H:%M:%S&rdquo;)
+  File.open(&ldquo;YOUR_OCTOPRESS_ROOT/source/_posts/#{date}&ndash;#{title}.markdown&rdquo;, &ldquo;w&rdquo;){|f|</p>
 
 <pre><code>yaml = &lt;&lt;eos
 </code></pre>
@@ -326,7 +326,7 @@ require 'open-uri'</p>
 <hr />
 
 <p>layout: post
-title: "#{title}"
+title: &ldquo;#{title}&rdquo;
 date: #{date} #{time}
 comments: true</p>
 
@@ -354,13 +354,13 @@ f.write(yaml+content)
 end</p>
 
 <p>client = Mysql2::Client.new(
-  :host => "YOUR_HOST",
-  :username => "YOUR_USERNAME",
-  :password=>"YOUR_PASSWORD",
-  :database=>"YOUR_DATABASE_NAME"
+  :host => &ldquo;YOUR_HOST&rdquo;,
+  :username => &ldquo;YOUR_USERNAME&rdquo;,
+  :password=>&ldquo;YOUR_PASSWORD&rdquo;,
+  :database=>&ldquo;YOUR_DATABASE_NAME&rdquo;
 )</p>
 
-<p>client.query("select * from wp_posts where post_type='post' &amp;&amp; post_author=3 &amp;&amp; post_status='publish';").each do |row|
+<p>client.query(&ldquo;select * from wp_posts where post_type=&lsquo;post&rsquo; &amp;&amp; post_author=3 &amp;&amp; post_status=&lsquo;publish&rsquo;;&rdquo;).each do |row|
   begin</p>
 
 <pre><code>create_post row["post_date"], row["post_title"], row["post_content"]

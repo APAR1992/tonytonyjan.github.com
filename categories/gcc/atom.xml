@@ -4,7 +4,7 @@
   <title><![CDATA[Category: gcc | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/gcc/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -25,7 +25,7 @@
 <h1>include &lt;stdio.h></h1>
 
 <p>int main(int argc, char* args[]){
-  printf("Hello, world!");
+  printf(&ldquo;Hello, world!&rdquo;);
 }
 ```</p>
 
@@ -77,7 +77,7 @@
 </tr>
 <tr>
 <td>連結（linking）        </td>
-<td> ld ... （暫略）           </td>
+<td> ld &hellip; （暫略）           </td>
 <td>   ↓↓</td>
 </tr>
 <tr>

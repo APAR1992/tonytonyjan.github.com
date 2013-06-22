@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Chrome | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/chrome/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -86,41 +86,41 @@
 <p>``` json
 {
   // 必要
-  "name": "My Extension",
-  "version": "versionString",
-  "manifest_version": 2,</p>
+  &ldquo;name&rdquo;: &ldquo;My Extension&rdquo;,
+  &ldquo;version&rdquo;: &ldquo;versionString&rdquo;,
+  &ldquo;manifest_version&rdquo;: 2,</p>
 
 <p>  // 建議，非必要
-  "description": "A plain text description",
-  "icons": { ... },
-  "default_locale": "en",</p>
+  &ldquo;description&rdquo;: &ldquo;A plain text description&rdquo;,
+  &ldquo;icons&rdquo;: { &hellip; },
+  &ldquo;default_locale&rdquo;: &ldquo;en&rdquo;,</p>
 
 <p>  // 選一個
-  "browser_action": {...},
-  "page_action": {...},
-  "theme": {...},
-  "app": {...},</p>
+  &ldquo;browser_action&rdquo;: {&hellip;},
+  &ldquo;page_action&rdquo;: {&hellip;},
+  &ldquo;theme&rdquo;: {&hellip;},
+  &ldquo;app&rdquo;: {&hellip;},</p>
 
 <p>  // 其他視情況需要的設定
-  "background": {...},
-  "chrome_url_overrides": {...},
-  "content_scripts": [...],
-  "content_security_policy": "policyString",
-  "file_browser_handlers": [...],
-  "homepage_url": "http://path/to/homepage",
-  "incognito": "spanning" or "split",
-  "intents": {...},
-  "key": "publicKey",
-  "minimum_chrome_version": "versionString",
-  "nacl_modules": [...],
-  "offline_enabled": true,
-  "omnibox": { "keyword": "aString" },
-  "options_page": "aFile.html",
-  "permissions": [...],
-  "plugins": [...],
-  "requirements": {...},
-  "update_url": "http://path/to/updateInfo.xml",
-  "web_accessible_resources": [...]
+  &ldquo;background&rdquo;: {&hellip;},
+  &ldquo;chrome_url_overrides&rdquo;: {&hellip;},
+  &ldquo;content_scripts&rdquo;: [&hellip;],
+  &ldquo;content_security_policy&rdquo;: &ldquo;policyString&rdquo;,
+  &ldquo;file_browser_handlers&rdquo;: [&hellip;],
+  &ldquo;homepage_url&rdquo;: &ldquo;<a href="http://path/to/homepage">http://path/to/homepage</a>&rdquo;,
+  &ldquo;incognito&rdquo;: &ldquo;spanning&rdquo; or &ldquo;split&rdquo;,
+  &ldquo;intents&rdquo;: {&hellip;},
+  &ldquo;key&rdquo;: &ldquo;publicKey&rdquo;,
+  &ldquo;minimum_chrome_version&rdquo;: &ldquo;versionString&rdquo;,
+  &ldquo;nacl_modules&rdquo;: [&hellip;],
+  &ldquo;offline_enabled&rdquo;: true,
+  &ldquo;omnibox&rdquo;: { &ldquo;keyword&rdquo;: &ldquo;aString&rdquo; },
+  &ldquo;options_page&rdquo;: &ldquo;aFile.html&rdquo;,
+  &ldquo;permissions&rdquo;: [&hellip;],
+  &ldquo;plugins&rdquo;: [&hellip;],
+  &ldquo;requirements&rdquo;: {&hellip;},
+  &ldquo;update_url&rdquo;: &ldquo;<a href="http://path/to/updateInfo.xml">http://path/to/updateInfo.xml</a>&rdquo;,
+  &ldquo;web_accessible_resources&rdquo;: [&hellip;]
 }
 ```</p>
 
@@ -132,17 +132,17 @@
 <li>錯誤：
 
 <ul>
-<li>"version": "99999"</li>
-<li>"version": "032"</li>
+<li>&ldquo;version&rdquo;: &ldquo;99999&rdquo;</li>
+<li>&ldquo;version&rdquo;: &ldquo;032&rdquo;</li>
 </ul>
 </li>
 <li>正確
 
 <ul>
-<li>"version": "1"</li>
-<li>"version": "1.0"</li>
-<li>"version": "2.10.2"</li>
-<li>"version": "3.1.2.4567"</li>
+<li>&ldquo;version&rdquo;: &ldquo;1&rdquo;</li>
+<li>&ldquo;version&rdquo;: &ldquo;1.0&rdquo;</li>
+<li>&ldquo;version&rdquo;: &ldquo;2.10.2&rdquo;</li>
+<li>&ldquo;version&rdquo;: &ldquo;3.1.2.4567&rdquo;</li>
 </ul>
 </li>
 </ul>
@@ -163,8 +163,8 @@
 
 <p>``` json
 {
-  ...
-  "icons": {</p>
+  &hellip;
+  &ldquo;icons&rdquo;: {</p>
 
 <pre><code>"16": "icon16.png",
 "48": "icon48.png",
@@ -172,7 +172,7 @@
 </code></pre>
 
 <p>  },
-  ...
+  &hellip;
 }
 ```</p>
 
@@ -193,8 +193,8 @@
 
 <p>``` json
 {
-  ...
-  "browser_action": {</p>
+  &hellip;
+  &ldquo;browser_action&rdquo;: {</p>
 
 <pre><code>"default_icon": "icon19.png",     // 可選
 "default_title": "Tooltip title", // 可選
@@ -202,7 +202,7 @@
 </code></pre>
 
 <p>  },
-  ...
+  &hellip;
 }
 ```</p>
 
@@ -216,8 +216,8 @@
 
 <p>``` json
 {
-  ...
-  "page_action": {</p>
+  &hellip;
+  &ldquo;page_action&rdquo;: {</p>
 
 <pre><code>"default_icon": "icons/foo.png", // 可選
 "default_title": "Tooltip title",    // 可選
@@ -225,7 +225,7 @@
 </code></pre>
 
 <p>  },
-  ...
+  &hellip;
 }
 ```</p>
 
@@ -265,8 +265,8 @@
 
 <p>``` json
 {
-  ...
-  "content_scripts": [</p>
+  &hellip;
+  &ldquo;content_scripts&rdquo;: [</p>
 
 <pre><code>{
   "matches": ["http://www.google.com/*"],
@@ -276,7 +276,7 @@
 </code></pre>
 
 <p>  ],
-  ...
+  &hellip;
 }
 ```</p>
 
@@ -285,10 +285,10 @@
 <p>常用的格式：</p>
 
 <ul>
-<li><p>http://127.0.0.1/*</p>
+<li><p><a href="http://127.0.0.1/*">http://127.0.0.1/*</a></p>
 
 <p>指定某個 host 下的所有 path</p></li>
-<li><p>http://example.org/foo/bar.html</p>
+<li><p><a href="http://example.org/foo/bar.html">http://example.org/foo/bar.html</a></p>
 
 <p>指定某個連結</p></li>
 <li><p>&lt;all_urls&gt;</p>
@@ -311,14 +311,14 @@
 
 <p>``` json
 {
-  ...
-  "background": {</p>
+  &hellip;
+  &ldquo;background&rdquo;: {</p>
 
 <pre><code>"scripts": ["background.js"]
 </code></pre>
 
 <p>  },
-  ...
+  &hellip;
 }
 ```</p>
 
@@ -326,14 +326,14 @@
 
 <p>``` json
 {
-  ...
-  "background": {</p>
+  &hellip;
+  &ldquo;background&rdquo;: {</p>
 
 <pre><code>"page": "background.html"
 </code></pre>
 
 <p>  },
-  ...
+  &hellip;
 }
 ```</p>
 ]]></content>

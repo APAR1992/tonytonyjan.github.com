@@ -4,7 +4,7 @@
   <title><![CDATA[Category: FreeBSD | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/freebsd/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -58,7 +58,7 @@ $ pkg_info | grep jdk                                                           
 $ ln -s *.ttf /usr/local/diablo-jdk1.6.0/jre/lib/fonts/fallback/
 </code></pre>
 
-<p>這樣就完成了，之後只要在 main 的開頭加上以下程式碼（或寫在 constructor），凡是 Swing GUI（JLabel、FileChooser...etc）從此就都能正常顯示中文了～</p>
+<p>這樣就完成了，之後只要在 main 的開頭加上以下程式碼（或寫在 constructor），凡是 Swing GUI（JLabel、FileChooser&hellip;etc）從此就都能正常顯示中文了～</p>
 
 <p><img src="/images/cssula-blog/Screenshot-11.png"></p>
 
@@ -166,7 +166,7 @@ Libraries [.LIB]:
 Hello world, I'm learning Assembly !!!
 </code></pre>
 
-<p>成功<sup>^</sup></p>
+<p>成功^^</p>
 
 <h3>備註</h3>
 

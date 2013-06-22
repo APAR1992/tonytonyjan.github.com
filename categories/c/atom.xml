@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/c/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-04-22T22:23:17+08:00</updated>
+  <updated>2013-06-22T09:54:01+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -25,7 +25,7 @@
 <h1>include &lt;stdio.h></h1>
 
 <p>int main(int argc, char* args[]){
-  printf("Hello, world!");
+  printf(&ldquo;Hello, world!&rdquo;);
 }
 ```</p>
 
@@ -77,7 +77,7 @@
 </tr>
 <tr>
 <td>連結（linking）        </td>
-<td> ld ... （暫略）           </td>
+<td> ld &hellip; （暫略）           </td>
 <td>   ↓↓</td>
 </tr>
 <tr>
@@ -733,17 +733,17 @@ for(i=0;i&lt;n;i++){
     <updated>2008-11-08T08:29:20+08:00</updated>
     <id>http://tonytonyjan.net/2008/11/08/130</id>
     <content type="html"><![CDATA[<p>下載執行檔請<a href="http://www.cs.nctu.edu.tw/~whchien/coding/BatNum.exe">點我</a>
-花了一個早上...終於完成啦&lt;</p>
+花了一個早上&hellip;終於完成啦&lt;</p>
 
 <p><img src="/images/slum-area/113_0.jpg"></p>
 
-<p>下面是原始碼，可是作者砍掉小禮物的部份囉（怎麼可以輕易洩漏呢<sup>^）</sup></p>
+<p>下面是原始碼，可是作者砍掉小禮物的部份囉（怎麼可以輕易洩漏呢^^）</p>
 
 <p><b><span style="font-size: 14pt;">想知道小禮物是什麼的人就憑自己的實力獲勝吧XD</span></b></p>
 
-<p>而各位應該也發現語法框被分成一塊一塊了，因為有字數限制...不分開的話後面的字會不見...囧</p>
+<p>而各位應該也發現語法框被分成一塊一塊了，因為有字數限制&hellip;不分開的話後面的字會不見&hellip;囧</p>
 
-<p>有任何問題或建議儘管指教吧<sup>^</sup></p>
+<p>有任何問題或建議儘管指教吧^^</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1206,7 +1206,7 @@ for(i=0;i&lt;n;i++){
     <id>http://tonytonyjan.net/2008/11/07/131</id>
     <content type="html"><![CDATA[<p>今天完成的XDD  還是熱的
 這大概是黃金版本了XD(自以為)
-放上來當作開放式原碼吧<sup>^～</sup>
+放上來當作開放式原碼吧^^～
 想套的人可以拿去=3=</p>
 
 <p>ps.函數什麼東西都可以回傳，包括指標> &lt;</p>
@@ -1234,7 +1234,7 @@ for(i=0;i&lt;n;i++){
 </span><span class='line'><span class="c1">//這樣就是樂透開獎啦～～～</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>而得到的六個亂數會被放在randNum[0],ransNum[1],randNum[2]...randNum[5]</p>
+<p>而得到的六個亂數會被放在randNum[0],ransNum[1],randNum[2]&hellip;randNum[5]</p>
 
 <p>下面是原碼：</p>
 
