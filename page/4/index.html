@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="寫這篇文章的時候，漫畫社遊剛結束，明明已經很累，正常情況下應該要去睡覺的。但只是覺得有些心事，如果不寫出來或者跟人告解，實在無法好好睡一覺。你說我會有煩惱？是啊，我雖僅次於神但也是人，也會有煩惱，差別在於我自認大概除了家裡的事情之外，沒有事物可以擊垮我吧？ 已經確定今年媽媽就會失去工作， &hellip;">
+  <meta name="description" content="之前在有發過一篇在 Octopress 加上近期回覆，我因為找不到有關顯示近期回應的程式碼（搜尋能力有待加強），所以自己徒手寫了一個。想不到今天在 Disqus 管理頁面發現有 widget 可以用，除此之外還有熱門回覆等其他 wedget。 可惡啊……之前做了白工…… ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/04/27/display-recent-comments-in-octopress-2/">在 Octopress 加上近期回覆（二）</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-27T14:55:00+08:00" pubdate data-updated="true">Apr 27<span>th</span>, 2012</time>
+        
+         | <a href="/2012/04/27/display-recent-comments-in-octopress-2/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>之前在有發過一篇<a href="/2012/02/12/display-recent-comments-in-octopress">在 Octopress 加上近期回覆</a>，我因為找不到有關顯示近期回應的程式碼（搜尋能力有待加強），所以自己徒手寫了一個。想不到今天在 Disqus 管理頁面發現有 widget 可以用，除此之外還有熱門回覆等其他 wedget。</p>
+
+<p>可惡啊……之前做了白工……</p>
+
+<p><img src="/images/disqus-admin-tools.png"></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -567,101 +609,6 @@ gem update
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/02/12/display-recent-comments-in-octopress/">在 Octopress 加上近期回覆</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-02-12T19:14:00+08:00" pubdate data-updated="true">Feb 12<span>th</span>, 2012</time>
-        
-         | <a href="/2012/02/12/display-recent-comments-in-octopress/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>octopress 內建的回覆外掛是 <a href="http://disqus.com">disqus</a>。但卻沒有提供在 asides 顯示近期回應的功能，加上我在網路上查不太到別人的寫法，於是我就自己寫了一個，也許對一些人有幫助：</p>
-
-<figure class='code'><figcaption><span>\source\_includes\custom\asides\recent_comments.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>{% if site.disqus_short_name and page.comments != false %}
-</span><span class='line'><span class="nt">&lt;section&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>近期回覆<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="kd">function</span> <span class="nx">recent_comments</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
-</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">length</span><span class="p">){</span>
-</span><span class='line'>        <span class="nx">resault</span> <span class="o">=</span> <span class="s1">&#39;&lt;ul&gt;&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="nx">obj</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>
-</span><span class='line'>          <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;&lt;li&gt;&#39;</span><span class="p">;</span>
-</span><span class='line'>          <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;&lt;a href=&quot;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">profileUrl</span><span class="o">+</span><span class="s1">&#39;&quot;&gt;&lt;img src=&quot;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">avatar</span><span class="p">.</span><span class="nx">permalink</span><span class="o">+</span><span class="s1">&#39;&quot; width=32 height=32 style=&quot;float: left; margin-right: 5px;&quot;&gt;&lt;/a&gt;&#39;</span><span class="p">;</span>
-</span><span class='line'>          <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;&lt;a href=&quot;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">profileUrl</span><span class="o">+</span><span class="s1">&#39;&quot;&gt;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="s1">&#39;&lt;/a&gt;：&#39;</span><span class="p">;</span>
-</span><span class='line'>          <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;&lt;span&gt;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">message</span><span class="o">+</span><span class="s1">&#39;&lt;/span&gt;&lt;br&gt;&#39;</span>
-</span><span class='line'>          <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;&lt;a href=&quot;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">thread</span><span class="p">.</span><span class="nx">link</span><span class="o">+</span><span class="s1">&#39;&quot;&gt;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">thread</span><span class="p">.</span><span class="nx">title</span><span class="o">+</span><span class="s1">&#39;&lt;/a&gt;&lt;br&gt;&#39;</span>
-</span><span class='line'>          <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;at &lt;a href=&quot;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">url</span><span class="o">+</span><span class="s1">&#39;&quot;&gt;&#39;</span><span class="o">+</span><span class="nx">response</span><span class="p">.</span><span class="nx">createdAt</span><span class="o">+</span><span class="s1">&#39;&lt;/a&gt;&#39;</span>
-</span><span class='line'>          <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/li&gt;&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="p">});</span>
-</span><span class='line'>        <span class="nx">resault</span> <span class="o">+=</span> <span class="s1">&#39;&lt;/ul&gt;&#39;</span><span class="p">;</span>
-</span><span class='line'>        <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">resault</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span><span class="k">else</span><span class="p">{</span>
-</span><span class='line'>        <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&quot;目前沒有回覆&quot;</span><span class="p">);</span>
-</span><span class='line'>      <span class="p">}</span>
-</span><span class='line'>    <span class="p">};</span>
-</span><span class='line'>  <span class="nt">&lt;/script&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://disqus.com/api/3.0/forums/listPosts.jsonp?forum=tonytonyjan-blog&amp;api_key=IVQOSOjZknRNZi3rYa3gxFA5CCLjuGP9ojHi3TSeUenFl2mckhh3gl9k9NqGDetu&amp;related=thread&amp;callback=recent_comments&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</span><span class='line'><span class="nt">&lt;/section&gt;</span>
-</span><span class='line'>{% endif %}
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>備註：需要用到 <a href="http://disqus.com">disqus</a> 提供的 <a href="http://disqus.com/api">API</a>。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/5/">&larr; Older</a>
@@ -700,6 +647,10 @@ gem update
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/06/26/system-v-and-upstart/">System v 與 Upstart</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/06/22/the-human-cloning-wall/">記憶翻排遊戲 - 克隆牆</a>
       </li>
     
@@ -735,10 +686,6 @@ gem update
         <a href="/2013/01/15/single-night/">[音樂創作] 獨夜</a>
       </li>
     
-      <li class="post">
-        <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -749,7 +696,7 @@ gem update
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3157894736842%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
 </section>
 
 

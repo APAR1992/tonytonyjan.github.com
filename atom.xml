@@ -4,7 +4,7 @@
   <title><![CDATA[不歸錄]]></title>
   <link href="http://tonytonyjan.net/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-06-24T00:55:40+08:00</updated>
+  <updated>2013-06-26T13:57:18+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[System V 與 Upstart]]></title>
+    <link href="http://tonytonyjan.net/2013/06/26/system-v-and-upstart/"/>
+    <updated>2013-06-26T10:53:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/06/26/system-v-and-upstart</id>
+    <content type="html"><![CDATA[<p>最近剛好將某個過去架設的 Heroku-like server，用 <a href="http://upstart.ubuntu.com">Upstart</a> 將傳統的 <a href="https://en.wikipedia.org/wiki/UNIX_System_V">System V</a> 替換掉，在此做個筆記，這篇文章不會教你怎麼寫啟動腳本，就只是個簡介。</p>
+
+<p>Upstart 早在 Ubuntu 6.10 的時候首次出現，以取代傳統的 sysvinit。結果因為好評不斷，Fedora 9、Debian、Google Chrome OS 也相繼使用。其中一個最大的原因在啟動程序時採用了異步啟動（asynchronously）的方式。即便如此，鑑於不是所有的程式都有 upstart 的格式，最新的 Ubuntu 版本仍然保留了傳統的 sysvinit 啟動方式。</p>
+
+<h2>System V</h2>
+
+<p>若遵循古法，當希望某程式能在 Linux 啟動的時候執行，會放個腳本在 <code>/etc/init.d</code>，（通常能在 <code>/etc/init.d/skeleton</code> 找到範例），同時用 <code>update-rc.d</code>（在 RedHat 家族是  <code>chkconfig</code>）決定是否啟用該服務。這個指令會根據 <code>/etc/init.d/</code> 產生一堆軟連結（symbolic links）在 <code>/etc/rc#.d/</code>。內容物大概長的像 <code>K##foo</code> 或 <code>S##bar</code>，用以決定 kill 或 start 的順序。</p>
+
+<p>但是系統要啟動的時候，由於程序是乖乖的依序一個個執行（即便沒有相依關係），這將大大降低啟動的速度。為了改善這個問題，Upstart 誕生了。</p>
+
+<h2>Upstart</h2>
+
+<p>Upstart 是一個事件驅動的啟動工具，根據 job definition files（<code>/etc/init/*.conf</code>），定義哪些服務應該在何時、何種情境下被執行，有別於 System V 的依序啟動，Upstart 的程序是異步執行的，好處是可以有效的利用系統資源，讓系統更快速的啟動（例如網路正在初始化的時候可以同時啟動一些硬碟或處理器相關的服務）。此外比起 System V 格式的腳本，<code>*.conf</code> 的腳本更易於閱讀使用。</p>
+
+<h2>停用/啟用</h2>
+
+<p class='info warning' data-title='注意'>一般而言，除非你清楚某 service 是幹嘛的，否則應該養成別亂停用服務的習慣。</p>
+
+
+<p>如果我們今天想停用/啟用某個服務，但不知道他是否支援 upstart，可以先到 <code>/etc/init</code> 看看他是否有設定檔，或執行以下指令測試：</p>
+
+<pre><code>$ sudo status mysql
+mysql start/running, process 12461
+</code></pre>
+
+<!---->
+
+
+<pre><code>$ sudo status postgresql
+status: Unknown job: postgresql
+</code></pre>
+
+<p>以此為例，如果你想停用 mysql，可以直接在 <code>/etc/init/mysql.conf</code> 裡面，將檔頭附近某個以 <code>start on</code> 開頭的那行給註解掉，或是使用 <code>manual</code> 指令：</p>
+
+<pre><code># sudo
+$ echo 'manual' | sudo tee /etc/init/mysql.override # 當你不希望動到原設定，那就放個 `*.override`。
+</code></pre>
+
+<p>或是：</p>
+
+<pre><code># root
+$ echo manual &gt;&gt; /etc/init/smbd.conf
+</code></pre>
+
+<blockquote><p>更詳細的使用方法請參考 <code>man 5 init</code>，包括 <code>.override</code> 後墜的使用。</p></blockquote>
+
+<p>至於 <code>/etc/init/postgresql.conf</code> 不存在，要馬自己寫，否則仍可用傳統的方式停用：</p>
+
+<pre><code>sudo update-rc.d apache2 disable
+sudo service apache2 stop
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[記憶翻排遊戲 - 克隆牆]]></title>
@@ -1435,108 +1494,6 @@ int main(int argc, char* args[]){
 
 
 <p>乾杯！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[計算主題熱門度的演算法（上）]]></title>
-    <link href="http://tonytonyjan.net/2012/07/05/building-popularity-algorithm/"/>
-    <updated>2012-07-05T11:17:00+08:00</updated>
-    <id>http://tonytonyjan.net/2012/07/05/building-popularity-algorithm</id>
-    <content type="html"><![CDATA[<p><img src="http://tonytonyjan.net/images/ranking.jpg"></p>
-
-<p>很多網站都會在文章主題上加上評分的功能（五星評分、喜歡不喜歡、加一減一），主要用於計算主題的熱門程度，並加以排序，評分越高表示這篇主題越熱門，能見度也越高。</p>
-
-<p>評分實做很容易，但排序不簡單，在實做排序過程中會面臨不少問題：</p>
-
-<ul>
-<li>經驗不足的工程師會重造輪子，套用自己的演算法，不懂得使用統計公式帶來的好處</li>
-<li>必須防範那些會意圖使自己的文章排序在最上面的 spammer</li>
-<li>複雜度太高的演算法導致系統負載過高</li>
-</ul>
-
-
-<p>這篇文章會試著介紹一些排序演算法，從簡單到複雜，並介紹其優缺點，也會分享一些知名網站的排序演算法。就讓我們從最簡單的開始吧：</p>
-
-<!-- more -->
-
-
-<h2>評分決定熱門</h2>
-
-<p>假設我們的資料庫已經存著數筆資料，也許是文章或影音，而我們可以透過評分去排序其熱門度：</p>
-
-<p><strong>熱門度 = 總評分</strong></p>
-
-<pre><code>SELECT * from posts ORDER BY vote ASC|DESC
-</code></pre>
-
-<p>這個演算法實做上最簡單，但也很糟糕。通常我們會希望新主題可以有一定的能見度，但如果套此演算法，在首頁可能會被到好幾年前的熱門文章所霸佔，新主題無法置頂，也因能見度不高，難以翻身。加上也許幾篇熱門主題會因為網站離峰時段導致評分較低，例如上個月的熱門主題可以得到一百分，這個月因為暑假大家出去玩，同樣熱門的主題只能拿十分，這樣的算法明顯不公平。</p>
-
-<h2>考慮時間</h2>
-
-<p>讓我們在公式上加一個時間變數，越年輕的主題會有較高的機會出現在首頁，很合理吧？</p>
-
-<p><strong>熱門度 = 總評分/主題壽命</strong></p>
-
-<pre><code>主題壽命 = 現在時間 - 主題發布時間
-</code></pre>
-
-<p>對於越老得文章，變得熱門必須要有相對越多的評分。乍看之下沒問題，但這方法仍是不公平的。理由很簡單，試想一下一篇凌晨三點發布的主題，由於這時間是離峰時期，即使這主題真的很棒，卻因為大多人當時都在睡覺，導致相較於白天才發布的主題，這篇超炫主題已經輸在起跑點。</p>
-
-<p>為了改善這個問題，我們再變換一下公式：</p>
-
-<p><strong>熱門度 = Σ(評分/評分壽命)</strong></p>
-
-<pre><code>評分壽命 = 現在時間 - 評分時間
-</code></pre>
-
-<p>越年輕的評分有較大的權重，乍看確實解決了剛剛的離峰問題，但卻有新的麻煩：如果一個人對一個好幾年前的主題投下一票，這一票將會比這幾年來，在這主題上的任何評分要來得值錢，導致老舊的主題會再一次出現在首頁。所以我們還得再考慮主題壽命，於是公式變成：</p>
-
-<p><strong>熱門度 = [Σ(評分/評分壽命)]/主題壽命</strong></p>
-
-<p>對於上一個公式再除以主題壽命，以防主題回春，好極了，這下上述所有問題都獲得解決，但你是否發現這個演算法潛藏的危機？他的複雜度太高以致計算成本昂貴，難以在現實的系統中實現。</p>
-
-<p>由於該演算法非常依賴時間，每一秒的熱門都會改面，設計上需要每幾秒刷新整個資料庫（或幾分鐘，單看系統設計需要的即時程度而定），這對高流量的網站來說簡直惡夢。</p>
-
-<p>因為這方法用起來不太妙，我來介紹另一個簡單的替代方案：</p>
-
-<h2>Bayesian Average</h2>
-
-<p>假設我們的設計是喜歡某個主題，給他 +1，討厭就 -1，而一個主題評分則是所有的正評除以評分總數，所以公式變成：</p>
-
-<p><strong>主題分數 = 正評數/(正評數+負評數)</strong></p>
-
-<p>所以主題分數的值會介於 0 到 1 之間。</p>
-
-<p>但這樣設計仍有個問題，假設有一個主題在經過幾百人的評分之後得到 0.96，另一個主題只有 2 個人評分，且都給予正評，於是這個主題躍然成了平分為 100% 的主題！這和我們想要的不一樣：</p>
-
-<ol>
-<li>我們希望當一個主題只有少數人評分時，權重應比較低。</li>
-<li>反之一個主題有大量的人去評過分，權重比較高。</li>
-</ol>
-
-
-<p>熱門度的可信度應決定於評分人數的多寡，一個主題的評分人數越多，則計算出來的熱門度也比較趨近於真實情況，評分人數少，則計算的結果則可能與實際結果相差甚遠。</p>
-
-<p>而求解這個問題也不是什麼新鮮的研究，因為公式在幾百年前就被發明了：<a href="http://en.wikipedia.org/wiki/Bayesian_average">Bayesian Average</a></p>
-
-<p>利用 Bayesian Average，可以把公式改為：</p>
-
-<p>熱門度 = ((C*所有主題平均評分)+該主題總分)/(C+該主題受評數)</p>
-
-<pre><code>C = 所有主題平均受評數
-該主題總分 = 該主題受評數*主題分數
-</code></pre>
-
-<p>建議先看過 wiki 上的解釋，如果還是不太清楚可以參考這兩個網址：</p>
-
-<ul>
-<li><a href="http://mkv.cn/2597/ranking-algorithm-bayesian-average">基于用户投票的排名算法（六）：贝叶斯平均</a></li>
-<li><a href="http://www.solagirl.net/sorting-products-by-bayesian-average.html">基於貝葉斯平均的產品排序方法</a></li>
-</ul>
-
-
-<p>這個方法比先前的好多了，前一個對時間的計算相當依賴，而此法卻與時間無關，至少效能好上許多。</p>
 ]]></content>
   </entry>
   

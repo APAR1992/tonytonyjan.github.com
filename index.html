@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="好一陣子沒更新了，來個濫竽充數好了。是說前鎮子（應該算好久一陣子了XD） 2013 的韓國小姐引起一陣複製人的話題，拿來揶揄的、做研究的、人臉辨識的，什麼都有，而我當時也一時興起拿以前的玩具做了一個記憶翻排遊戲。 除了遊戲本身之外，還有積分排名的功能，enjoy。 ">
+  <meta name="description" content="最近剛好將某個過去架設的 Heroku-like server，用 Upstart 將傳統的 System V 替換掉，在此做個筆記，這篇文章不會教你怎麼寫啟動腳本，就只是個簡介。 Upstart 早在 Ubuntu 6.10 的時候首次出現，以取代傳統的 sysvinit。結果因為好評不斷， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -33,7 +33,7 @@
 
 
 <meta itemprop="name" content="不歸錄">
-<meta itemprop="description" content="好一陣子沒更新了，來個濫竽充數好了。是說前鎮子（應該算好久一陣子了XD） 2013 的韓國小姐引起一陣複製人的話題，拿來揶揄的、做研究的、人臉辨識的，什麼都有，而我當時也一時興起拿以前的玩具做了一個記憶翻排遊戲。 除了遊戲本身之外，還有積分排名的功能，enjoy。 ">
+<meta itemprop="description" content="最近剛好將某個過去架設的 Heroku-like server，用 Upstart 將傳統的 System V 替換掉，在此做個筆記，這篇文章不會教你怎麼寫啟動腳本，就只是個簡介。 Upstart 早在 Ubuntu 6.10 的時候首次出現，以取代傳統的 sysvinit。結果因為好評不斷， &hellip;">
 <meta itemprop="image" content="/favicon.png">
 
   
@@ -87,6 +87,94 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/06/26/system-v-and-upstart/">System v 與 Upstart</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-26T10:53:00+08:00" pubdate data-updated="true">Jun 26<span>th</span>, 2013</time>
+        
+         | <a href="/2013/06/26/system-v-and-upstart/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近剛好將某個過去架設的 Heroku-like server，用 <a href="http://upstart.ubuntu.com">Upstart</a> 將傳統的 <a href="https://en.wikipedia.org/wiki/UNIX_System_V">System V</a> 替換掉，在此做個筆記，這篇文章不會教你怎麼寫啟動腳本，就只是個簡介。</p>
+
+<p>Upstart 早在 Ubuntu 6.10 的時候首次出現，以取代傳統的 sysvinit。結果因為好評不斷，Fedora 9、Debian、Google Chrome OS 也相繼使用。其中一個最大的原因在啟動程序時採用了異步啟動（asynchronously）的方式。即便如此，鑑於不是所有的程式都有 upstart 的格式，最新的 Ubuntu 版本仍然保留了傳統的 sysvinit 啟動方式。</p>
+
+<h2>System V</h2>
+
+<p>若遵循古法，當希望某程式能在 Linux 啟動的時候執行，會放個腳本在 <code>/etc/init.d</code>，（通常能在 <code>/etc/init.d/skeleton</code> 找到範例），同時用 <code>update-rc.d</code>（在 RedHat 家族是  <code>chkconfig</code>）決定是否啟用該服務。這個指令會根據 <code>/etc/init.d/</code> 產生一堆軟連結（symbolic links）在 <code>/etc/rc#.d/</code>。內容物大概長的像 <code>K##foo</code> 或 <code>S##bar</code>，用以決定 kill 或 start 的順序。</p>
+
+<p>但是系統要啟動的時候，由於程序是乖乖的依序一個個執行（即便沒有相依關係），這將大大降低啟動的速度。為了改善這個問題，Upstart 誕生了。</p>
+
+<h2>Upstart</h2>
+
+<p>Upstart 是一個事件驅動的啟動工具，根據 job definition files（<code>/etc/init/*.conf</code>），定義哪些服務應該在何時、何種情境下被執行，有別於 System V 的依序啟動，Upstart 的程序是異步執行的，好處是可以有效的利用系統資源，讓系統更快速的啟動（例如網路正在初始化的時候可以同時啟動一些硬碟或處理器相關的服務）。此外比起 System V 格式的腳本，<code>*.conf</code> 的腳本更易於閱讀使用。</p>
+
+<h2>停用/啟用</h2>
+
+<p class='info warning' data-title='注意'>一般而言，除非你清楚某 service 是幹嘛的，否則應該養成別亂停用服務的習慣。</p>
+
+
+<p>如果我們今天想停用/啟用某個服務，但不知道他是否支援 upstart，可以先到 <code>/etc/init</code> 看看他是否有設定檔，或執行以下指令測試：</p>
+
+<pre><code>$ sudo status mysql
+mysql start/running, process 12461
+</code></pre>
+
+<!---->
+
+
+<pre><code>$ sudo status postgresql
+status: Unknown job: postgresql
+</code></pre>
+
+<p>以此為例，如果你想停用 mysql，可以直接在 <code>/etc/init/mysql.conf</code> 裡面，將檔頭附近某個以 <code>start on</code> 開頭的那行給註解掉，或是使用 <code>manual</code> 指令：</p>
+
+<pre><code># sudo
+$ echo 'manual' | sudo tee /etc/init/mysql.override # 當你不希望動到原設定，那就放個 `*.override`。
+</code></pre>
+
+<p>或是：</p>
+
+<pre><code># root
+$ echo manual &gt;&gt; /etc/init/smbd.conf
+</code></pre>
+
+<blockquote><p>更詳細的使用方法請參考 <code>man 5 init</code>，包括 <code>.override</code> 後墜的使用。</p></blockquote>
+
+<p>至於 <code>/etc/init/postgresql.conf</code> 不存在，要馬自己寫，否則仍可用傳統的方式停用：</p>
+
+<pre><code>sudo update-rc.d apache2 disable
+sudo service apache2 stop
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -978,58 +1066,6 @@ end
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-16T14:53:00+08:00" pubdate data-updated="true">Dec 16<span>th</span>, 2012</time>
-        
-         | <a href="/2012/12/16/simple-love/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/ring2.jpg"></p>
-
-<p>「因為還沒有很瞭解，現在交往不太好」，傻孩子，若真的瞭解彼此就直接結婚或分手了，你他媽還多一段交往幹麼？就是因為沒有很熟才有交往去更認識對方。</p>
-
-<p>人都渴望被瞭解，我們平常只看到彼此表象，但就連難得可比平常更瞭解一個人的機會都沒有嘗試一下，只有可惜你失去一個想瞭解你的人，她也失去被你瞭解的機會。除非連普通朋友都未滿，否則這人若不那麼討厭也不會難相處，何不就試一下，即便最後合不來而分開，你也多了一個超友誼的朋友。你一輩子的酒肉朋友與點頭之交已經多到不勝數，但能有幾個紅粉知己？</p>
-
-<p>交往就是透過比朋友更深刻的往來彼此瞭解後，若合則婚，不合則分的過程，沒這麼神聖，也不用承諾什麼，本來誰不欠誰，沒有人有資格要求世上的任何一個人要愛自己，要求承諾的也多走不久（相信我，我是工程師）。承諾別亂給，真正的承諾應該要留給婚姻，留給妻子，留給家人。</p>
-
-<p>打個比方，交往就是賭博，以青春為籌碼賭幸福婚姻。但青春不像金錢，是會隨著時間而消逝的。如果換作金錢也會隨著時間變少，我們都知道要早點花掉，買米買衣房買車，不會等全不見才在靠北當初猶豫太多什麼也沒買；但為何青春比金錢更珍貴又容易貶值，卻不懂把握當下，錯過又錯過，等到三十出頭才在埋怨沒有第一個女朋友。</p>
-
-<p>初戀情人是妻子的案例並不多，是故人說每人至少要談兩次以上的戀愛才步入婚姻。若你忍心第一段感情發生在三十歲，那是個人自由，否則你若跟我一樣俗辣怕的要死，交往就別太挑，選妻才要挑，況且不交往要怎麼選妻呢？生活可以精彩一點，你看隔壁桌同樣籌碼人都打十圈了，自己還在細數剩下多少籌碼。</p>
-
-<p>不妨就試一下，彩券不括開怎麼知道有沒有中獎？</p>
-
-<p>延伸閱讀：<a href="/2012/07/31/love-telless-mindset/">把愛說出來 &ndash; 追求者心態</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/2/">&larr; Older</a>
@@ -1064,6 +1100,10 @@ end
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/06/26/system-v-and-upstart/">System v 與 Upstart</a>
+      </li>
     
       <li class="post">
         <a href="/2013/06/22/the-human-cloning-wall/">記憶翻排遊戲 - 克隆牆</a>
@@ -1101,10 +1141,6 @@ end
         <a href="/2013/01/15/single-night/">[音樂創作] 獨夜</a>
       </li>
     
-      <li class="post">
-        <a href="/2012/12/16/simple-love/">孩子，交往沒這麼神聖</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1115,7 +1151,7 @@ end
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3157894736842%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
 </section>
 
 
