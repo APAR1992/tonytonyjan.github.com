@@ -155,7 +155,8 @@ $ echo 'manual' | sudo tee /etc/init/mysql.override # 當你不希望動到原�
 $ echo manual &gt;&gt; /etc/init/smbd.conf
 </code></pre>
 
-<blockquote><p>更詳細的使用方法請參考 <code>man 5 init</code>，包括 <code>.override</code> 後墜的使用。</p></blockquote>
+<p class='info info' data-title='備註'>更詳細的使用方法請閱讀 <code>man 5 init</code>，裡面有包括 <code>*.override</code> 的使用案例。</p>
+
 
 <p>至於 <code>/etc/init/postgresql.conf</code> 不存在，要馬自己寫，否則仍可用傳統的方式停用：</p>
 
