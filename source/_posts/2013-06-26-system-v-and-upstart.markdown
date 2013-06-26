@@ -49,7 +49,9 @@ Upstart 是一個事件驅動的啟動工具，根據 job definition files（`/e
     # root
     $ echo manual >> /etc/init/smbd.conf
 
-> 更詳細的使用方法請參考 `man 5 init`，包括 `.override` 後墜的使用。
+{% ribbonp info 備註%}
+更詳細的使用方法請閱讀 <code>man 5 init</code>，裡面有包括 <code>*.override</code> 的使用案例。
+{%endribbonp%}
 
 至於 `/etc/init/postgresql.conf` 不存在，要馬自己寫，否則仍可用傳統的方式停用：
 
