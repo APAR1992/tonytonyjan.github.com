@@ -9,10 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="octopress 內建的回覆外掛是 disqus。但卻沒有提供在 asides 顯示近期回應的功能，加上我在網路上查不太到別人的寫法，於是我就自己寫了一個，也許對一些人有幫助： \source\_includes\custom\asides\recent_comments.html1
-2
-3
-4 &hellip;">
+  <meta name="description" content="正在苦惱 octopress 沒有可以顯示所有目錄地外掛時，在高見龍前輩的網誌上取到西經（看不懂的人，建議先閱讀過 jekll plugin）。但由於這種解在 rake preview 時會失敗，於是我開始撰寫 tag 版本。 嗯……好險我沒有寫完，因為我後來又發現在底下的回覆， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +83,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/02/13/category-list-and-tag-cloud/">在 Octopress 顯示目錄與標籤雲</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-13T00:34:00+08:00" pubdate data-updated="true">Feb 13<span>th</span>, 2012</time>
+        
+         | <a href="/2012/02/13/category-list-and-tag-cloud/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>正在苦惱 octopress 沒有可以顯示所有目錄地外掛時，在<a href="http://blog.eddie.com.tw/2011/12/05/add-catetories-to-sidebar-in-octopress/">高見龍前輩的網誌上取到西經</a>（看不懂的人，建議先閱讀過 <a href="https://github.com/mojombo/jekyll/wiki/Plugins">jekll plugin</a>）。但由於這種解在 <code>rake preview</code> 時會失敗，於是我開始撰寫 tag 版本。</p>
+
+<p>嗯……好險我沒有寫完，因為我後來又發現在底下的回覆，tokkonoPapa 分享了一個 <a href="https://github.com/tokkonopapa/octopress-tagcloud">repository</a>，和我想要做的東西一模一樣。當然，為了不重造輪子，我的網誌就採用了 tokkonoPapa 整理後的程式碼。</p>
+
+<p>使用方式只要將三個檔案放在對應的位置即可，但要注意的是必須在 _config.yml 中設定 default_asides。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -962,63 +1001,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/11/12/8/">7200 秒學會版本控制 - 使用 Mercurial</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-12T08:40:16+08:00" pubdate data-updated="true">Nov 12<span>th</span>, 2011</time>
-        
-         | <a href="/2011/11/12/8/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2><a href="https://docs.google.com/presentation/pub?id=1B1RqZAHUoo2klVbuPMUSLqDiwDFwYNCQOzd1ZBBEVNc&amp;start=false&amp;loop=false&amp;delayms=3000" target="_blank">投影片 &larr; 點我瀏覽</a></h2>
-
-
-<p><iframe width="480" height="389" src="https://docs.google.com/presentation/embed?id=1B1RqZAHUoo2klVbuPMUSLqDiwDFwYNCQOzd1ZBBEVNc&amp;start=false&amp;loop=false&amp;delayms=3000" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true"></iframe></p>
-
-
-<h2><a href="https://docs.google.com/document/pub?id=1uEcnH9M-8k_iGzFx8nwF2tS3xieynlKvUGULKXAtRjY" target="_blank">講義 &larr; 點我瀏覽</a></h2>
-
-
-<p><iframe width="500" height="500" src="https://docs.google.com/document/pub?id=1uEcnH9M-8k_iGzFx8nwF2tS3xieynlKvUGULKXAtRjY&amp;embedded=true"></iframe></p>
-
-
-<p>感謝各位的捧場，能看到各位真的很開心！</p>
-
-
-<p>想不到一上就是三個小時中間沒休息&hellip;&hellip;Orz（看來我有當 SA 助教的資質？）</p>
-
-
-<p>另外可能太久沒有說這麼多話了，喉嚨好乾啊XD</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/6/">&larr; Older</a>
@@ -1057,6 +1039,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/07/03/talk-to-your-slides/">跟簡報說話</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/06/26/system-v-and-upstart/">System v 與 Upstart</a>
       </li>
     
@@ -1092,10 +1078,6 @@
         <a href="/2013/01/15/webconf-2013-feedback/">WebConf 2013 會場志工心得</a>
       </li>
     
-      <li class="post">
-        <a href="/2013/01/15/single-night/">[音樂創作] 獨夜</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1106,7 +1088,7 @@
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.3157894736842%'>Javascript(1)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3157894736842%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3157894736842%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
 </section>
 
 

@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>跟簡報說話 - 不歸錄</title>
+  <meta name="author" content="大兜">
+
+  
+  <meta name="description" content="起源 昨晚參加了 Ruby Tuesday #24，地點在老樹咖啡 B1 休閒區，聽著講者不斷講著「下一頁」，然後協助換頁的人就會按一下鍵盤。身為一個程式設計師，我突然有個想把這個步驟交給電腦做的衝動，於是開始試著找一些 library 來完成。 找可用軟體（放棄） 起初不想自幹， &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://tonytonyjan.net/2013/07/03/talk-to-your-slides">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="不歸錄" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="/stylesheets/bootstrap-table.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29458592-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">不歸錄</a></h1>
+  
+    <h2>程式X鋼琴X雙馬尾</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:tonytonyjan.net" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">首頁</a></li>
+  <li><a href="/blog/archives">文章列表</a></li>
+  <li><a href="/blog/about">關於我</a></li>
+  <li><a href="/blog/presentations">演講</a></li>
+  <li><a href="/blog/works">作品集</a></li>
+  <li><a href="/blog/quotes">兜語錄</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">跟簡報說話</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-03T14:12:00+08:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>起源</h2>
+
+<p>昨晚參加了 Ruby Tuesday #24，地點在<a href="http://www.oldtree.com.tw/">老樹咖啡</a> B1 休閒區，聽著講者不斷講著「下一頁」，然後協助換頁的人就會按一下鍵盤。身為一個程式設計師，我突然有個想把這個步驟交給電腦做的衝動，於是開始試著找一些 library 來完成。</p>
+
+<h2>找可用軟體（放棄）</h2>
+
+<p>起初不想自幹，因為語音控制設備的軟體感覺頗容易想到的，在 google 之下找到兩個 <a href="https://wiki.gnome.org/GnomeVoiceControl">gnome-voice-controle</a> 和 <a href="http://www.simon-listens.org/">Simon</a>，只是前者不但安裝麻煩且已經不再開發，後者則是 KDE 專用。只好另闢新逕。</p>
+
+<h2>自幹軟體（放棄）</h2>
+
+<p>心想用 Qt 寫成 system tray 之類的，然後可以送 keyboard event，例如 page up、page down 等，如此無論簡報是網頁、ptt 或 pdf，全部都可以用。至於語音辨識的部份則是用李開復的開源項目 <a href="http://cmusphinx.sourceforge.net/">Sphinx</a>，但後來放棄的原因是此途徑更加「厚工」（但只要是可以完成，功力能夠大增應該是確定的）。由於筆者是個懶人，所以只好再找其他方法。</p>
+
+<h2>Web Speech Recognition API</h2>
+
+<p>沒辦法了，那就退一步使用 <a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web Speech API</a>，優點是簡單易用，開發快速，缺點就是必須限制在瀏覽器，且目前只有所有瀏覽器中，只有 Chrome 25 以上有支援，對於我的願景相比之下，這簡直是致命傷。</p>
+
+<h2>動手做</h2>
+
+<p>所以我就不管了，反正只是做個玩具，堪用就好。第一個玩具就用 <a href="https://github.com/hakimel/reveal.js/">Reveal.js</a> 來實驗效果：</p>
+
+<p><a href="/demo/speech/">點我觀看</a></p>
+
+<h2>後記</h2>
+
+<p>我的 plugin 會在 console 留下 log，下午賊魚來我家，就在電腦前面一邊聊天，不過麥克風並沒有關，等我們話題結束之後，結果長這樣：</p>
+
+<pre><code>沒能從前明月光
+michael
+崇仁崇賢珉宇美人重建院有些事兒感染飛行車委員
+神學士
+電子時報中原風邪惡美人重建院遊學社子文學友 1 樓
+門號至正腔圓融合購網電子時鐘原數學人
+個人申請
+行船人
+各類型 es 任
+20 集 google
+自由欄人開放任用
+下一頁
+兒子對了
+42 43 20 歲 hello 49 死神 h 仁慈醫院內科 face 血壓高到底怎麼用成人網
+血壓高
+next page
+下載 facebook 40 hc 仁和路 169 號為了 13 17 樓仁慈醫院
+sf 人的危險
+沒有
+個人年
+死神 h 死神科嘻哈高手禮劉大哥大溪鞋遊戲只有一個月了十萬元有人會所地球人在
+什麼時候高雄人兒子吃人你明天是 11 月圓 google h
+高雄
+奇摩 google 人的鞋子
+時間分解了
+手
+很壞的時候看看好了
+人才是有什麼看看好了
+熱學的大姊姊姊
+</code></pre>
+
+<p>什麼「熱學的大姊姊」，chrome 真是神空耳啊XD</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">大兜</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-03T14:12:00+08:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/javascript/'>JavaScript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.net/2013/07/03/talk-to-your-slides/" data-via="" data-counturl="http://tonytonyjan.net/2013/07/03/talk-to-your-slides/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/06/26/system-v-and-upstart/" title="Previous Post: System V 與 Upstart">&laquo; System V 與 Upstart</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>給我個鼓勵吧＝）</h1>
+  
+    <div style="float: left;" class="g-plusone" data-size="tall" data-annotation="inline" data-href="http://tonytonyjan.heroku.com" data-width="260"></div>
+  
+  
+    <div class="fb-like" data-href="http://tonytonyjan.heroku.com" data-send="false" data-width="260" data-show-faces="true"></div>
+  
+  
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://tonytonyjan.heroku.com" data-text="不歸錄" data-via="tonytonyjan" data-size="large">Tweet</a>
+  
+</section><section>
+  <h1>關於我</h1>
+  <a href="http://www.facebook.com/tonytonyjan"><img src="http://photos-a.ak.fbcdn.net/hphotos-ak-ash4/196443_10150123214557620_714547619_6717277_2177303_a.jpg" alt="很帥的照片" title="大兜本尊"></a>
+  <p>嗨，我叫大兜，是個追求幸福快樂的反逆工程師。</p>
+</section>
+<section>
+  <h1>音樂作品</h1>
+  <iframe marginwidth='0' marginheight='0' src='http://vlog.xuite.net/embed/OE5JOFRuLTE2MzA2NTguZmx2?v=1.0.1&ar=1' scrolling='no' frameborder='0' width='260' height='85'></iframe>
+  <p>我同時也是個業餘的三腳貓音樂創作者，這是我最喜歡的自創曲之一，我在 <a href="http://www.youtube.com/tonytonyjan">YouTube</a> 放了許多作品，歡迎來欣賞＝）</p>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/07/03/talk-to-your-slides/">跟簡報說話</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/26/system-v-and-upstart/">System v 與 Upstart</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/06/22/the-human-cloning-wall/">記憶翻排遊戲 - 克隆牆</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/04/22/first-time-to-attend-ruby-tuesday/">Ruby Tuesday Taiwan #22 初體驗</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/04/01/potluck/">Potluck</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/03/22/the-interview-in-ntust/">台科面試遊記</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/03/20/tj-caesar-cipher/">凱薩密碼中文版</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/19/hahadict/">笑典 - 教育部國語辭典 Chrome 離線版</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/01/15/webconf-2013-feedback/">WebConf 2013 會場志工心得</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>近期回覆</h1>
+  <div id="recentcomments" class="dsq-widget"><h2 class="dsq-widget-title">Recent Comments</h2><script type="text/javascript" src="http://tonytonyjan-blog.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=48&excerpt_length=200"></script></div><a href="http://disqus.com/">Powered by Disqus</a>
+</section>
+<section>
+  <h1>文章分類</h1>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3157894736842%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
+</section>
+
+
+<section>
+  <h1>噗浪動態</h1>
+  <div style="width:210px; height:375px;">
+    <iframe src="http://www.plurk.com/getWidget?uid=5874158&amp;h=375&amp;w=210&amp;u_info=2&amp;bg=5E5E5E&tl=D3D3D3" width="210" frameborder="0" height="375" scrolling="no"></iframe>
+    <div style="float: right; padding: 1px;">
+      <a href="http://plurk.com/" target="_blank" style="font-size: 10px !important; color: #999 !important; border: none; text-decorate: none;" title="Plurk - A Social Journal for your life">Plurk.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/106993981418226624133?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - 大兜 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'tonytonyjan-blog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://tonytonyjan.net/2013/07/03/talk-to-your-slides/';
+        var disqus_url = 'http://tonytonyjan.net/2013/07/03/talk-to-your-slides/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>
