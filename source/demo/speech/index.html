@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Control in Slides</title>
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css">
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <base target="_blank">
+</head>
+<body>
+  
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Voice Control</h1>
+        <h2>Reveal.js 唬人用外掛</h2>
+        <p>
+          <small>by <a href="http://tonytonyjan.net">tonytonyjan</a></small>
+        </p>
+        </section>
+      <section>
+        <h2>請先允許瀏覽器使用麥克風</h2>
+        <p>Chrome 25 以上</p>
+      </section>
+      <section>
+        <h3>然後大叫一聲</h3>
+        <h1>「下一頁」</h1>
+      </section>
+      <section>
+        <h1>有沒有很帥XD</h1>
+      </section>
+      <section>
+        <h2>咒語</h2>
+        <ul>
+          <li>下[一]頁</li>
+          <li>上[一]頁</li>
+          <li>Next [page]</li>
+          <li>Previous [page]</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Usage</h2>
+        <pre><code class="javascript" data-trim>
+Reveal.initialize({
+  dependencies: [
+    {
+      src: 'speech-control.js',
+      condition: function(){return !!('webkitSpeechRecognition' in window)}
+    }
+  ]
+});
+        </code></pre>
+      </section>
+      <section>
+        <h2>Source Code</h2>
+        <pre><code class="javascript" data-trim>
+var recognition = new webkitSpeechRecognition();
+recognition.continuous = true;
+recognition.lang = 'cmn-Hant-TW';
+recognition.onresult = function(event){
+  str = event.results[event.resultIndex][0].transcript
+  switch(true){
+    case /下一?頁$|next page$|next$/.test(str):
+      Reveal.next();
+      console.info(str);
+      break;
+    case /上一?頁$|previous page$|previous$/.test(str):
+      Reveal.prev();
+      console.info(str);
+      break;
+    default:
+      console.warn(str);
+  }
+}
+recognition.start();
+        </code></pre>
+        <small><a href="https://gist.github.com/tonytonyjan/5915569">View the Gist</a></small>
+      </section>
+    </div>
+  </div>
+  
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+  <script>
+    Reveal.initialize({
+      dependencies: [
+        {src: 'plugin/speech-control/speech-control.js', condition: function(){return !!('webkitSpeechRecognition' in window)}},
+        {src: 'plugin/highlight/highlight.js', async: true, callback: function(){hljs.initHighlightingOnLoad();}}
+      ]
+    });
+  </script>
+</body>
+</html>
