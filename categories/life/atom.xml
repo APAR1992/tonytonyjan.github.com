@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Life | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/life/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-07-03T19:35:28+08:00</updated>
+  <updated>2013-07-14T00:07:04+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,7 +18,7 @@
     <link href="http://tonytonyjan.net/2012/12/16/simple-love/"/>
     <updated>2012-12-16T14:53:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/12/16/simple-love</id>
-    <content type="html"><![CDATA[<p><img src="/images/ring2.jpg"></p>
+    <content type="html"><![CDATA[<p>{% img /images/ring2.jpg %}</p>
 
 <p>「因為還沒有很瞭解，現在交往不太好」，傻孩子，若真的瞭解彼此就直接結婚或分手了，你他媽還多一段交往幹麼？就是因為沒有很熟才有交往去更認識對方。</p>
 
@@ -51,11 +51,13 @@
 
 <p>長大的過程中從沒有人教我們如何在校外認識社會的人事物，甚至是與陌生人交朋友。然而校園本是社會縮影，是真實社會的子集合，若出了社會就覺得社交圈變小，這也無異於本末倒置不是？</p>
 
-<p><img src="/images/freedom.jpg"></p>
+<p>{% img /images/freedom.jpg %}</p>
 
 <p>筆者並不敢自稱多懂生活，但活了二十年多少有些心得，最後集結成一些戒律用於每天督促自己，此文除紀錄之餘，也想與各位分享。在那之前想先分享一段美國自白派詩人的話，因為她的這段引述，與我等等要闡述的生活觀不謀而合。</p>
 
-<p><blockquote><p>I can never read all the books I want. I can never be all the people I want and live all the lives I want. I can never train myself in all the skills I want. And why do I want? I want to live and feel all the shades, tones and variations of mental and physical experience possible in life. And I am horribly limited.</p><footer><strong>Sylvia Plath</strong> <cite>Unknown Source</cite></footer></blockquote></p>
+<p>{% blockquote Sylvia Plath, Unknown Source %}
+I can never read all the books I want. I can never be all the people I want and live all the lives I want. I can never train myself in all the skills I want. And why do I want? I want to live and feel all the shades, tones and variations of mental and physical experience possible in life. And I am horribly limited.
+{% endblockquote %}</p>
 
 <!-- more -->
 
@@ -83,7 +85,9 @@
 <p>真的，我們跟陌生人的距離，只有一句話。如果可能的話，真想知道一個認識世界上的每一個人的人，他那看世界的角度會是怎麼樣。</p></li>
 <li><h3>永遠不要停止學習</h3>
 
-<p><blockquote><p>生也有涯，而知也无涯，以有涯随无涯，殆已</p><footer><strong>莊子</strong> <cite>莊子養生主</cite></footer></blockquote></p>
+<p>{% blockquote 莊子, 莊子養生主 %}
+生也有涯，而知也无涯，以有涯随无涯，殆已
+{% endblockquote %}</p>
 
 <p>這句話聽到快膩了，意思是說：人用有限的生命去追求無窮的知識，是必然失敗的。那既然失敗為什麼還要不停追求？八股的答案很多：「除了充實自己又可以……（略）……能夠拓展視野……（略）……知識無價……（略）」</p>
 
@@ -170,7 +174,7 @@
     <link href="http://tonytonyjan.net/2012/07/31/love-telless-mindset/"/>
     <updated>2012-07-31T23:21:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/07/31/love-telless-mindset</id>
-    <content type="html"><![CDATA[<p><img src="/images/ring.jpg"></p>
+    <content type="html"><![CDATA[<p>{% img /images/ring.jpg %}</p>
 
 <p>如果你喜歡一個人，就行動吧，在你還喜歡對方的時候。</p>
 
@@ -189,7 +193,7 @@
     <link href="http://tonytonyjan.net/2012/07/21/always-keep-a-leeway/"/>
     <updated>2012-07-21T01:55:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/07/21/always-keep-a-leeway</id>
-    <content type="html"><![CDATA[<p><img src="/images/birds3.jpg"></p>
+    <content type="html"><![CDATA[<p>{% img /images/birds3.jpg %}</p>
 
 <p>事事難料，由於不知道下一秒會發生什麼事情，往往因受挫而不知所措，畢竟人在豪無準備之下發生了預期之外之事，任誰都難以冷靜以對：以為能過的科目沒過、以為能白頭偕老的戀情告吹、以為可以追到的人被打槍、以為能順利退休的工作被公司裁員、以為能順遂活著卻突然家有變故等等。一生數個大大小小的意外，成了生活的痛苦來源。</p>
 
@@ -212,7 +216,7 @@
     <link href="http://tonytonyjan.net/2012/07/05/silent-love/"/>
     <updated>2012-07-05T01:29:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/07/05/silent-love</id>
-    <content type="html"><![CDATA[<p><img src="/images/love.jpg"></p>
+    <content type="html"><![CDATA[<p>{% img /images/love.jpg %}</p>
 
 <p>今天母親問了我一個很驚悚的問題：「你會不會怕以後交不到女朋友？」</p>
 

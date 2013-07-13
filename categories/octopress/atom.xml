@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/octopress/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-07-03T19:35:28+08:00</updated>
+  <updated>2013-07-14T00:07:04+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -30,31 +30,7 @@
 rake list_posts[pub|unpub]
 </code></pre>
 
-<p><div><script src='https://gist.github.com/2574782.js'></script>
-<noscript><pre><code># usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to &quot;new-page.markdown&quot;)
-desc &quot;List all posts with an asterisk if it&#39;s published. Advanced usage: &#39;rake list_posts[pub|unpub]&#39;&quot;
-task :list_posts, :type do |t, args|
-  type = args.type
-  
-  result = &quot;&quot;
-  Dir.glob(&quot;#{source_dir}/#{posts_dir}/*.markdown&quot;).sort.each do |post|
-    file = File.read(post)
-    file =~ /^(---\s*\n.*?\n?)^(---\s*$\n?)/m
-    data = YAML.load($1)
-    
-    case type
-    when &quot;pub&quot; then 
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] || data[&#39;published&#39;] == nil
-    when &quot;unpub&quot;
-      result &lt;&lt; &quot;#{File.basename(post)}\n&quot; if data[&#39;published&#39;] == false
-    else
-      status = data[&#39;published&#39;] || data[&#39;published&#39;] == nil ? &#39;*&#39; : &#39; &#39;
-      result &lt;&lt; &quot;#{status} #{File.basename(post)}\n&quot;
-    end
-  end
-  puts result
-end</code></pre></noscript></div>
-</p>
+<p>{% gist 2574782 %}</p>
 ]]></content>
   </entry>
   
@@ -76,7 +52,7 @@ end</code></pre></noscript></div>
 <li>將 <code>indexer.rb</code> 複製到 <code>plugins</code> 目錄下。</li>
 <li><p>新增 <code>source\_includes\custom\asides\indexer.html</code>。</p>
 
-<pre><code>
+<pre><code>{% raw %}
 {% if page.indexer == true %}
   &lt;section&gt;
   &lt;h1&gt;Catalog&lt;/h1&gt;
@@ -87,7 +63,7 @@ end</code></pre></noscript></div>
     {% include_array default_asides %}
   {% endif %}
 {% endif %}
-
+{% endraw %}
 </code></pre></li>
 <li><p>編輯 <code>_config.yml</code>。</p>
 
@@ -124,7 +100,7 @@ page_asides: [custom/asides/indexer.html] # 加上這個
 <pre><code>page_asides: [custom/asides/xxx.html]
 </code></pre>
 
-<p><img src="/images/dead-eyes.jpg"></p>
+<p>{% img /images/dead-eyes.jpg %}</p>
 
 <p>原來 page asides 是全局的，意思是接下來要處理的問題：你要怎麼在不影響其他的 page 的情況下，在特定 page 顯示特定 page？</p>
 
@@ -174,7 +150,7 @@ page_asides: [custom/asides/indexer.html] # 加上這個
 
 <p>可惡啊……之前做了白工……</p>
 
-<p><img src="/images/disqus-admin-tools.png"></p>
+<p>{% img /images/disqus-admin-tools.png %}</p>
 ]]></content>
   </entry>
   
@@ -305,7 +281,7 @@ bundle exec rake generate
 <ol>
 <li>把所有在資料庫中屬於我的文章，轉成檔案存至 _posts 資料夾</li>
 <li>在轉換過程中 wordpress 用到的圖片，下載下來，存至 images/cssula-blog 資料夾</li>
-<li>在轉換過程中將所有的 <code>&lt;img src=""&gt;</code> 轉成 <code>{% img /images/cssula-blog %}</code></li>
+<li>在轉換過程中將所有的 <code>&lt;img src=""&gt;</code> 轉成 <code>{%raw%}{% img /images/cssula-blog %}{%endraw%}</code></li>
 </ol>
 
 
@@ -345,7 +321,7 @@ comments: true</p>
     }
   }
   # replace image tag into plugin style
-  "{% img /images/cssula-blog/#{filename} %}"
+  "{%raw%}{% img /images/cssula-blog/#{filename} %}{%endraw%}"
 }
 f.write(yaml+content)
 </code></pre>

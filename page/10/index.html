@@ -9,7 +9,25 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="少了主控鍵盤，用純滑鼠作音樂確實比較不容易高潮啊&hellip;&hellip; 煥博同學的專題要做遊戲，翔先生請我幫忙作音樂，於是我就負責寫簡陋的遊戲配樂啦～（好不負責任的話XD） 大概花一個小時半做出來的，完全用滑鼠點&hellip;好不習慣&hellip;可是誰叫我鍵盤放家裡呢QQ ">
+  <meta name="description" content="很久沒有寫這種文章了XD 這學期還是當蔡神的小助教，有一個作業是寫巴斯卡三角形～想起大一剛進來的時候也有寫過，連程式是什麼都不知道，寫起來很吃力，今天再寫一次，果然三兩下就出來了，這就是所謂的進步嗎XD 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +101,103 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2010/10/27/44/">～C語言程式設計～一維陣列 巴斯卡三角形～</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-10-27T08:04:06+08:00" pubdate data-updated="true">Oct 27<span>th</span>, 2010</time>
+        
+         | <a href="/2010/10/27/44/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>很久沒有寫這種文章了XD</p>
+
+<p>這學期還是當蔡神的小助教，有一個作業是寫巴斯卡三角形～想起大一剛進來的時候也有寫過，連程式是什麼都不知道，寫起來很吃力，今天再寫一次，果然三兩下就出來了，這就是所謂的進步嗎XD</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include&lt;stdio.h&gt;</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">fun</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">in</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+</span><span class='line'>      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Give me a number 1~20: &quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">in</span><span class="p">);</span>
+</span><span class='line'>      <span class="n">fun</span><span class="p">(</span><span class="n">in</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">fun</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">20</span> <span class="o">||</span> <span class="n">n</span> <span class="o">&lt;</span><span class="mi">1</span><span class="p">){</span>
+</span><span class='line'>      <span class="n">puts</span><span class="p">(</span><span class="s">&quot;range: 1~20&quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">return</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">buf</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span>
+</span><span class='line'>  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class='line'>      <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">--</span><span class="p">)</span> <span class="n">buf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buf</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">buf</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+</span><span class='line'>      <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;     &quot;</span><span class="p">);</span>
+</span><span class='line'>      <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%5d     &quot;</span><span class="p">,</span> <span class="n">buf</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+</span><span class='line'>      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>印出來很漂亮吧？XD</p>
+
+<p><img src="/images/slum-area/37_0.png"></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -681,54 +796,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2010/08/06/54/">「早知如此，何必當初？」「不不不，早知如此，依然當初」</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-08-06T08:14:48+08:00" pubdate data-updated="true">Aug 6<span>th</span>, 2010</time>
-        
-         | <a href="/2010/08/06/54/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>人心多是虛偽，為了締造假和諧，並不會冒著跟你交惡的險，去指正你的錯誤；而人心亦多是脆弱，即使他人甘願冒險指正你，你也經不起別人的指正。</p>
-
-
-<p>這就是為什麼大多人對於自己討人厭的那塊，總是缺乏認識；常常壞事已傳千里，自己還聽不到；這也是為什麼大多人害怕與人溝通，想提出意見，盡力微婉其詞彙，還是會怕別人可能會馬上翻臉，從此交惡；也是為什麼總有人認為事情只要不如自己預期，就是他人錯，從來不會想是不是自己哪裡出了問題。</p>
-
-
-<p>但是沒有辦法，從懂事之後大家都開始學習戴面具，你不跟著戴會很奇怪；如果真要特立獨行，待人皆掏心掏肺的話，遲早會像簡煒航一樣內臟被人挖掉煮湯^^</p>
-
-
-<p>可是你看簡煒航還是一樣過得快快樂樂、瘋瘋癲癲的XD</p>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/11/">&larr; Older</a>
@@ -767,6 +834,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/07/07/soho-life-the-first-year/">自由業之路</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/07/03/talk-to-your-slides/">跟簡報說話</a>
       </li>
     
@@ -802,10 +873,6 @@
         <a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a>
       </li>
     
-      <li class="post">
-        <a href="/2013/01/15/webconf-2013-feedback/">WebConf 2013 會場志工心得</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -816,7 +883,7 @@
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3157894736842%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3157894736842%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.89473684210526%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3157894736842%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(190)</a> <a href='/categories/chrome' style='font-size: 100.63157894736842%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.63157894736842%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.26315789473684%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3157894736842%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.52631578947368%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3157894736842%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.21052631578948%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.63157894736842%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3157894736842%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3157894736842%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.89473684210526%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3157894736842%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3157894736842%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.21052631578948%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57894736842105%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3157894736842%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3157894736842%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57894736842105%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3157894736842%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3157894736842%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3157894736842%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3157894736842%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3157894736842%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 111.05263157894737%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.31413612565446%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.31413612565446%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.8848167539267%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.31413612565446%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(191)</a> <a href='/categories/chrome' style='font-size: 100.6282722513089%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.6282722513089%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.2565445026178%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.31413612565446%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5130890052356%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.31413612565446%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.19895287958116%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.6282722513089%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.6282722513089%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.31413612565446%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.31413612565446%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.82198952879581%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.31413612565446%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.31413612565446%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.19895287958116%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57068062827226%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.31413612565446%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.31413612565446%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57068062827226%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.31413612565446%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.31413612565446%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.31413612565446%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.31413612565446%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.31413612565446%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.99476439790575%'>Works(35)</a> </span>
 </section>
 
 
