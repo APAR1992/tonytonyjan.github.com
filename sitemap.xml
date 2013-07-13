@@ -1193,10 +1193,6 @@
         <lastmod>2013-06-22T07:24:21+08:00</lastmod>
     </url>
     <url>
-        <loc>http://tonytonyjan.net/2012/05/16/the-way-i-choose-the-one/</loc>
-        <lastmod>2013-06-22T07:24:21+08:00</lastmod>
-    </url>
-    <url>
         <loc>http://tonytonyjan.net/2012/05/25/get-start-with-chrome-extension/</loc>
         <lastmod>2013-06-26T14:28:48+08:00</lastmod>
     </url>
@@ -1218,7 +1214,11 @@
     </url>
     <url>
         <loc>http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/</loc>
-        <lastmod>2013-06-22T07:24:21+0</lastmod>
+        <lastmod>2013-06-22T07:24:21+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://tonytonyjan.net/2012/07/21/always-keep-a-leeway/</loc>
+        <lastmod>2013-06-22T07:24:21+08:00</lastmod>
     </url>
     <url>
         <loc>http://tonytonyjan.net/2012/07/31/love-telless-mindset/</loc>
@@ -1300,7 +1300,7 @@
     </url>
     <url>
         <loc>http://tonytonyjan.net/2013/07/07/soho-life-the-first-year/</loc>
-        <lastmod>2013-07-14T00:04:51+08:00</lastmod>
+        <lastmod>2013-07-14T00:57:08+08:00</lastmod>
     </url>
     <url>
         <loc>http://tonytonyjan.net/blog/octopress-indexer/</loc>
@@ -1312,7 +1312,7 @@
     </url>
     <url>
         <loc>http://tonytonyjan.net/blog/archives/</loc>
-        <lastmod>2013-07-14T00:04:51+08:00</lastmod>
+        <lastmod>2013-07-14T00:57:08+08:00</lastmod>
     </url>
     <url>
         <loc>http://tonytonyjan.net/blog/notes/ruby/</loc>
@@ -1352,12 +1352,6 @@
     </url>
     <url>
         <loc>http://tonytonyjan.net/</loc>
-        <lastmod>2013-07-14T00:04:51+08:00</lastmod>
-    </url>
-</urlset>08:00</lastmod>
-    </url>
-    <url>
-        <loc>http://tonytonyjan.net/</loc>
-        <lastmod>2013-07-14T00:04:51+08:00</lastmod>
+        <lastmod>2013-07-14T00:57:08+08:00</lastmod>
     </url>
 </urlset>
