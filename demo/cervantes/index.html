@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cervantes</title>
+	<script src="easeljs-0.6.1.min.js"></script>
+</head>
+<body>
+  <canvas id="main" width="533" height="665"></canvas>
+  <script>
+  	var canvas = document.getElementById('main');
+  	var stage = new createjs.Stage(canvas);
+  	stage.addEventListener('stagemousemove', function(e){
+  		hand.x = e.stageX;
+  		hand.y = e.stageY;
+  	})
+  	stage.canvas.style.cursor = "none";
+  	var ss = new createjs.SpriteSheet({
+  	  images: ["./0713.png"],
+  	  frames: [
+  	  	[0,0,533,665], [533,0,533,665], [1066,0,533,665],
+				[1599,0,533,665], [2132,0,533,665],
+  	  	[0,665,533,665], [533,665,533,665], [1066,665,533,665],
+  	  	[1599,665,533,665], [2132,665,533,665],
+  	  	[0,1330,104,187,0,60,52], [104,1330,104,187,0,60,52]
+  	  ]
+  	});
+  	
+  	var cervantes = new createjs.BitmapAnimation(ss);
+  	cervantes.gotoAndStop(0);
+  	cervantes.addEventListener('mousedown', function(e){
+  	  var startX = e.stageX;
+  	  hand.gotoAndStop(11);
+  	  e.addEventListener('mousemove', function(ee){
+  	    var diff = Math.round((startX - ee.stageX) / 7);
+  	    var frame_id = function(argument) {
+	    		if(cervantes.currentFrame <= 4){
+	    			if(diff < 0) return 0;
+	    			else if(diff <= 4) return diff;
+	    			else if(diff <= 15) return (diff % 2 ? 4 : 3);
+	    			else return 5;
+	    		}else{
+	    			if(diff < 0) return 9;
+	    			else if(diff <= 4) return 9 - diff;
+	    			else return 5;
+	    		}
+  	    }
+  	    cervantes.gotoAndStop(frame_id());
+  	  });
+  	  e.addEventListener('mouseup', function(ee){
+  	  	hand.gotoAndStop(10);
+  	  	cervantes.gotoAndStop(cervantes.currentFrame <= 4 ? 0 : 9);
+  	  })
+  	});
+
+  	var hand = new createjs.BitmapAnimation(ss);
+  	hand.gotoAndStop(10);
+
+  	createjs.Ticker.setFPS(12);
+  	createjs.Ticker.addListener(stage);
+
+  	stage.addChild(cervantes);
+  	stage.addChild(hand);
+  </script>
+</body>
+</html>
