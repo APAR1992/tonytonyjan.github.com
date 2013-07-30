@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="自由人生 在大家都乖乖去上班並且抱怨薪水低的時候，我已經決定要跟大家走不同的路，也朝著自己未來想過的生活努力著：可以時常陪伴家人、朋友、未來的另一半，並且能夠陪伴自己未來的孩子成長。要達到這樣的目標，要嘛創業，不然就成為一個自由業者，而我選擇了後者。 幸運的是對目前為止的生活算是頗滿意， &hellip;">
+  <meta name="description" content="Topic 1 第一次部署 Rails on IIS 就上手！介紹如何在 Windows 環境內，用 IIS 與 reversy proxy 的架構搭建起 production-level 的 Rails 運行環境。 在 Windows Server 2003、IIS 6 、9 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -33,7 +33,7 @@
 
 
 <meta itemprop="name" content="不歸錄">
-<meta itemprop="description" content="自由人生 在大家都乖乖去上班並且抱怨薪水低的時候，我已經決定要跟大家走不同的路，也朝著自己未來想過的生活努力著：可以時常陪伴家人、朋友、未來的另一半，並且能夠陪伴自己未來的孩子成長。要達到這樣的目標，要嘛創業，不然就成為一個自由業者，而我選擇了後者。 幸運的是對目前為止的生活算是頗滿意， &hellip;">
+<meta itemprop="description" content="Topic 1 第一次部署 Rails on IIS 就上手！介紹如何在 Windows 環境內，用 IIS 與 reversy proxy 的架構搭建起 production-level 的 Rails 運行環境。 在 Windows Server 2003、IIS 6 、9 &hellip;">
 <meta itemprop="image" content="/favicon.png">
 
   
@@ -87,6 +87,84 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/07/30/ruby-tuesday-taiwan-number-25/">Ruby Tuesday Taiwan #25</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-30T20:07:00+08:00" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time>
+        
+         | <a href="/2013/07/30/ruby-tuesday-taiwan-number-25/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Topic 1</h2>
+
+<p class='info info' data-title='Carol Hsu：最速部署 Rails 3 在 IIS6 (及以上)'>第一次部署 Rails on IIS 就上手！介紹如何在 Windows 環境內，用 IIS 與 reversy proxy 的架構搭建起 production-level 的 Rails 運行環境。</p>
+
+
+<p>在 <strong>Windows Server 2003</strong>、<strong>IIS 6</strong> 、<strong>9 年以上的機器</strong>環境上佈署 Rails application！</p>
+
+<p>光聽到這樣的環境就腿軟了，太猛了XDDD，解法大綱是利用反向代理的方式，將 IIS 收到的 request 送給 Rails server。</p>
+
+<p>至於為什麼要執著在 windows，原來是講者負責政府機關網站的維護，並且在講題當中稍微抱怨政府單位的機器老舊又脫離不了 windows。至此我實在非常有同感，最近手邊就有一個學校的案子，結果網站竟然要支援到 IE7，還要有 responsive design，實在血尿啊！</p>
+
+<p><del>另外今天講者有綁馬尾，心情不錯www</del></p>
+
+<h2>Topic 2</h2>
+
+<p class='info info' data-title='Tka：Ruby 與推薦系統'>介紹推薦系統的原理以及如何使用 Ruby 或 JRuby+Mahout 來搭建簡易的推薦系統。</p>
+
+
+<h3>推薦系統的分類</h3>
+
+<ol>
+<li>Content Based：以消費者個人的資料作為推理基礎</li>
+<li>Collaborative Filtering
+
+<ol>
+<li>Item Based：找出類似的商品</li>
+<li>User Based：這個商品被誰買過，同時這人有買了其他哪些商品</li>
+</ol>
+</li>
+</ol>
+
+
+<h3>Libraries</h3>
+
+<ol>
+<li><a href="https://github.com/paulasmuth/recommendify">Recommendify</a></li>
+<li><a href="http://mahout.apache.org/">Mahout</a></li>
+</ol>
+
+
+<p>想到推薦系統也許可用在交友網站上面，例如選了對象 A 的人，同時也選了對象 B。搭配 linkedin 的親友驗證機制，過濾掉自我感覺良好的人，這東西拿來搞個專案似乎很多演算法都可以玩到啊XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -771,346 +849,6 @@ end
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-18T22:46:00+08:00" pubdate data-updated="true">Feb 18<span>th</span>, 2013</time>
-        
-         | <a href="/2013/02/18/lets-preview-ruby-2-dot-0/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img class="right" src="/images/ruby.jpg" width="300"></p>
-
-<p>終於也等到了 <a href="http://www.ruby-lang.org/en/news/2013/02/08/ruby-2-0-0-rc2-is-released/">Ruby 2.0 RC 釋出的消息</a>，看來正式版本也不遠了。而 Ruby 2.0 是什麼？又到底都參了啥好處？這裡整理一些我的筆記。</p>
-
-<p><strong>首先 Ruby 2.0 完全向下兼容</strong>，這是個好消息，意味之著你不用更改你的程式碼便可以從任何版本無痛升級 2.0（python 迷表示羨慕？），不用擔心你的 Ruby 專案（例如 Rails 等）升級後跑不動。故 Ruby 2.0 可看做是 Ruby 1.9 再加點料，而這些料可炫，且聽我道來。</p>
-
-<h2>Refinements</h2>
-
-<h3>Module#refine</h3>
-
-<p>你過去擴展一個 class 可能會這樣做：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span>
-</span><span class='line'><span class="c1"># =&gt; NoMethodError: undefined method `double&#39; for &quot;tonytonyjan&quot;:String</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">String</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">double</span>
-</span><span class='line'>    <span class="nb">self</span><span class="o">*</span><span class="mi">2</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;tonytonyjantonytonyjan&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ruby 在團隊開發時，其中一項令人頭痛的問題是，當我們擴展某些 class 時，由於影響的是全局，萬一 method 撞名則會難以 debug。而現在 refinements 則可以將 class 擴展包在 namespace 裡面：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Foo</span>
-</span><span class='line'>  <span class="n">refine</span> <span class="nb">String</span> <span class="k">do</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">double</span>
-</span><span class='line'>      <span class="nb">self</span><span class="o">*</span><span class="mi">2</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;tonytonyjantonytonyjan&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">&quot;tonytonyjan&quot;</span><span class="o">.</span><span class="n">double</span>
-</span><span class='line'><span class="c1"># =&gt; NoMethodError: undefined method `double&#39; for &quot;tonytonyjan&quot;:String</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Kernel#using</h3>
-
-<p>寫好的擴展也可以拿出來給別人用：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Bar</span>
-</span><span class='line'>  <span class="n">using</span> <span class="no">Foo</span>
-</span><span class='line'>  <span class="s2">&quot;test&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;testtest&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># in proc/lambda</span>
-</span><span class='line'><span class="o">-&gt;</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">using</span> <span class="no">Foo</span>
-</span><span class='line'>  <span class="s2">&quot;test&quot;</span><span class="o">.</span><span class="n">double</span> <span class="c1"># =&gt; &quot;testtest&quot;</span>
-</span><span class='line'><span class="p">}</span><span class="o">.</span><span class="n">call</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Keyword Arguments</h2>
-
-<p>寫過 python 大概對這不陌生，Ruby 2.0 也引進了一樣的功能，過去我們可能會在 method 參數中餵一個 Hash 當作 option 使用，通常會長這樣：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">foo</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span class='line'>  <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">merge</span> <span class="n">options</span> <span class="c1"># given default value</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">options</span><span class="o">[</span><span class="ss">:a</span><span class="o">]</span><span class="p">,</span> <span class="n">options</span><span class="o">[</span><span class="ss">:b</span><span class="o">]</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>但在 Ruby 2.0，可以簡化如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">foo</span> <span class="ss">a</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果想拿到所有的 keys，就放兩顆星星：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="n">options</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="n">foo</span><span class="p">(</span><span class="ss">a</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">)</span> <span class="c1"># =&gt; {:a=&gt;&quot;A&quot;, :b=&gt;&quot;B&quot;}</span>
-</span><span class='line'><span class="n">foo</span><span class="p">(</span><span class="ss">:a</span><span class="o">=&gt;</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="ss">:b</span><span class="o">=&gt;</span><span class="s2">&quot;B&quot;</span><span class="p">)</span> <span class="c1"># =&gt; {:a=&gt;&quot;A&quot;, :b=&gt;&quot;B&quot;}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Enumerator#lazy</h2>
-
-<p>以往我們可能要設個 timeout 或 counter 去列舉無窮 enumerator，但 <code>Enumerator::Lazy</code> 讓迭代過程這變的更為簡單：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="ss">Float</span><span class="p">:</span><span class="ss">:INFINATY</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:even?</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>      <span class="c1"># 這會跑到海枯石爛</span>
-</span><span class='line'><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="ss">Float</span><span class="p">:</span><span class="ss">:INFINATY</span><span class="p">)</span><span class="o">.</span><span class="n">lazy</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:even?</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 迭代每回合都會執行 `#event?`，而非數完所有元素</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>但不要看到新功能就高潮了，然後套用在每個地方，這方法通常不會比較有效率，除非真的有需要，否則少用為妙。</p>
-
-<p>有興趣可以看看<a href="http://shugomaeda.blogspot.tw/2012/03/enumerablelazy-and-its-benefits.html">大師是怎麼用的</a>。</p>
-
-<h2>Module#prepend</h2>
-
-<p>談到擴展 class，新增 method 很容易，若想 override method 又想保留 origin 的功能卻很麻煩。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;A#foo&quot;</span>
-</span><span class='line'>    <span class="k">super</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>這時我們想要幫他的 <code>#foo</code> 加點料，又不想動到原來的程式（monkey patch），多會這麼做：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">B</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;B#foo&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="kp">include</span> <span class="n">B</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">foo</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># A#foo</span>
-</span><span class='line'><span class="c1"># B#foo</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>這是利用 <code>A#foo</code> 裡頭的 <code>super</code> 來完成，但寫 <code>super</code> 不應該是被擴展的方的責任，可以話，我們希望把 super 給拿掉。因此 Rails 曾在 <code>active_support</code> 下擴展 <code>Module#alias_method_chian</code>，但因為被<a href="https://rails.lighthouseapp.com/projects/8994/tickets/285-alias_method_chain-limits-extensibility#ticket-285-20">報出問題</a>不被建議使用，Rails 3 之後建議利用 Ruby 本身的 <code>module</code> 和 <code>super</code> 特性解決問題：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="k">module</span> <span class="nn">Base</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">foo</span>
-</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Base&quot;</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="k">module</span> <span class="nn">Ext</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">foo</span>
-</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Ext&quot;</span>
-</span><span class='line'>      <span class="k">super</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="kp">include</span> <span class="no">Base</span>
-</span><span class='line'>  <span class="kp">include</span> <span class="no">Ext</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">foo</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># =&gt; Ext</span>
-</span><span class='line'><span class="c1"># Base</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>理論上一個 module 透過 inclusion 不可能 override class method，因為 module inclusion 的運作是對 class 做 subclassing，這意謂著 class A 若 include module B，則 B 會變成 A 的爸爸，superclass 無法 override subclass method（總之爸爸無法改變女兒的行為，嘛，至少程式裡面是這樣）。這也是為什麼當初 Rails 會有 <code>Module#alias_method_chian</code> 的原因。</p>
-
-<p>Ruby 2.0 中的 <code>Module#prepend</code> 就是為了解決此問題而生，取代 <code>Module#alias_method_chian</code>：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;A&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">module</span> <span class="nn">Ext</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">foo</span>
-</span><span class='line'>    <span class="k">super</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Ext&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="n">prepend</span> <span class="no">Ext</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">foo</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># =&gt; A</span>
-</span><span class='line'><span class="c1"># Ext</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>%i：Array of Symbol</h2>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">p</span> <span class="sx">%w{hurray huzzah whoop}</span>   <span class="c1"># =&gt; [&quot;hurray&quot;, &quot;huzzah&quot;, &quot;whoop&quot;]</span>
-</span><span class='line'><span class="nb">p</span> <span class="o">%</span><span class="n">i</span><span class="p">{</span><span class="n">hurray</span> <span class="n">huzzah</span> <span class="n">whoop</span><span class="p">}</span>   <span class="c1"># =&gt; [:hurray, :huzzah, :whoop]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/2/">&larr; Older</a>
@@ -1145,6 +883,10 @@ end
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/07/30/ruby-tuesday-taiwan-number-25/">Ruby Tuesday Taiwan #25</a>
+      </li>
     
       <li class="post">
         <a href="/2013/07/07/soho-life-the-first-year/">自由業之路</a>
@@ -1182,10 +924,6 @@ end
         <a href="/2013/02/19/hahadict/">笑典 - 教育部國語辭典 Chrome 離線版</a>
       </li>
     
-      <li class="post">
-        <a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1196,7 +934,7 @@ end
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.31413612565446%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.31413612565446%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.8848167539267%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.31413612565446%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(191)</a> <a href='/categories/chrome' style='font-size: 100.6282722513089%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.6282722513089%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.2565445026178%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.31413612565446%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5130890052356%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.31413612565446%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.19895287958116%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.6282722513089%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.6282722513089%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.31413612565446%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.31413612565446%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.82198952879581%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.31413612565446%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.31413612565446%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.19895287958116%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57068062827226%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.31413612565446%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.31413612565446%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57068062827226%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.31413612565446%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.31413612565446%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.31413612565446%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.31413612565446%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.31413612565446%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.99476439790575%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3125%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3125%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.875%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3125%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(192)</a> <a href='/categories/chrome' style='font-size: 100.625%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.625%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.25%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3125%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3125%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.1875%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3125%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3125%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.75%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3125%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3125%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.1875%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.5625%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3125%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3125%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.5625%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3125%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3125%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3125%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3125%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3125%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.9375%'>Works(35)</a> </span>
 </section>
 
 

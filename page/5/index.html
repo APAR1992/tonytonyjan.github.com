@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="今天心血來潮的，把以前在 CSsula 機房寫的文章全部搬到現在的 Octopress 了。我覺得比較麻煩的地方在於文章標題出現中文的時候，又沒有設定 post_name 時，就會以 yyyy-mm-dd-中文字.markdown 的格式儲存。而這個當然無解，只好手動一個一個改檔名了Orz &hellip;">
+  <meta name="description" content="安裝 Ruby 雖然你也可以安裝 RVM 或者自行編譯，但既然是在 Windows 下，建議直接使用 Ruby Installer 最省事。在此要下載兩個東西，一就是 ruby ，另一個則是 development kit。之所以要後者是因為屆時在安裝 Octopress 時，所需要用到的 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +83,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2012/03/01/install-octopress-on-windows/">在 Windows 使用 Octopress</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-01T15:47:00+08:00" pubdate data-updated="true">Mar 1<span>st</span>, 2012</time>
+        
+         | <a href="/2012/03/01/install-octopress-on-windows/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>安裝 Ruby</h2>
+
+<p>雖然你也可以安裝 <a href="http://www.ruby-lang.org/en/downloads">RVM</a> 或者自行編譯，但既然是在 Windows 下，建議直接使用 <a href="http://rubyinstaller.org/downloads">Ruby Installer</a> 最省事。在此要下載兩個東西，一就是 ruby ，另一個則是 development kit。之所以要後者是因為屆時在安裝 Octopress 時，所需要用到的 ruby gems 會需要在本地編譯（例如 <a href="https://github.com/rtomayko/rdiscount">rdiscount</a>）。而 development kit 是一套基於 <a href="http://www.mingw.org/wiki/MSYS">MSYS/MinGW</a> 下的 C/C++ 編譯環境工具組，安裝時請跟著<a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">官網上的指示</a>即可，你大概會輸入以下指令：</p>
+
+<pre><code>cd C:\Devkit
+ruby dk.rb init :: 產生 config.yaml，裡面有你的 ruby 路徑，一般會幫你設好
+ruby dk.rb install
+</code></pre>
+
+<p>為了保險起見，安裝之後先更新一下 gem 是個好習慣。</p>
+
+<pre><code>gem update --system
+gem update
+</code></pre>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2012/03/01/install-octopress-on-windows/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -616,54 +672,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/11/15/6/">薪水多少才夠</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-11-15T08:19:11+08:00" pubdate data-updated="true">Nov 15<span>th</span>, 2011</time>
-        
-         | <a href="/2011/11/15/6/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/slum-area/6_202669225_m.jpg"></p>
-
-<p>說實話，三萬我就滿意了，太多只會讓我想捐出去。</p>
-
-<p>在下飲食花費每天只有三餐加水，一天 90 到 100 元；衣著方面，衣服破了、鞋子壞了才會換，不買多的；夏天也沒有吹冷氣的習慣；對美食、車、房、3C 沒興趣。唯獨存了點錢就喜歡去旅行而已。這樣子我恐怕兩萬都可以過吧。聽你說一個月三萬少的可憐？</pre><pre>放屁，明明就是現在的人想要的太多了。</p>
-
-<pre> 作者  tonytonyjan (南洋大兜蟲)                                     站內  ask</pre>
-
-
-<pre> 標題  [請問] 現在這年月，薪水要多少才夠生活？<br /> 時間  Tue Nov 15 01:50:46 2011<br />───────────────────────────────────────<br /><br />再過一年就要出社會了<br />我覺得我對於薪水要多少才夠生活尚沒有什麼概念<br /><br />聽同學都說月薪三萬少的可憐，我會覺得有點誇張<br />（難道月薪兩萬多的就過著不是人的生活嗎？）<br /><br />不曉得是三萬真的很少，還是人想要的太多了<br />要怎麼算才可以算出「三萬少的可憐」呢？<br /><br />還想向出社會的各位前輩取經<br />從目前的景氣來看，到底現在薪水要多少才夠生活？<br /><br />感激不盡=)<br /><br />--<br />※ 發信站: 批踢踢實業坊(ptt.cc)<br />◆ From: 140.113.246.1<br />推 ThinkerL:看你住哪                                               11/15 01:51<br />推 xy9999:&lt;- 目前月薪六位數，每半年需往返大陸出差 科技業小主管     11/15 01:52<br />推 JFNfrog:樓上人帥真好                                            11/15 01:53<br />如果要在新北生活的話，至少需要多少薪水呢？<br />※ 編輯: tonytonyjan     來自: 140.113.246.1        (11/15 01:55)<br />推 hsinyeh:十萬有十萬的活法 三萬有三萬的活法 一萬五有一萬五的活法  11/15 01:57<br />推 Green9527:拮据一點 一萬五應該可以  五千拿來租房  大約存一萬     11/15 02:00<br />&rarr; raheema:住家裡還是住外面 通勤時間 通勤工具 上班週間伙食處理     11/15 02:00<br />&rarr; raheema:都是考量的因素 3萬住家裡 家用給5千的話 不管新北台北都   11/15 02:00<br />&rarr; Green9527:若要買一台180萬的初階雙B  三萬少的可憐                11/15 02:00<br />&rarr; raheema:還是可以過得不錯 只要你不是餐餐吃200元 每月要置裝名牌   11/15 02:01<br />&rarr; Green9527:若要買一間1800萬的新房 3萬少的可憐                    11/15 02:01<br />&rarr; raheema:若是要買車 當然怎樣都很辛苦啊!不要說180萬的初階雙B      11/15 02:01<br />&rarr; Green9527:大概就這兩點 三萬算少   其他就過的去吧                11/15 02:01<br />&rarr; raheema:買個馬3都會苦的該該叫                                   11/15 02:02<br />&rarr; Green9527:不要買房 不要買車  三萬你可以過不錯                   11/15 02:02<br />&rarr; Green9527:馬3是...?                                             11/15 02:02<br />&rarr; Green9527:我還以為什麼薪水買馬3都很輕鬆                         11/15 02:02<br />謝謝 Green 和 raheema 聽你們這樣講我就有比較清楚的概念了^^<br />其實我對房子車子沒有興趣，大多人要買的東西我也都不買<br />這樣三萬聽起來好像還不太差XD<br />※ 編輯: tonytonyjan     來自: 140.113.246.1        (11/15 02:08)<br />推 Green9527:兩萬元的話 一個月500UP大餐可以吃兩次左右              11/15 02:10<br />&rarr; Green9527:娛樂消費應能在四千左右  一餐80UP不是問題              11/15 02:11<br />&rarr; Green9527:我月花這數字  過的還算滿意                            11/15 02:11<br />&rarr; Green9527:星巴克喝個四五次還OK  可以在水準之上                  11/15 02:12<br />&rarr; Green9527:一般會吃緊都是要買房買車  養車下去 錢會少存很多       11/15 02:13<br />&rarr; KeyFSN:推 hsinyeh:十萬有十萬的活法 三萬有三萬的活法             11/15 02:16<br />目前這樣聽起來，覺得還是人想要的太多了<br />※ 編輯: tonytonyjan     來自: 140.113.246.1        (11/15 02:18)<br />推 hsinyeh:你想要買房  買車三萬就的確會過得很拮据                  11/15 02:23<br />&rarr; hsinyeh:都不買也不用養家三萬爽爽花                              11/15 02:23<br />推 SSZERO:除非有特別大的開銷..不然三萬在台北也是能過得不錯         11/15 02:24</pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/6/">&larr; Older</a>
@@ -702,6 +710,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/07/30/ruby-tuesday-taiwan-number-25/">Ruby Tuesday Taiwan #25</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/07/07/soho-life-the-first-year/">自由業之路</a>
       </li>
     
@@ -737,10 +749,6 @@
         <a href="/2013/02/19/hahadict/">笑典 - 教育部國語辭典 Chrome 離線版</a>
       </li>
     
-      <li class="post">
-        <a href="/2013/02/18/lets-preview-ruby-2-dot-0/">Ruby 2.0 重點介紹</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -751,7 +759,7 @@
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.31413612565446%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.31413612565446%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.8848167539267%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.31413612565446%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(191)</a> <a href='/categories/chrome' style='font-size: 100.6282722513089%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.6282722513089%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.2565445026178%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.31413612565446%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5130890052356%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.31413612565446%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.19895287958116%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.6282722513089%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.6282722513089%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.31413612565446%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.31413612565446%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.82198952879581%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.31413612565446%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.31413612565446%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.19895287958116%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.57068062827226%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.31413612565446%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.31413612565446%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.57068062827226%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.31413612565446%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.31413612565446%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.31413612565446%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.31413612565446%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.31413612565446%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.99476439790575%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3125%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3125%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.875%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3125%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(192)</a> <a href='/categories/chrome' style='font-size: 100.625%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.625%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.25%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3125%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3125%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.1875%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3125%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3125%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.75%'>Life(44)</a> <a href='/categories/mercurial' style='font-size: 100.3125%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3125%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.1875%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.5625%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3125%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3125%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.5625%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3125%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3125%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3125%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3125%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3125%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.9375%'>Works(35)</a> </span>
 </section>
 
 
