@@ -1193,6 +1193,10 @@
         <lastmod>2013-06-22T07:24:21+08:00</lastmod>
     </url>
     <url>
+        <loc>http://tonytonyjan.net/2012/05/16/the-way-i-choose-the-one/</loc>
+        <lastmod>2013-06-22T07:24:21+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://tonytonyjan.net/2012/05/25/get-start-with-chrome-extension/</loc>
         <lastmod>2013-06-26T14:28:48+08:00</lastmod>
     </url>
@@ -1307,16 +1311,20 @@
         <lastmod>2013-07-30T21:05:44+08:00</lastmod>
     </url>
     <url>
+        <loc>http://tonytonyjan.net/2013/08/09/there-is-no-need-to-be-restricted/</loc>
+        <lastmod>2013-08-09T05:48:02+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://tonytonyjan.net/blog/octopress-indexer/</loc>
         <lastmod>2013-06-22T07:24:21+08:00</lastmod>
     </url>
     <url>
         <loc>http://tonytonyjan.net/blog/about/</loc>
-        <lastmod>2013-06-26T14:28:48+08:00</lastmod>
+        <lastmod>2013-08-09T05:51:58+08:00</lastmod>
     </url>
     <url>
         <loc>http://tonytonyjan.net/blog/archives/</loc>
-        <lastmod>2013-08-09T04:12:12+08:00</lastmod>
+        <lastmod>2013-08-09T05:48:02+08:00</lastmod>
     </url>
     <url>
         <loc>http://tonytonyjan.net/blog/notes/ruby/</loc>
@@ -1356,6 +1364,6 @@
     </url>
     <url>
         <loc>http://tonytonyjan.net/</loc>
-        <lastmod>2013-08-09T04:12:12+08:00</lastmod>
+        <lastmod>2013-08-09T05:48:02+08:00</lastmod>
     </url>
 </urlset>
