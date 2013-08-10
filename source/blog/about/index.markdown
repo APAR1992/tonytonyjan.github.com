@@ -61,7 +61,7 @@ footer: true
 
 我是自學的，沒有老師教（我連指法都是原創的），先是用耳朵彈琴，彈了五年後為了紀錄自己的創作才開始試著學譜，只是沒有很認真學，所以直到現在識譜能力還是很差。平時喜歡即興亂彈，還有用耳朵還原原來的曲子（事實上這就是我學新曲的方式，我很少買譜），偶爾會用編曲軟體（[Reason](http://www.propellerheads.se/products/reason/)）來創作。
 
-<iframe width="560" height="315" src="http://www.youtube.com/embed/QBgFpd7PpMo?list=PL1E3D73CA92E288FF" frameborder="0" allowfullscreen></iframe>
+<iframe width="853" height="480" src="http://www.youtube.com/embed/QBgFpd7PpMo?list=PL1E3D73CA92E288FF" frameborder="0" allowfullscreen></iframe>
 
 ## 我是部落客
 
