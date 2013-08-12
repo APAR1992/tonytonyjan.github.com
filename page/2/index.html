@@ -9,9 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="下載 響應 3du.tw 黑客松時做的玩具。 使用 在一般網頁 反白字串 + 右鍵
-Ctrl + 拖曳反白 資料來源 教育部重編國語辭典修訂本 特別感謝 教育部國語推行委員會團隊
-Audrey Tang、TonyQ Wang、kcwu、及其他 3du.tw 的熱血黑客 貢獻 https:// &hellip;">
+  <meta name="description" content="靈感是受到凱薩密碼的影響，且英文論壇中為了避免髒話或敏感詞彙被擋，有 rot13 的出現（其實就是凱薩加密，key 設定成 13，所以 rot13 兩次會等於原來的句子）。想說中文也可這樣玩，所以決定寫一個全世界最沒用的玩具。 安裝 gem install tj_caesar_cipher 使用 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +83,113 @@ Audrey Tang、TonyQ Wang、kcwu、及其他 3du.tw 的熱血黑客 貢獻 https:
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/03/20/tj-caesar-cipher/">凱薩密碼中文版</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-20T16:33:00+08:00" pubdate data-updated="true">Mar 20<span>th</span>, 2013</time>
+        
+         | <a href="/2013/03/20/tj-caesar-cipher/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>靈感是受到凱薩密碼的影響，且英文論壇中為了避免髒話或敏感詞彙被擋，有 rot13 的出現（其實就是凱薩加密，key 設定成 13，所以 rot13 兩次會等於原來的句子）。想說中文也可這樣玩，所以決定寫一個全世界最沒用的玩具。</p>
+
+<h2>安裝</h2>
+
+<pre><code>gem install tj_caesar_cipher
+</code></pre>
+
+<h2>使用</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;tj_caesar_cipher&#39;</span>
+</span><span class='line'><span class="n">s1</span> <span class="o">=</span> <span class="no">TJCaesarCipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;tonytonyjan&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;tonytonyjan&quot; </span>
+</span><span class='line'><span class="n">s1</span><span class="o">.</span><span class="n">rot_en!</span> <span class="c1"># 預設就是 rot13</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;gbalgbalwna&quot; </span>
+</span><span class='line'><span class="n">s1</span><span class="o">.</span><span class="n">rot_en!</span> <span class="c1"># 再執行一次就會恢復原狀</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;tonytonyjan&quot; </span>
+</span><span class='line'><span class="n">s1</span><span class="o">.</span><span class="n">rot_en</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># 也可以給不同的 key</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;gbalgbalwna&quot; </span>
+</span><span class='line'>
+</span><span class='line'><span class="n">s2</span> <span class="o">=</span> <span class="no">TJCaesarCipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;我是厲鬼，不是大神&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;我是厲鬼，不是大神&quot; </span>
+</span><span class='line'><span class="n">s2</span><span class="o">.</span><span class="n">rot_cjk!</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;諸輖粙牕，直輖舎偷&quot; </span>
+</span><span class='line'><span class="n">s2</span><span class="o">.</span><span class="n">rot_cjk!</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;我是厲鬼，不是大神&quot; </span>
+</span><span class='line'><span class="n">s2</span><span class="o">.</span><span class="n">rot_cjk</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># =&gt; &quot;戒昰厳鬽，与昰夨祟&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果你好奇中文版的 rot13 到底怎麼作到的……</p>
+
+<pre><code>...
+def rot_cjk! key = nil
+  [
+    (0x3040..0x309F),   # Hiragana
+    (0x30A0..0x30FF),   # Katakana
+    (0x3400..0x4DB5),   # CJKUI Ext A block
+    (0x4E00..0x9FCC),   # CJK Unified Ideographs block
+    (0x20000..0x2A6D6), # CJKUI Ext B block
+    (0x2A700..0x2B734), # CJKUI Ext C block.
+    (0x2B740..0x2B81D)  # CJKUI Ext D block.
+  ].each{|range|
+    range = (range.min..range.max+1) if range.count.odd?
+    self.rot_unicode!(key || range.count/2, range)
+  }
+  self
+end
+...
+</code></pre>
+
+<p>以上XD</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -895,129 +1000,6 @@ Audrey Tang、TonyQ Wang、kcwu、及其他 3du.tw 的熱血黑客 貢獻 https:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2012/10/02/dig-gcc-with-tony/">大兜的 Gcc 歷險記</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-02T13:13:00+08:00" pubdate data-updated="true">Oct 2<span>nd</span>, 2012</time>
-        
-         | <a href="/2012/10/02/dig-gcc-with-tony/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>由於不是很清楚 gcc 在編譯 c 文件時到底做了什麼事情，於是展開了深入理解的旅程。從最簡單的 <code>hello.c</code> 開始：</p>
-
-<figure class='code'><figcaption><span>hello.c</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">args</span><span class="p">[]){</span>
-</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在編譯之前，讓我們回顧一下編譯的步驟：</p>
-
-<table>
-<thead>
-<tr>
-<th>步驟                   </th>
-<th> 指令                      </th>
-<th> 中出檔</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>                       </td>
-<td>                           </td>
-<td> 原始碼</td>
-</tr>
-<tr>
-<td>前處理（preprocessing）</td>
-<td> gcc -E hello.c -o hello.i </td>
-<td>   ↓↓</td>
-</tr>
-<tr>
-<td>                       </td>
-<td>                           </td>
-<td> 原始碼（標頭被展開）</td>
-</tr>
-<tr>
-<td>編譯（compiling）      </td>
-<td> gcc -S hello.i -o hello.s </td>
-<td>   ↓↓</td>
-</tr>
-<tr>
-<td>                       </td>
-<td>                           </td>
-<td> 組合語言</td>
-</tr>
-<tr>
-<td>組譯（assembling）     </td>
-<td> gcc -c hello.s -o hello.o </td>
-<td>   ↓↓</td>
-</tr>
-<tr>
-<td>                       </td>
-<td>                           </td>
-<td> 機器碼</td>
-</tr>
-<tr>
-<td>連結（linking）        </td>
-<td> ld &hellip; （暫略）           </td>
-<td>   ↓↓</td>
-</tr>
-<tr>
-<td>                       </td>
-<td>                           </td>
-<td> 可執行機器碼</td>
-</tr>
-</tbody>
-</table>
-
-
-<pre><code>-E 僅作預先處理，不進行編譯、組譯和連結
--S 編譯到組合語言，不進行組譯和連結
--c 編譯、組譯到目的程式碼，不進行連結
-</code></pre>
-
-<p>看到鍵盤上的 <code>Esc</code> 了嗎？那正是編譯步驟，是不是超好記的。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2012/10/02/dig-gcc-with-tony/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/3/">&larr; Older</a>
@@ -1056,6 +1038,10 @@ Audrey Tang、TonyQ Wang、kcwu、及其他 3du.tw 的熱血黑客 貢獻 https:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/08/12/cafe-backstage/">[台北] 後門咖啡 Cafe Backstage</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/08/09/there-is-no-need-to-be-restricted/">別把世界關在外面</a>
       </li>
     
@@ -1091,10 +1077,6 @@ Audrey Tang、TonyQ Wang、kcwu、及其他 3du.tw 的熱血黑客 貢獻 https:
         <a href="/2013/03/22/the-interview-in-ntust/">台科面試遊記</a>
       </li>
     
-      <li class="post">
-        <a href="/2013/03/20/tj-caesar-cipher/">凱薩密碼中文版</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -1105,7 +1087,7 @@ Audrey Tang、TonyQ Wang、kcwu、及其他 3du.tw 的熱血黑客 貢獻 https:
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3125%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3125%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.875%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3125%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(192)</a> <a href='/categories/chrome' style='font-size: 100.625%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.625%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.25%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3125%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3125%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.1875%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3125%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3125%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.0625%'>Life(45)</a> <a href='/categories/mercurial' style='font-size: 100.3125%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3125%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.1875%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.5625%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3125%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3125%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.5625%'>Ruby(5)</a> <a href='/categories/swing' style='font-size: 100.3125%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3125%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3125%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3125%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3125%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.9375%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3125%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3125%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.875%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3125%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(192)</a> <a href='/categories/chrome' style='font-size: 100.625%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.625%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.25%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3125%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3125%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.1875%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3125%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3125%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.0625%'>Life(45)</a> <a href='/categories/mercurial' style='font-size: 100.3125%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3125%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.1875%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.5625%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3125%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3125%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.5625%'>Ruby(5)</a> <a href='/categories/soho' style='font-size: 100.3125%'>Soho(1)</a> <a href='/categories/swing' style='font-size: 100.3125%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3125%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3125%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3125%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3125%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.9375%'>Works(35)</a> </span>
 </section>
 
 
