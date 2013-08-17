@@ -28,7 +28,7 @@ footer: true
 ## 經歷
 
 * 2012 工業技術研究院
-* 2012 腦袋有動工作室合夥創辦人，創立了 [Movimpact](http://www.movimpact.com) 學生電影平台
+* 2012 [Movimpact](http://www.movimpact.com) 學生電影平台合夥創辦人
 * 2011 [交大網路福利社](https://groups.google.com/forum/#!forum/nctu_nba)創社副社長/課堂講師
 * 2010 [CSsula 創意工坊](http://cssula.nba.nctu.edu.tw/)團長/站長
 * 2008 交大資工
