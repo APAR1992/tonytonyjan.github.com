@@ -9,7 +9,7 @@
   <meta name="author" content="大兜">
 
   
-  <meta name="description" content="店名：清大旺宏館（圖書館）位置：新竹市光復路二段 101 號（走進清大正門口，右前方）網址：http://www.lib.nthu.edu.tw/開放時間：週一 - 週五 8:00 - 22:00，週六 - 週日 9:00 - 18:00SOHO 評價：★★☆☆☆ 簡介 &hellip;">
+  <meta name="description" content="Topic 1 介紹如何在重構的過程中，試著重新認識領域甚至發掘潛在問題。 糟糕……我聽不太懂啊……Orz，另外其實投影片大部分是 code，我這裡就不做筆記了XD（偷懶） 其中有提到 Ruby 還沒有很方便的 IDE（講者表示不比 10 年前的 Java IDE）。我本身不用 IDE， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -33,7 +33,7 @@
 
 
 <meta itemprop="name" content="不歸錄">
-<meta itemprop="description" content="店名：清大旺宏館（圖書館）位置：新竹市光復路二段 101 號（走進清大正門口，右前方）網址：http://www.lib.nthu.edu.tw/開放時間：週一 - 週五 8:00 - 22:00，週六 - 週日 9:00 - 18:00SOHO 評價：★★☆☆☆ 簡介 &hellip;">
+<meta itemprop="description" content="Topic 1 介紹如何在重構的過程中，試著重新認識領域甚至發掘潛在問題。 糟糕……我聽不太懂啊……Orz，另外其實投影片大部分是 code，我這裡就不做筆記了XD（偷懶） 其中有提到 Ruby 還沒有很方便的 IDE（講者表示不比 10 年前的 Java IDE）。我本身不用 IDE， &hellip;">
 <meta itemprop="image" content="/favicon.png">
 
   
@@ -87,6 +87,95 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/09/30/ruby-tuesday-taiwan-number-26/">Ruby Tuesday Taiwan #26</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-30T20:07:00+08:00" pubdate data-updated="true">Sep 30<span>th</span>, 2013</time>
+        
+         | <a href="/2013/09/30/ruby-tuesday-taiwan-number-26/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Topic 1</h2>
+
+<p class='info info' data-title='Chris Sun： 重構輕旅'>介紹如何在重構的過程中，試著重新認識領域甚至發掘潛在問題。</p>
+
+
+<p>糟糕……我聽不太懂啊……Orz，另外其實投影片大部分是 code，我這裡就不做筆記了XD（偷懶）</p>
+
+<p>其中有提到 Ruby 還沒有很方便的 IDE（講者表示不比 10 年前的 Java IDE）。我本身不用 IDE，當然重構可能也都是靠 grep、sed、regular expression，這類東西去做換名字或是複製貼上等等的工作，沒有遇到什麼大問題（不過應該是我程式寫不夠大的關係XD）。</p>
+
+<h2>Topic 2</h2>
+
+<p class='info info' data-title='Kevin Wang：別再偷我App裡的金幣, 淺談Server端In-App Purchase的處理與驗證'>介紹有關用Rails處理處理手機APP的 In-app Purchase的運作流程以及注意要點和加速方式, 請注意本場的長度將會有1小時。</p>
+
+
+<h3>In-App Purchase (IAP)</h3>
+
+<ul>
+<li>One-Time Purchase/Consumable</li>
+<li>Subscription</li>
+<li>Auto-renewable Subscription</li>
+</ul>
+
+
+<h3>處理 IAP 流程</h3>
+
+<ol>
+<li>接受 App 傳來的資訊</li>
+<li>資料驗證</li>
+<li>三方驗證（TPV）</li>
+<li>紀錄交易內容</li>
+<li>更新使用者？？</li>
+<li>回傳結果</li>
+</ol>
+
+
+<h3>三方驗證（TPV）</h3>
+
+<ol>
+<li>準備傳給 Store 的資料</li>
+<li><p>接受 Store 回傳的資料</p>
+
+<ul>
+<li>Store 驗證成功，回傳相關的交易資訊</li>
+<li>Store 驗證失敗，回傳錯誤訊息</li>
+<li>Store 回傳一個未知的錯誤格式</li>
+<li>Store timeout</li>
+</ul>
+</li>
+</ol>
+
+
+<p>這個講者除了幽默之外也講的頗仔細，範例以 Rails 和 iOS 為例。這場也聽的吃力，一來因為我沒有寫 mobile app，二者則是我都避免去碰金流:P（寫應用最痛的就是這部份XD）。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -309,95 +398,6 @@
 <p>相信我，如果你現在有這些「誰可以見」、「要避開誰」、「我討厭誰」、「誰厭惡我」種種的想法，等吃到六七十歲的時候大概就會覺得根本是多餘的、徒增煩惱而已。</p>
 
 <p>不妨現就在幫自己省下六十年，心胸開闊一點，少一點偏見，多一些對這個世界的體驗和好奇，如此豁達的活著，豈不瀟灑？</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/07/30/ruby-tuesday-taiwan-number-26/">Ruby Tuesday Taiwan #25</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-30T20:07:00+08:00" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time>
-        
-         | <a href="/2013/07/30/ruby-tuesday-taiwan-number-26/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Topic 1</h2>
-
-<p class='info info' data-title='Chris Sun： 重構輕旅'>介紹如何在重構的過程中，試著重新認識領域甚至發掘潛在問題。</p>
-
-
-<p>糟糕……我聽不太懂啊……Orz，另外其實投影片大部分是 code，我這裡就不做筆記了XD（偷懶）</p>
-
-<p>其中有提到 Ruby 還沒有很方便的 IDE（講者表示不比 10 年前的 Java IDE）。我本身不用 IDE，當然重構可能也都是靠 grep、sed、regular expression，這類東西去做換名字或是複製貼上等等的工作，沒有遇到什麼大問題（不過應該是我程式寫不夠大的關係XD）。</p>
-
-<h2>Topic 2</h2>
-
-<p class='info info' data-title='Kevin Wang：別再偷我App裡的金幣, 淺談Server端In-App Purchase的處理與驗證'>介紹有關用Rails處理處理手機APP的 In-app Purchase的運作流程以及注意要點和加速方式, 請注意本場的長度將會有1小時。</p>
-
-
-<h3>In-App Purchase (IAP)</h3>
-
-<ul>
-<li>One-Time Purchase/Consumable</li>
-<li>Subscription</li>
-<li>Auto-renewable Subscription</li>
-</ul>
-
-
-<h3>處理 IAP 流程</h3>
-
-<ol>
-<li>接受 App 傳來的資訊</li>
-<li>資料驗證</li>
-<li>三方驗證（TPV）</li>
-<li>紀錄交易內容</li>
-<li>更新使用者？？</li>
-<li>回傳結果</li>
-</ol>
-
-
-<h3>三方驗證（TPV）</h3>
-
-<ol>
-<li>準備傳給 Store 的資料</li>
-<li><p>接受 Store 回傳的資料</p>
-
-<ul>
-<li>Store 驗證成功，回傳相關的交易資訊</li>
-<li>Store 驗證失敗，回傳錯誤訊息</li>
-<li>Store 回傳一個未知的錯誤格式</li>
-<li>Store timeout</li>
-</ul>
-</li>
-</ol>
-
-
-<p>這個講者除了幽默之外也講的頗仔細，範例以 Rails 和 iOS 為例。這場也聽的吃力，一來因為我沒有寫 mobile app，二者則是我都避免去碰金流:P（寫應用最痛的就是這部份XD）。</p>
 </div>
   
   
@@ -858,6 +858,10 @@ sudo service apache2 stop
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/09/30/ruby-tuesday-taiwan-number-26/">Ruby Tuesday Taiwan #26</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/08/17/nthu-library/">[新竹] 清大旺宏館（圖書館）</a>
       </li>
     
@@ -867,10 +871,6 @@ sudo service apache2 stop
     
       <li class="post">
         <a href="/2013/08/09/there-is-no-need-to-be-restricted/">別把世界關在外面</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/07/30/ruby-tuesday-taiwan-number-26/">Ruby Tuesday Taiwan #25</a>
       </li>
     
       <li class="post">

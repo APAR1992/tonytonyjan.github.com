@@ -4,7 +4,7 @@
   <title><![CDATA[不歸錄]]></title>
   <link href="http://tonytonyjan.net/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-09-10T21:42:09+08:00</updated>
+  <updated>2013-09-10T21:55:40+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby Tuesday Taiwan #26]]></title>
+    <link href="http://tonytonyjan.net/2013/09/30/ruby-tuesday-taiwan-number-26/"/>
+    <updated>2013-09-30T20:07:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/09/30/ruby-tuesday-taiwan-number-26</id>
+    <content type="html"><![CDATA[<h2>Topic 1</h2>
+
+<p class='info info' data-title='Chris Sun： 重構輕旅'>介紹如何在重構的過程中，試著重新認識領域甚至發掘潛在問題。</p>
+
+
+<p>糟糕……我聽不太懂啊……Orz，另外其實投影片大部分是 code，我這裡就不做筆記了XD（偷懶）</p>
+
+<p>其中有提到 Ruby 還沒有很方便的 IDE（講者表示不比 10 年前的 Java IDE）。我本身不用 IDE，當然重構可能也都是靠 grep、sed、regular expression，這類東西去做換名字或是複製貼上等等的工作，沒有遇到什麼大問題（不過應該是我程式寫不夠大的關係XD）。</p>
+
+<h2>Topic 2</h2>
+
+<p class='info info' data-title='Kevin Wang：別再偷我App裡的金幣, 淺談Server端In-App Purchase的處理與驗證'>介紹有關用Rails處理處理手機APP的 In-app Purchase的運作流程以及注意要點和加速方式, 請注意本場的長度將會有1小時。</p>
+
+
+<h3>In-App Purchase (IAP)</h3>
+
+<ul>
+<li>One-Time Purchase/Consumable</li>
+<li>Subscription</li>
+<li>Auto-renewable Subscription</li>
+</ul>
+
+
+<h3>處理 IAP 流程</h3>
+
+<ol>
+<li>接受 App 傳來的資訊</li>
+<li>資料驗證</li>
+<li>三方驗證（TPV）</li>
+<li>紀錄交易內容</li>
+<li>更新使用者？？</li>
+<li>回傳結果</li>
+</ol>
+
+
+<h3>三方驗證（TPV）</h3>
+
+<ol>
+<li>準備傳給 Store 的資料</li>
+<li><p>接受 Store 回傳的資料</p>
+
+<ul>
+<li>Store 驗證成功，回傳相關的交易資訊</li>
+<li>Store 驗證失敗，回傳錯誤訊息</li>
+<li>Store 回傳一個未知的錯誤格式</li>
+<li>Store timeout</li>
+</ul>
+</li>
+</ol>
+
+
+<p>這個講者除了幽默之外也講的頗仔細，範例以 Rails 和 iOS 為例。這場也聽的吃力，一來因為我沒有寫 mobile app，二者則是我都避免去碰金流:P（寫應用最痛的就是這部份XD）。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[新竹] 清大旺宏館（圖書館）]]></title>
@@ -151,66 +211,6 @@
 <p>相信我，如果你現在有這些「誰可以見」、「要避開誰」、「我討厭誰」、「誰厭惡我」種種的想法，等吃到六七十歲的時候大概就會覺得根本是多餘的、徒增煩惱而已。</p>
 
 <p>不妨現就在幫自己省下六十年，心胸開闊一點，少一點偏見，多一些對這個世界的體驗和好奇，如此豁達的活著，豈不瀟灑？</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby Tuesday Taiwan #25]]></title>
-    <link href="http://tonytonyjan.net/2013/07/30/ruby-tuesday-taiwan-number-26/"/>
-    <updated>2013-07-30T20:07:00+08:00</updated>
-    <id>http://tonytonyjan.net/2013/07/30/ruby-tuesday-taiwan-number-26</id>
-    <content type="html"><![CDATA[<h2>Topic 1</h2>
-
-<p class='info info' data-title='Chris Sun： 重構輕旅'>介紹如何在重構的過程中，試著重新認識領域甚至發掘潛在問題。</p>
-
-
-<p>糟糕……我聽不太懂啊……Orz，另外其實投影片大部分是 code，我這裡就不做筆記了XD（偷懶）</p>
-
-<p>其中有提到 Ruby 還沒有很方便的 IDE（講者表示不比 10 年前的 Java IDE）。我本身不用 IDE，當然重構可能也都是靠 grep、sed、regular expression，這類東西去做換名字或是複製貼上等等的工作，沒有遇到什麼大問題（不過應該是我程式寫不夠大的關係XD）。</p>
-
-<h2>Topic 2</h2>
-
-<p class='info info' data-title='Kevin Wang：別再偷我App裡的金幣, 淺談Server端In-App Purchase的處理與驗證'>介紹有關用Rails處理處理手機APP的 In-app Purchase的運作流程以及注意要點和加速方式, 請注意本場的長度將會有1小時。</p>
-
-
-<h3>In-App Purchase (IAP)</h3>
-
-<ul>
-<li>One-Time Purchase/Consumable</li>
-<li>Subscription</li>
-<li>Auto-renewable Subscription</li>
-</ul>
-
-
-<h3>處理 IAP 流程</h3>
-
-<ol>
-<li>接受 App 傳來的資訊</li>
-<li>資料驗證</li>
-<li>三方驗證（TPV）</li>
-<li>紀錄交易內容</li>
-<li>更新使用者？？</li>
-<li>回傳結果</li>
-</ol>
-
-
-<h3>三方驗證（TPV）</h3>
-
-<ol>
-<li>準備傳給 Store 的資料</li>
-<li><p>接受 Store 回傳的資料</p>
-
-<ul>
-<li>Store 驗證成功，回傳相關的交易資訊</li>
-<li>Store 驗證失敗，回傳錯誤訊息</li>
-<li>Store 回傳一個未知的錯誤格式</li>
-<li>Store timeout</li>
-</ul>
-</li>
-</ol>
-
-
-<p>這個講者除了幽默之外也講的頗仔細，範例以 Rails 和 iOS 為例。這場也聽的吃力，一來因為我沒有寫 mobile app，二者則是我都避免去碰金流:P（寫應用最痛的就是這部份XD）。</p>
 ]]></content>
   </entry>
   
