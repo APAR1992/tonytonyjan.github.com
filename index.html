@@ -321,6 +321,95 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2013/07/30/ruby-tuesday-taiwan-number-26/">Ruby Tuesday Taiwan #25</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-30T20:07:00+08:00" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time>
+        
+         | <a href="/2013/07/30/ruby-tuesday-taiwan-number-26/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Topic 1</h2>
+
+<p class='info info' data-title='Chris Sun： 重構輕旅'>介紹如何在重構的過程中，試著重新認識領域甚至發掘潛在問題。</p>
+
+
+<p>糟糕……我聽不太懂啊……Orz，另外其實投影片大部分是 code，我這裡就不做筆記了XD（偷懶）</p>
+
+<p>其中有提到 Ruby 還沒有很方便的 IDE（講者表示不比 10 年前的 Java IDE）。我本身不用 IDE，當然重構可能也都是靠 grep、sed、regular expression，這類東西去做換名字或是複製貼上等等的工作，沒有遇到什麼大問題（不過應該是我程式寫不夠大的關係XD）。</p>
+
+<h2>Topic 2</h2>
+
+<p class='info info' data-title='Kevin Wang：別再偷我App裡的金幣, 淺談Server端In-App Purchase的處理與驗證'>介紹有關用Rails處理處理手機APP的 In-app Purchase的運作流程以及注意要點和加速方式, 請注意本場的長度將會有1小時。</p>
+
+
+<h3>In-App Purchase (IAP)</h3>
+
+<ul>
+<li>One-Time Purchase/Consumable</li>
+<li>Subscription</li>
+<li>Auto-renewable Subscription</li>
+</ul>
+
+
+<h3>處理 IAP 流程</h3>
+
+<ol>
+<li>接受 App 傳來的資訊</li>
+<li>資料驗證</li>
+<li>三方驗證（TPV）</li>
+<li>紀錄交易內容</li>
+<li>更新使用者？？</li>
+<li>回傳結果</li>
+</ol>
+
+
+<h3>三方驗證（TPV）</h3>
+
+<ol>
+<li>準備傳給 Store 的資料</li>
+<li><p>接受 Store 回傳的資料</p>
+
+<ul>
+<li>Store 驗證成功，回傳相關的交易資訊</li>
+<li>Store 驗證失敗，回傳錯誤訊息</li>
+<li>Store 回傳一個未知的錯誤格式</li>
+<li>Store timeout</li>
+</ul>
+</li>
+</ol>
+
+
+<p>這個講者除了幽默之外也講的頗仔細，範例以 Rails 和 iOS 為例。這場也聽的吃力，一來因為我沒有寫 mobile app，二者則是我都避免去碰金流:P（寫應用最痛的就是這部份XD）。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2013/07/30/ruby-tuesday-taiwan-number-25/">Ruby Tuesday Taiwan #25</a></h1>
     
     
@@ -733,65 +822,6 @@ sudo service apache2 stop
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/04/01/potluck/">Potluck</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-01T12:18:00+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2013</time>
-        
-         | <a href="/2013/04/01/potluck/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/potluck/19.jpg"></p>
-
-<p>↑開飯前大合影。</p>
-
-<p><img src="/images/potluck/16.jpg"></p>
-
-<p>↑豐盛的菜餚。</p>
-
-<p><a href="/images/potluck/">所有照片</a></p>
-
-<hr />
-
-<p>這場 Potluck 的誕生，可以追溯到二月的時候與 CSSula 成員們一起去看「決殺令」，散會後我與煥博、翔先生於樹太老續攤，順口提到，交給煥博當主辦，故有此盛宴。</p>
-
-<p>簡白的說，<a href="http://en.wikipedia.org/wiki/Potluck">Potluck</a> 就是一群人聚餐時，每個人親自準備一道菜的聚會。記得幾年前我也要在嘉義辦一樣的活動（那時並不知道這叫「Potluck」，中文似乎也沒有對應的詞彙），但大多朋友都忙於工作，最後決定是訂一家餐廳聚會，頗是可惜。所以這次有幸可以參加這樣有趣的活動，可以說非常的高興。</p>
-
-<p>老實說我不太會下廚呢（但我很會洗碗），在家裡可以吃到媽媽、外婆做的美味家常菜，對於自己親自下廚的吸引力就減了大半。所以我挑了一個簡單的「雞肉蕃茄咖哩」，基本上簡單到可以用膝蓋煮，只要材料比例正確，膝蓋沒有壞掉，且至少不要煮成咖哩「湯」就行了。（曾考慮泡麵，但事後覺得這樣太沒誠意了XD）</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/04/01/potluck/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/page/2/">&larr; Older</a>
@@ -840,6 +870,10 @@ sudo service apache2 stop
       </li>
     
       <li class="post">
+        <a href="/2013/07/30/ruby-tuesday-taiwan-number-26/">Ruby Tuesday Taiwan #25</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/07/30/ruby-tuesday-taiwan-number-25/">Ruby Tuesday Taiwan #25</a>
       </li>
     
@@ -863,10 +897,6 @@ sudo service apache2 stop
         <a href="/2013/04/22/first-time-to-attend-ruby-tuesday/">Ruby Tuesday Taiwan #22 初體驗</a>
       </li>
     
-      <li class="post">
-        <a href="/2013/04/01/potluck/">Potluck</a>
-      </li>
-    
   </ul>
 </section>
 
@@ -876,7 +906,7 @@ sudo service apache2 stop
 </section>
 <section>
   <h1>文章分類</h1>
-    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.3125%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.3125%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.875%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.3125%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(192)</a> <a href='/categories/chrome' style='font-size: 100.625%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.625%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.25%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.3125%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.5%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.3125%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.1875%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.625%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.3125%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.3125%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 114.0625%'>Life(45)</a> <a href='/categories/mercurial' style='font-size: 100.3125%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.3125%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.1875%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.5625%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.3125%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.3125%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.5625%'>Ruby(5)</a> <a href='/categories/soho' style='font-size: 100.625%'>Soho(2)</a> <a href='/categories/swing' style='font-size: 100.3125%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.3125%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.3125%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.3125%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.3125%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.9375%'>Works(35)</a> </span>
+    <span id="tag-cloud"><a href='/categories/algorithm' style='font-size: 100.31088082901555%'>Algorithm(1)</a> <a href='/categories/asm' style='font-size: 100.31088082901555%'>Asm(1)</a> <a href='/categories/c' style='font-size: 101.86528497409327%'>C(6)</a> <a href='/categories/c-' style='font-size: 100.31088082901555%'>C++(1)</a> <a href='/categories/chatting' style='font-size: 160.0%'>Chatting(193)</a> <a href='/categories/chrome' style='font-size: 100.62176165803109%'>Chrome(2)</a> <a href='/categories/disqus' style='font-size: 100.62176165803109%'>Disqus(2)</a> <a href='/categories/dream' style='font-size: 101.24352331606218%'>Dream(4)</a> <a href='/categories/experience' style='font-size: 100.31088082901555%'>Experience(1)</a> <a href='/categories/freebsd' style='font-size: 102.48704663212435%'>Freebsd(8)</a> <a href='/categories/gcc' style='font-size: 100.31088082901555%'>Gcc(1)</a> <a href='/categories/java' style='font-size: 102.1761658031088%'>Java(7)</a> <a href='/categories/javascript' style='font-size: 100.62176165803109%'>Javascript(2)</a> <a href='/categories/javascript' style='font-size: 100.62176165803109%'>Javascript(2)</a> <a href='/categories/jekyll' style='font-size: 100.31088082901555%'>Jekyll(1)</a> <a href='/categories/jquery' style='font-size: 100.31088082901555%'>Jquery(1)</a> <a href='/categories/life' style='font-size: 113.98963730569949%'>Life(45)</a> <a href='/categories/mercurial' style='font-size: 100.31088082901555%'>Mercurial(1)</a> <a href='/categories/music' style='font-size: 100.31088082901555%'>Music(1)</a> <a href='/categories/octopress' style='font-size: 102.1761658031088%'>Octopress(7)</a> <a href='/categories/rails' style='font-size: 101.55440414507773%'>Rails(5)</a> <a href='/categories/recollection' style='font-size: 100.31088082901555%'>Recollection(1)</a> <a href='/categories/regex' style='font-size: 100.31088082901555%'>Regex(1)</a> <a href='/categories/ruby' style='font-size: 101.55440414507773%'>Ruby(5)</a> <a href='/categories/soho' style='font-size: 100.62176165803109%'>Soho(2)</a> <a href='/categories/swing' style='font-size: 100.31088082901555%'>Swing(1)</a> <a href='/categories/system' style='font-size: 100.31088082901555%'>System(1)</a> <a href='/categories/ubuntu' style='font-size: 100.31088082901555%'>Ubuntu(1)</a> <a href='/categories/windows' style='font-size: 100.31088082901555%'>Windows(1)</a> <a href='/categories/wordpress' style='font-size: 100.31088082901555%'>Wordpress(1)</a> <a href='/categories/works' style='font-size: 110.88082901554404%'>Works(35)</a> </span>
 </section>
 
 
