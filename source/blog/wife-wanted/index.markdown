@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "誠徵女友"
+title: "誠徵妻子"
 date: 2013-10-04 02:32
 comments: true
 sharing: true
