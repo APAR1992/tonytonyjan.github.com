@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jQuery | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/jquery/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-23T15:14:52+08:00</updated>
+  <updated>2013-10-23T16:11:44+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,7 +18,7 @@
     <link href="http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery/"/>
     <updated>2012-07-08T14:12:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/07/08/masonry-a-dynamic-layout-plugin-for-jquery</id>
-    <content type="html"><![CDATA[<p>{% img /images/masonry-demo.png %}</p>
+    <content type="html"><![CDATA[<p><img src="/images/masonry-demo.png"></p>
 
 <p><a href="http://masonry.desandro.com">官網</a></p>
 
@@ -115,7 +115,7 @@ columnWidth : 240
 </ol>
 
 
-<p>{% img /images/masonry-demo2.png %}</p>
+<p><img src="/images/masonry-demo2.png"></p>
 
 <p>原因出在 <code>&lt;img&gt;</code> 預設是 <code>inline</code>，且對於排版長寬不等的圖片還要求沒有空隙本來就不太合理，所以我們再加上新的 CSS 設定：</p>
 

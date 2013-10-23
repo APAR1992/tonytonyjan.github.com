@@ -4,7 +4,7 @@
   <title><![CDATA[Category: FreeBSD | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/freebsd/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-23T15:14:52+08:00</updated>
+  <updated>2013-10-23T16:11:44+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -20,7 +20,7 @@
     <id>http://tonytonyjan.net/2010/04/10/simple-chinese-on-java-swing</id>
     <content type="html"><![CDATA[<p>換過作業系統後還沒有想到在Swing上顯示中文會有問題，只是因為幫別人寫一個小程式，很幸運的被我遇見了，尋求解決同時不忘研究過後把經驗貼出來分享～</p>
 
-<p>{% img /images/cssula-blog/Screenshot-10.png %}
+<p><img src="/images/cssula-blog/Screenshot-10.png">
 （顯示不出中文……）</p>
 
 <!--more-->
@@ -60,7 +60,7 @@ $ ln -s *.ttf /usr/local/diablo-jdk1.6.0/jre/lib/fonts/fallback/
 
 <p>這樣就完成了，之後只要在 main 的開頭加上以下程式碼（或寫在 constructor），凡是 Swing GUI（JLabel、FileChooser&hellip;etc）從此就都能正常顯示中文了～</p>
 
-<p>{% img /images/cssula-blog/Screenshot-11.png %}</p>
+<p><img src="/images/cssula-blog/Screenshot-11.png"></p>
 
 <p>看，多漂亮＝）</p>
 
@@ -253,10 +253,10 @@ $ wine ~/.wine/drive_c/windows/regedit.exe ~/Desktop/winfonts.reg
     <link href="http://tonytonyjan.net/2010/03/31/76/"/>
     <updated>2010-03-31T08:20:15+08:00</updated>
     <id>http://tonytonyjan.net/2010/03/31/76</id>
-    <content type="html"><![CDATA[<p>{% img /images/slum-area/77_0.png %}</p>
+    <content type="html"><![CDATA[<p><img src="/images/slum-area/77_0.png"></p>
 
 
-<p>Desktop CubeXD<br />{% img /images/slum-area/78_1.png %}</p>
+<p>Desktop CubeXD<br /><img src="/images/slum-area/78_1.png"></p>
 
 
 <p>上面這張活像頻果電腦～～</p>

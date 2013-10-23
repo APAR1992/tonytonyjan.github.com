@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Algorithm | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/algorithm/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-23T15:14:52+08:00</updated>
+  <updated>2013-10-23T16:11:44+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,7 +18,7 @@
     <link href="http://tonytonyjan.net/2012/07/05/building-popularity-algorithm/"/>
     <updated>2012-07-05T11:17:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/07/05/building-popularity-algorithm</id>
-    <content type="html"><![CDATA[<p>{% img /images/ranking.jpg %}</p>
+    <content type="html"><![CDATA[<p><img src="/images/ranking.jpg"></p>
 
 <p>很多網站都會在文章主題上加上評分的功能（五星評分、喜歡不喜歡、加一減一），主要用於計算主題的熱門程度，並加以排序，評分越高表示這篇主題越熱門，能見度也越高。</p>
 

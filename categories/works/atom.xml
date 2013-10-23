@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Works | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/works/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-23T15:14:52+08:00</updated>
+  <updated>2013-10-23T16:11:44+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,7 +18,7 @@
     <link href="http://tonytonyjan.net/2013/10/23/tjstamp-yin-zhang-chan-sheng-qi/"/>
     <updated>2013-10-23T14:52:00+08:00</updated>
     <id>http://tonytonyjan.net/2013/10/23/tjstamp-yin-zhang-chan-sheng-qi</id>
-    <content type="html"><![CDATA[<p>{% img /images/tjstamp.png %}</p>
+    <content type="html"><![CDATA[<p><img src="/images/tjstamp.png"></p>
 
 <ul>
 <li><a href="https://github.com/tonytonyjan/tjstamp">Github</a></li>
@@ -39,7 +39,7 @@
 
 <p>除了遊戲本身之外，還有積分排名的功能，enjoy。</p>
 
-<p>{% img /images/human-cloning.png %}</p>
+<p><img src="/images/human-cloning.png"></p>
 ]]></content>
   </entry>
   
@@ -48,7 +48,7 @@
     <link href="http://tonytonyjan.net/2013/02/19/hahadict/"/>
     <updated>2013-02-19T14:47:00+08:00</updated>
     <id>http://tonytonyjan.net/2013/02/19/hahadict</id>
-    <content type="html"><![CDATA[<p>{% img /images/hahadict2.png %}</p>
+    <content type="html"><![CDATA[<p><img src="/images/hahadict2.png"></p>
 
 <p><a href="https://chrome.google.com/webstore/detail/%E7%AC%91%E5%85%B8/ppgggcmomnpmeikbpaelmefpjfnmaidk">下載</a></p>
 
