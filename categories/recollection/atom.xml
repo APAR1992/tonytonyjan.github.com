@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Recollection | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/recollection/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,7 +18,7 @@
     <link href="http://tonytonyjan.net/2012/05/04/freeze-the-balls/"/>
     <updated>2012-05-04T13:40:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/05/04/freeze-the-balls</id>
-    <content type="html"><![CDATA[<p><img src="/images/ice-ball.jpg"></p>
+    <content type="html"><![CDATA[<p>{% img /images/ice-ball.jpg %}</p>
 
 <p>確切時間已經記不得了，似乎是小三暑假時發生的事情吧。</p>
 
@@ -53,7 +53,7 @@
 
 <p>然後他照做了。</p>
 
-<p><img src="/images/trollface.jpg"></p>
+<p>{% img /images/trollface.jpg %}</p>
 ]]></content>
   </entry>
   

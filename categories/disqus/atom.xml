@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Disqus | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/disqus/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -22,7 +22,7 @@
 
 <p>可惡啊……之前做了白工……</p>
 
-<p><img src="/images/disqus-admin-tools.png"></p>
+<p>{% img /images/disqus-admin-tools.png %}</p>
 ]]></content>
   </entry>
   
@@ -34,7 +34,7 @@
     <content type="html"><![CDATA[<p>octopress 內建的回覆外掛是 <a href="http://disqus.com">disqus</a>。但卻沒有提供在 asides 顯示近期回應的功能，加上我在網路上查不太到別人的寫法，於是我就自己寫了一個，也許對一些人有幫助：</p>
 
 <p>``` html \source_includes\custom\asides\recent_comments.html
-{% if site.disqus_short_name and page.comments != false %}
+{% raw %}{% if site.disqus_short_name and page.comments != false %}{% endraw %}
 <section>
   <h1>近期回覆</h1>
   <script type="text/javascript"></p>
@@ -60,9 +60,9 @@
 </code></pre>
 
 <p>  </script>
-  <script type="text/javascript" src="http://disqus.com/api/3.0/forums/listPosts.jsonp?forum=tonytonyjan-blog&api_key=IVQOSOjZknRNZi3rYa3gxFA5CCLjuGP9ojHi3TSeUenFl2mckhh3gl9k9NqGDetu&related=thread&callback=recent_comments"></script>
+  <script type="text/javascript" src="http://disqus.com/api/3.0/forums/listPosts.jsonp?forum={{ site.disqus_short_name }}&api_key=IVQOSOjZknRNZi3rYa3gxFA5CCLjuGP9ojHi3TSeUenFl2mckhh3gl9k9NqGDetu&related=thread&callback=recent_comments"></script>
 </section>
-{% endif %}
+{% raw %}{% endif %}{% endraw %}
 ```</p>
 
 <p>備註：需要用到 <a href="http://disqus.com">disqus</a> 提供的 <a href="http://disqus.com/api">API</a>。</p>

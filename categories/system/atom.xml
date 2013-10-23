@@ -4,7 +4,7 @@
   <title><![CDATA[Category: System | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/system/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,7 +18,7 @@
     <link href="http://tonytonyjan.net/2010/06/22/my-six-os/"/>
     <updated>2010-06-22T11:01:15+08:00</updated>
     <id>http://tonytonyjan.net/2010/06/22/my-six-os</id>
-    <content type="html"><![CDATA[<p><img src="/images/cssula-blog/0.png"></p>
+    <content type="html"><![CDATA[<p>{% img /images/cssula-blog/0.png %}</p>
 
 
 
@@ -43,7 +43,7 @@
 
 
 
-<p><img src="/images/cssula-blog/1.png"></p>
+<p>{% img /images/cssula-blog/1.png %}</p>
 
 
 
@@ -53,7 +53,7 @@
 
 
 
-<p><img src="/images/cssula-blog/2.png"></p>
+<p>{% img /images/cssula-blog/2.png %}</p>
 
 
 
@@ -63,7 +63,7 @@
 
 
 
-<p><img src="/images/cssula-blog/3.png"></p>
+<p>{% img /images/cssula-blog/3.png %}</p>
 
 
 
@@ -88,7 +88,7 @@
 
 
 
-<p><img src="/images/cssula-blog/19.jpg"></p>
+<p>{% img /images/cssula-blog/19.jpg %}</p>
 
 
 
@@ -98,7 +98,7 @@
 
 
 
-<p><img src="/images/cssula-blog/4.png"></p>
+<p>{% img /images/cssula-blog/4.png %}</p>
 
 
 
@@ -118,7 +118,7 @@
 
 
 
-<p><img src="/images/cssula-blog/5.png"></p>
+<p>{% img /images/cssula-blog/5.png %}</p>
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-<p><img src="/images/cssula-blog/6.png"></p>
+<p>{% img /images/cssula-blog/6.png %}</p>
 
 
 
@@ -143,7 +143,7 @@
 
 
 
-<p><img src="/images/cssula-blog/7.png"></p>
+<p>{% img /images/cssula-blog/7.png %}</p>
 
 
 
@@ -163,7 +163,7 @@
 
 
 
-<p><img src="/images/cssula-blog/8.png"></p>
+<p>{% img /images/cssula-blog/8.png %}</p>
 
 
 
@@ -178,7 +178,7 @@
 
 
 
-<p><img src="/images/cssula-blog/9.png"></p>
+<p>{% img /images/cssula-blog/9.png %}</p>
 
 
 
@@ -188,7 +188,7 @@
 
 
 
-<p><img src="/images/cssula-blog/10.png"></p>
+<p>{% img /images/cssula-blog/10.png %}</p>
 
 
 
@@ -208,7 +208,7 @@
 
 
 
-<p><img src="/images/cssula-blog/11.png"></p>
+<p>{% img /images/cssula-blog/11.png %}</p>
 
 
 
@@ -218,7 +218,7 @@
 
 
 
-<p><img src="/images/cssula-blog/13.png"></p>
+<p>{% img /images/cssula-blog/13.png %}</p>
 
 
 
@@ -248,7 +248,7 @@
 
 
 
-<p><img src="/images/cssula-blog/20.png"></p>
+<p>{% img /images/cssula-blog/20.png %}</p>
 
 
 

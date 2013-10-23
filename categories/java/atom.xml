@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Java | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/java/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -277,7 +277,7 @@ class EchoChildServer extends Thread {
 
 <p>不知道各位有沒有用過 telnet 的經驗，至少也打過類似 <code>telnet ptt.cc 23</code> 的指令吧？其實 telnet 不只可以拿來打B而已，他還可以拿來做很多事情喔～</p>
 
-<p><a href="http://cssula.twgg.org/wp-content/uploads/2010/04/duke-waving.gif"><img src="/images/cssula-blog/duke-waving.gif"></a>想要一起DIY的人快快來喔～～</p>
+<p><a href="http://cssula.twgg.org/wp-content/uploads/2010/04/duke-waving.gif">{% img /images/cssula-blog/duke-waving.gif %}</a>想要一起DIY的人快快來喔～～</p>
 
 <!-- more -->
 
@@ -294,23 +294,23 @@ class EchoChildServer extends Thread {
 
 <p>開始-&gt;控制台-&gt;程式集-&gt;程式和功能-&gt;開啟或關閉windows功能，找到「telnet用戶端」溝選並確認。</p>
 
-<p><img src="/images/cssula-blog/Screenshot-21.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-21.png %}</p>
 
 <p>這下可以試試看輸入 <code>telnet bs2.to</code> 看看～</p>
 
-<p><img src="/images/cssula-blog/Screenshot-22.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-22.png %}</p>
 
 <p>打 B 人人會，下面示範怎麼發送 HTTP Request 給 google 搜尋 「tonytonyjan」。</p>
 
 <p>進入 telnet：</p>
 
-<p><img src="/images/cssula-blog/Screenshot-23.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-23.png %}</p>
 
 <p>為了不要在連線後讓你的字打不出來，請在 open 之前打開 localecho。</p>
 
 <p>輸入 <code>GET /search?q=tonytonyjan HTTP/1.1</code>，加上兩次 Enter：</p>
 
-<p><img src="/images/cssula-blog/Screenshot-24.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-24.png %}</p>
 
 <p>哇～～～～啥鬼！！</p>
 
@@ -425,8 +425,8 @@ public void run(){
 <p>}
 ```</p>
 
-<p><img src="/images/cssula-blog/Screenshot-19.png">
-<img src="/images/cssula-blog/Screenshot-20.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-19.png %}
+{% img /images/cssula-blog/Screenshot-20.png %}</p>
 ]]></content>
   </entry>
   
@@ -437,7 +437,7 @@ public void run(){
     <id>http://tonytonyjan.net/2010/04/29/java-ports-scanning</id>
     <content type="html"><![CDATA[<p>這是一個用來掃描一台機器開放了哪些 port 的程式，主要用到了 Thread 與 Socket 兩個 Class。可能有人會說：「啥？這樣做可以幹麼呢？？」。嘿嘿，其實當一名駭客要試圖攻進一台機器時，掃描 port 是常見的第一步驟喔。這下不敢小看它了吧XD</p>
 
-<p><img src="/images/cssula-blog/l2_javame_duke_sdk3.gif"></p>
+<p>{% img /images/cssula-blog/l2_javame_duke_sdk3.gif %}</p>
 
 <p>（圖文無關，只是偶然看到 Duke 和手機合影XD）</p>
 
@@ -500,7 +500,7 @@ public void run(){
 <p>}
 ```</p>
 
-<p><img src="/images/cssula-blog/Screenshot-18.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-18.png %}</p>
 ]]></content>
   </entry>
   
@@ -509,8 +509,8 @@ public void run(){
     <link href="http://tonytonyjan.net/2010/04/24/java-introduction/"/>
     <updated>2010-04-24T09:14:40+08:00</updated>
     <id>http://tonytonyjan.net/2010/04/24/java-introduction</id>
-    <content type="html"><![CDATA[<p><img src="/images/cssula-blog/javaLogo.png">
-<img src="/images/cssula-blog/duke.png"></p>
+    <content type="html"><![CDATA[<p>{% img /images/cssula-blog/javaLogo.png %}
+{% img /images/cssula-blog/duke.png %}</p>
 
 <p>（左邊是Java的Logo，右邊則是可愛的Java吉祥物，Duke&gt;///&lt;）</p>
 
@@ -552,7 +552,7 @@ public void run(){
 
 <p><a href="http://java.sun.com/products/java-media/2D/samples/java2demo/Java2Demo.html" target="_blank">Java2D</a></p>
 
-<p><a href="http://java.sun.com/products/java-media/2D/samples/java2demo/Java2Demo.html" target="_blank"><img src="/images/cssula-blog/Screenshot-17.png"></a></p>
+<p><a href="http://java.sun.com/products/java-media/2D/samples/java2demo/Java2Demo.html" target="_blank">{% img /images/cssula-blog/Screenshot-17.png %}</a></p>
 
 <p><a href="https://jogl-demos.dev.java.net/applettest.html" target="_blank">JOGL</a></p>
 
@@ -588,7 +588,7 @@ public void run(){
     <id>http://tonytonyjan.net/2010/04/21/cpusk1.1-beta</id>
     <content type="html"><![CDATA[<p>還在想到底這篇文章要歸類為「實用軟體推薦」嗎？XD（真好意思說）</p>
 
-<p><img src="/images/cssula-blog/Screenshot-15.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-15.png %}</p>
 
 <p>（ver1.1 Beta）<a href="http://www.cs.nctu.edu.tw/%7Ewhchien/CPUSK1.1-Beta.rar">載點</a></p>
 
@@ -617,7 +617,7 @@ public void run(){
 <!--nextpage-->
 
 
-<p><img src="/images/cssula-blog/Screenshot-14.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-14.png %}</p>
 
 <p>(Ver0.9 Beta)</p>
 

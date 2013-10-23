@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Wordpress | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/wordpress/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -30,7 +30,7 @@
 <ol>
 <li>把所有在資料庫中屬於我的文章，轉成檔案存至 _posts 資料夾</li>
 <li>在轉換過程中 wordpress 用到的圖片，下載下來，存至 images/cssula-blog 資料夾</li>
-<li>在轉換過程中將所有的 <code>&lt;img src=""&gt;</code> 轉成 <code>{% img /images/cssula-blog %}</code></li>
+<li>在轉換過程中將所有的 <code>&lt;img src=""&gt;</code> 轉成 <code>{%raw%}{% img /images/cssula-blog %}{%endraw%}</code></li>
 </ol>
 
 
@@ -70,7 +70,7 @@ comments: true</p>
     }
   }
   # replace image tag into plugin style
-  "{% img /images/cssula-blog/#{filename} %}"
+  "{%raw%}{% img /images/cssula-blog/#{filename} %}{%endraw%}"
 }
 f.write(yaml+content)
 </code></pre>

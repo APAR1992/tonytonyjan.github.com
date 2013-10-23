@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Works | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/works/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[TJStamp 印章產生器]]></title>
+    <link href="http://tonytonyjan.net/2013/10/23/tjstamp-yin-zhang-chan-sheng-qi/"/>
+    <updated>2013-10-23T14:52:00+08:00</updated>
+    <id>http://tonytonyjan.net/2013/10/23/tjstamp-yin-zhang-chan-sheng-qi</id>
+    <content type="html"><![CDATA[<p>{% img /images/tjstamp.png %}</p>
+
+<ul>
+<li><a href="https://github.com/tonytonyjan/tjstamp">Github</a></li>
+<li><a href="http://tjstamp.tonytonyjan.net">Demo 網址</a></li>
+</ul>
+
+
+<p>因為工作上需要用到某個能夠產生印章的功能，我在台大的學生活動中心花了一個下午完成了這個小工具，可以支援 1 ~ 4 個字的印章。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[記憶翻排遊戲 - 克隆牆]]></title>
@@ -22,7 +39,7 @@
 
 <p>除了遊戲本身之外，還有積分排名的功能，enjoy。</p>
 
-<p><img src="/images/human-cloning.png"></p>
+<p>{% img /images/human-cloning.png %}</p>
 ]]></content>
   </entry>
   
@@ -31,7 +48,7 @@
     <link href="http://tonytonyjan.net/2013/02/19/hahadict/"/>
     <updated>2013-02-19T14:47:00+08:00</updated>
     <id>http://tonytonyjan.net/2013/02/19/hahadict</id>
-    <content type="html"><![CDATA[<p><img src="/images/hahadict2.png"></p>
+    <content type="html"><![CDATA[<p>{% img /images/hahadict2.png %}</p>
 
 <p><a href="https://chrome.google.com/webstore/detail/%E7%AC%91%E5%85%B8/ppgggcmomnpmeikbpaelmefpjfnmaidk">下載</a></p>
 
@@ -95,31 +112,6 @@
 
 
 <p>這還是我第一次用Redrum的功能，另外那笛子我沒有到會這麼大聲(艸)</p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[～音樂創作～就像那雪一樣～]]></title>
-    <link href="http://tonytonyjan.net/2011/06/04/31/"/>
-    <updated>2011-06-04T08:51:56+08:00</updated>
-    <id>http://tonytonyjan.net/2011/06/04/31</id>
-    <content type="html"><![CDATA[<p><iframe frameborder="0" src="http://www.youtube.com/embed/K6bIrLCL1_U" height="349" width="560"></iframe></p>
-
-
-<p>回嘉了！我回嘉了！還是家裡的飯菜最好吃、床最好睡！</p>
-
-
-<p>蟬鳴、火車、飛機、學校上下課的聲音，這就是我的家啊&hellip;&hellip;（淚目）好不容易端午節連假回到家，最想做的事情當然就是彈琴了（走出房間一步就有鋼琴可彈是這麼的幸福&gt;///&lt;）！果然除了寫程式之外，最快樂的事情還是在鋼琴前面玩耍啊XD</p>
-
-
-<p>這首是昨天晚上用思念譜奏而成的曲目，因為是概念旋律，所以很多地方筆者會不負責任的彈錯^^"</p>
-
-
-<p>獻醜囉～</p>
-
-
-<p>備註：結果裡面錄到的都是蟬和火車聲，好險沒有飛機經過，不然要重錄了XD</p>
 
 ]]></content>
   </entry>

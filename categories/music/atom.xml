@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Music | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/music/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -18,7 +18,7 @@
     <link href="http://tonytonyjan.net/2012/04/28/lee-shou-quan/"/>
     <updated>2012-04-28T02:08:00+08:00</updated>
     <id>http://tonytonyjan.net/2012/04/28/lee-shou-quan</id>
-    <content type="html"><![CDATA[<p><img class="right" src="/images/lee-shou-quan.jpg" width="300"></p>
+    <content type="html"><![CDATA[<p>{% img right /images/lee-shou-quan.jpg 300 %}</p>
 
 <p>因為在網路上很少看到有介紹這位大叔的文章，而且我又喜歡他的音樂，加上現在的年輕人壓根沒有聽過這號人物吧？雖然文筆不專業，也想推廣一下這位台灣民歌史上這位不容忽視的角色。</p>
 

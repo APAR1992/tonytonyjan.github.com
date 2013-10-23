@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Swing | 不歸錄]]></title>
   <link href="http://tonytonyjan.net/categories/swing/atom.xml" rel="self"/>
   <link href="http://tonytonyjan.net/"/>
-  <updated>2013-10-17T05:38:35+08:00</updated>
+  <updated>2013-10-23T15:14:52+08:00</updated>
   <id>http://tonytonyjan.net/</id>
   <author>
     <name><![CDATA[大兜]]></name>
@@ -20,7 +20,7 @@
     <id>http://tonytonyjan.net/2010/04/21/cpusk1.1-beta</id>
     <content type="html"><![CDATA[<p>還在想到底這篇文章要歸類為「實用軟體推薦」嗎？XD（真好意思說）</p>
 
-<p><img src="/images/cssula-blog/Screenshot-15.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-15.png %}</p>
 
 <p>（ver1.1 Beta）<a href="http://www.cs.nctu.edu.tw/%7Ewhchien/CPUSK1.1-Beta.rar">載點</a></p>
 
@@ -49,7 +49,7 @@
 <!--nextpage-->
 
 
-<p><img src="/images/cssula-blog/Screenshot-14.png"></p>
+<p>{% img /images/cssula-blog/Screenshot-14.png %}</p>
 
 <p>(Ver0.9 Beta)</p>
 
