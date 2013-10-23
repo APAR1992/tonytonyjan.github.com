@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Google API Demo</title>
+  </head>
+  <body>
+    <!--Add a button for the user to click to initiate auth sequence -->
+    <button id="authorize-button" style="visibility: hidden">Authorize</button>
+
+    <div id="content"></div>
+    <h1>Profile</h1>
+    <pre id="profile"></pre>
+    <h1>Events Today</h1>
+    <pre id="events"></pre>
+
+
+    <script>
+      // Enter a client ID for a web application from the Google Developer Console.
+      // The provided clientId will only work if the sample is run directly from
+      // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
+      // In your Developer Console project, add a JavaScript origin that corresponds to the domain
+      // where you will be running the script.
+      var clientId = '754773505737-fq3ari4nl5b0mooio4a90t94f2ua151s.apps.googleusercontent.com';
+
+      // Enter the API key from the Google Develoepr Console - to handle any unauthenticated
+      // requests in the code.
+      // The provided key works for this sample only when run from
+      // https://google-api-javascript-client.googlecode.com/hg/samples/authSample.html
+      // To use in your own application, replace this API key with your own.
+      var apiKey = 'AIzaSyA_LMCwZXMUcJ-fOidLCc9gAT-rIHD8BGA';
+
+      // To enter one or more authentication scopes, refer to the documentation for the API.
+      var scopes = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/calendar.readonly';
+
+      // Use a button to handle authentication the first time.
+      function handleClientLoad() {
+        gapi.client.setApiKey(apiKey);
+        window.setTimeout(checkAuth,1);
+      }
+
+      function checkAuth() {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+      }
+
+
+      function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('authorize-button');
+        if (authResult && !authResult.error) {
+          authorizeButton.style.visibility = 'hidden';
+          makeApiCall();
+        } else {
+          authorizeButton.style.visibility = '';
+          authorizeButton.onclick = handleAuthClick;
+        }
+      }
+
+      function handleAuthClick(event) {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+        return false;
+      }
+
+      // Load the API and make an API call.  Display the results on the screen.
+      function makeApiCall() {
+        // 取得使用者資料
+        gapi.client.load('oauth2', 'v2', function() {
+          var request = gapi.client.oauth2.userinfo.v2.me.get();
+          request.execute(function(resp) {
+            currentUser = resp
+            console.log(currentUser);
+            document.getElementById('profile').appendChild(document.createTextNode(JSON.stringify(currentUser, undefined, 2)));
+            var heading = document.createElement('h4');
+            var image = document.createElement('img');
+            image.src = resp.picture;
+            image.width = 50;
+            heading.appendChild(image);
+            heading.appendChild(document.createTextNode(resp.name));
+
+            document.getElementById('content').appendChild(heading);
+
+            // 取得使用者日曆
+            gapi.client.load('calendar', 'v3', function() {
+              var day_start = new Date();
+              day_start.setHours(0,0,0,0);
+               
+              var day_end = new Date();
+              day_end.setHours(23,59,59,999);
+
+              var request = gapi.client.calendar.events.list({
+                calendarId: currentUser.email,
+                timeMax: day_end.toISOString(),
+                timeMin: day_start.toISOString(),
+                singleEvents: true
+              });
+              request.execute(function(resp){
+                console.log(resp);
+                document.getElementById('events').appendChild(document.createTextNode(JSON.stringify(resp, undefined, 2)));
+              })
+            });
+          });
+        });
+      }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+  </body>
+</html>
