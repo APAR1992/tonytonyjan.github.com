@@ -10,6 +10,15 @@ indexer: true
 
 注意：這個頁面尚未完成
 
+## Good Lock
+
+{% img /images/good-lock.jpg 300 %}
+
+2013 Yahoo Hack Taiwan 冠軍作品，與[徐幼庭](http://tw.streetvoice.com/PINKGUITAR/)、[林志傑](https://twitter.com/fukuball)、[曾韻如](https://www.facebook.com/ricewendy)合力完成。
+
+* [作品連結](http://hacks.developer.yahoo.com/hack/yahoo-hack-taiwan/-good-lock-the-sweetest-message-capturing-app/event_17/hack_984)
+* [Demo 網址](http://good-lock.herokuapp.com/)
+
 ## TJStamp 印章產生器
 
 {% img /images/tjstamp.png 300 %}
